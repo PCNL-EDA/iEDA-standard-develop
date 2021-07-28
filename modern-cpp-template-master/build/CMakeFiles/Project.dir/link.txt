@@ -1,0 +1,2 @@
+/bin/ar qc libProject.a  CMakeFiles/Project.dir/src/tmp.cpp.o
+/bin/ranlib libProject.a

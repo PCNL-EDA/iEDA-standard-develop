@@ -1,0 +1,27 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "编译运行",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-g",
+                "tmp.cpp",
+                "-o",
+                "/home/zongbao/Desktop/modern-cpp-template-master/src/tmp"
+            ],
+            "options": {
+                "cwd": "/home/zongbao/Desktop/modern-cpp-template-master/src"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "调试器生成的任务。"
+        }
+    ],
+    "version": "2.0.0"
+}

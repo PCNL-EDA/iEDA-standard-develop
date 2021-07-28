@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/project/tmp.hpp
+iostream
+-
+set
+-
+list
+-
+algorithm
+-
+
+/home/zongbao/Desktop/modern-cpp-template-master/test/src/tmp_test.cpp
+project/tmp.hpp
+/home/zongbao/Desktop/modern-cpp-template-master/test/src/project/tmp.hpp
+

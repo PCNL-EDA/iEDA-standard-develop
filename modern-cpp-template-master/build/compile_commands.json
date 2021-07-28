@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/zongbao/Desktop/modern-cpp-template-master/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/zongbao/Desktop/modern-cpp-template-master/include -I/home/zongbao/Desktop/modern-cpp-template-master/src  -g   -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wold-style-cast -Wcast-align -Wunused -Woverloaded-virtual -Wpedantic -Wconversion -Wsign-conversion -Wnull-dereference -Wdouble-promotion -Wformat=2 -Wmisleading-indentation -Wduplicated-cond -Wduplicated-branches -Wlogical-op -Wuseless-cast -std=gnu++17 -o CMakeFiles/Project.dir/src/tmp.cpp.o -c /home/zongbao/Desktop/modern-cpp-template-master/src/tmp.cpp",
+  "file": "/home/zongbao/Desktop/modern-cpp-template-master/src/tmp.cpp"
+},
+{
+  "directory": "/home/zongbao/Desktop/modern-cpp-template-master/build/test",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/zongbao/Desktop/modern-cpp-template-master/include  -g   -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wold-style-cast -Wcast-align -Wunused -Woverloaded-virtual -Wpedantic -Wconversion -Wsign-conversion -Wnull-dereference -Wdouble-promotion -Wformat=2 -Wmisleading-indentation -Wduplicated-cond -Wduplicated-branches -Wlogical-op -Wuseless-cast -std=gnu++17 -o CMakeFiles/ProjectTests.dir/src/tmp_test.cpp.o -c /home/zongbao/Desktop/modern-cpp-template-master/test/src/tmp_test.cpp",
+  "file": "/home/zongbao/Desktop/modern-cpp-template-master/test/src/tmp_test.cpp"
+}
+]
