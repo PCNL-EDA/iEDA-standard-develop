@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/graph.h
+iostream
+-
+vector
+-
+math.h
+-
+
+../include/test.h
+graph.h
+../include/graph.h
+
+/home/shengkunwu/myfile/example/cpp2021/project3/main.cpp
+iostream
+-
+test.h
+/home/shengkunwu/myfile/example/cpp2021/project3/test.h
+
+/home/shengkunwu/myfile/example/cpp2021/project3/src/graph.cpp
+graph.h
+/home/shengkunwu/myfile/example/cpp2021/project3/src/graph.h
+
+/home/shengkunwu/myfile/example/cpp2021/project3/src/mytest.cpp
+graph.h
+/home/shengkunwu/myfile/example/cpp2021/project3/src/graph.h
+
