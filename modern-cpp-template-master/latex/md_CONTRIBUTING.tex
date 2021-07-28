@@ -1,0 +1,108 @@
+The \mbox{[}I\+N\+S\+E\+RT P\+R\+O\+J\+E\+CT N\+A\+ME\mbox{]} team encourages community feedback and contributions. Thank you for your interest in making \mbox{[}I\+N\+S\+E\+RT P\+R\+O\+J\+E\+CT N\+A\+ME\mbox{]} better! There are several ways you can get involved.
+
+If you are looking for a good way to contribute to the project, please\+:
+
+
+\begin{DoxyItemize}
+\item have a look at the \href{https://github.com/filipdutescu/modern-cpp-template/issues/new/choose}{\texttt{ available issue templates}} and checkout the \href{https://github.com/filipdutescu/modern-cpp-template/contribute}{\texttt{ examples of good first issues}} (or \href{https://github.com/filipdutescu/modern-cpp-template/labels/good\%20first\%20issue}{\texttt{ click here}}).
+\item look through the \href{https://github.com/filipdutescu/modern-cpp-template/labels/help\%20wanted}{\texttt{ issues that need help}}.
+\item take a look at a \mbox{\hyperlink{md_PULL_REQUEST_TEMPLATE}{Pull Request template}} to get yourself started.
+\end{DoxyItemize}\hypertarget{md_CONTRIBUTING_autotoc_md1}{}\doxysection{Reporting issues and suggesting new features}\label{md_CONTRIBUTING_autotoc_md1}
+If you find that the project is not working properly, please file a report using the \href{https://github.com/filipdutescu/modern-cpp-template/issues/new?assignees=&labels=bug&template=bug_report.md&title=[BUG]}{\texttt{ Bug Report template}}. Should the template provided not suit your needs, feel free to make a \href{https://github.com/filipdutescu/modern-cpp-template/issues/new/choose}{\texttt{ custom Bug Report}}, but please label it accordingly.
+
+We are happy to hear your ideas for how to further improve \mbox{[}I\+N\+S\+E\+RT P\+R\+O\+J\+E\+CT N\+A\+ME\mbox{]}, ensuring it suits your needs. Check the \href{https://github.com/filipdutescu/modern-cpp-template/issues}{\texttt{ Issues}} and see if others have submitted similar feedback. You can upvote existing feedback (using the thumbs up reaction/by commenting) or \href{https://github.com/filipdutescu/modern-cpp-template/labels/feature}{\texttt{ submit a new suggestion}}.
+
+We always look at upvoted items in \href{https://github.com/filipdutescu/modern-cpp-template/issues}{\texttt{ Issues}} when we decide what to work on next. We read the comments and we look forward to hearing your input.\hypertarget{md_CONTRIBUTING_autotoc_md2}{}\doxysection{Finding issues you can help with}\label{md_CONTRIBUTING_autotoc_md2}
+Looking for something to work on? Issues marked \href{https://github.com/filipdutescu/modern-cpp-template/labels/good\%20first\%20issue}{\texttt{ {\ttfamily good first issue}}} are a good place to start.
+
+You can also check the \href{https://github.com/filipdutescu/modern-cpp-template/labels/help\%20wanted}{\texttt{ {\ttfamily help wanted}}} tag to find other issues to help with. If you\textquotesingle{}re interested in working on a fix, leave a comment to let everyone know and to help avoid duplicated effort from others.\hypertarget{md_CONTRIBUTING_autotoc_md3}{}\doxysection{Contributions we accept}\label{md_CONTRIBUTING_autotoc_md3}
+We highly appreciate any contributions that help us improve the end product, with a high emphasis being put on any bug fixes you can manage to create and direct improvements which address the top issues reported by Calculator users. Some general guidelines\+:\hypertarget{md_CONTRIBUTING_autotoc_md4}{}\doxysubsection{D\+Os}\label{md_CONTRIBUTING_autotoc_md4}
+
+\begin{DoxyItemize}
+\item {\bfseries{DO}} create one pull request per Issue, and ensure that the Issue is linked in the pull request. You can follow the \mbox{\hyperlink{md_PULL_REQUEST_TEMPLATE}{Pull Request Template}} for this.
+\item {\bfseries{DO}} follow our \href{\#style-guidelines}{\texttt{ Coding and Style}} guidelines, and keep code changes as small as possible.
+\item {\bfseries{DO}} include corresponding tests whenever possible.
+\item {\bfseries{DO}} check for additional occurrences of the same problem in other parts of the codebase before submitting your PR.
+\item {\bfseries{DO}} link the issue you are addressing in the pull request.
+\item {\bfseries{DO}} write a good description for your pull request. More detail is better. Describe {\itshape why} the change is being made and {\itshape why} you have chosen a particular solution. Describe any manual testing you performed to validate your change.
+\end{DoxyItemize}\hypertarget{md_CONTRIBUTING_autotoc_md5}{}\doxysubsection{D\+O N\+O\+Ts}\label{md_CONTRIBUTING_autotoc_md5}
+
+\begin{DoxyItemize}
+\item {\bfseries{DO N\+OT}} merge multiple changes into one PR unless they have the same root cause.
+\item {\bfseries{DO N\+OT}} merge directly into the master branch.
+\end{DoxyItemize}
+
+\begin{quote}
+Submitting a pull request for an approved Issue is not a guarantee it will be approved. The change must meet our high bar for code quality, architecture and performance. \end{quote}
+\hypertarget{md_CONTRIBUTING_autotoc_md6}{}\doxysection{Making changes to the code}\label{md_CONTRIBUTING_autotoc_md6}
+\hypertarget{md_CONTRIBUTING_autotoc_md7}{}\doxysubsection{Preparing your development environment}\label{md_CONTRIBUTING_autotoc_md7}
+To learn how to build the code and run tests, follow the instructions in the \mbox{\hyperlink{md_README}{R\+E\+A\+D\+ME}}.\hypertarget{md_CONTRIBUTING_autotoc_md8}{}\doxysubsection{Style guidelines}\label{md_CONTRIBUTING_autotoc_md8}
+The code in this project uses several different coding styles, depending on the age and history of the code. Please attempt to match the style of surrounding code as much as possible. In new components, prefer the patterns described in the \href{https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines}{\texttt{ C++ core guidelines}}.\hypertarget{md_CONTRIBUTING_autotoc_md9}{}\doxysubsection{Code formatting}\label{md_CONTRIBUTING_autotoc_md9}
+{\itshape {\bfseries{Run clang-\/format}}}
+
+Use the following commands from the project\textquotesingle{}s root directory to run clang-\/format (must be installed on the host system).
+
+{\bfseries{1. Run the C\+Make target for {\ttfamily clang-\/format}\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake -\/-\/build build -\/-\/target clang-\/format}
+\end{DoxyCode}
+
+
+{\bfseries{2. Using clang-\/format\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# !!! clang-\/format does not run recursively in subdirectories !!!}
+\DoxyCodeLine{\# for each .cpp file modified}
+\DoxyCodeLine{clang-\/format -\/i *.cpp}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# for each .h file modified}
+\DoxyCodeLine{clang-\/format -\/i *.h}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# for each .hpp file modified}
+\DoxyCodeLine{clang-\/format -\/i *.hpp}
+\end{DoxyCode}
+
+
+{\bfseries{3. Using The\+Lartians\textquotesingle{} Format.\+cmake\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake -\/Htest -\/Bbuild/test}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# view changes}
+\DoxyCodeLine{cmake -\/-\/build build/test -\/-\/target format}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# apply changes}
+\DoxyCodeLine{cmake -\/-\/build build/test -\/-\/target fix-\/format}
+\end{DoxyCode}
+
+
+See \href{https://github.com/TheLartians/Format.cmake}{\texttt{ Format.\+cmake}} for more options.\hypertarget{md_CONTRIBUTING_autotoc_md10}{}\doxysubsection{Testing}\label{md_CONTRIBUTING_autotoc_md10}
+Your change should include tests to verify new functionality wherever possible. Code should be structured so that it can be unit tested independently of the UI. Manual test cases should be used where automated testing is not feasible.\hypertarget{md_CONTRIBUTING_autotoc_md11}{}\doxysubsection{Git workflow}\label{md_CONTRIBUTING_autotoc_md11}
+The core principle of the project, when it comes to Git workflows is that the {\ttfamily master} branch should always be in a healthy state which is ready for release. Every commit on master should be deployable on push. To ensure this, pull request {\bfseries{must not}} be made directly on master. {\bfseries{Each change}} should either be made in the {\bfseries{development branch}} (named a variation of development, i.\+e. {\ttfamily dev}) or in a separate branch, named as a short summary of the change.
+
+If your change is complex, please clean up the branch history before submitting a pull request. You can use \href{https://git-scm.com/book/en/v2/Git-Branching-Rebasing}{\texttt{ git rebase}} to group your changes into a small number of commits which we can review one at a time.
+
+When completing a pull request, we will generally squash your changes into a single commit. After confirming that the change works as intended, the branch {\itshape might} be deleted, in order to prevent branch polluting. Please let us know if your pull request needs to be merged as separate commits.\hypertarget{md_CONTRIBUTING_autotoc_md12}{}\doxysubsection{Continuous Integration}\label{md_CONTRIBUTING_autotoc_md12}
+For this project, CI is provided by \href{https://github.com/features/actions}{\texttt{ Git\+Hub Actions}}, with workflows found in the \href{.github/workflows}{\texttt{ {\ttfamily .github/workflows} folder}}. Workflows are run automatically on every commit made on the master branch, unless told to skip for that particular commit.
+
+To skip CI runs on a particular commit, include either {\ttfamily \mbox{[}skip ci\mbox{]}} or {\ttfamily \mbox{[}ci skip\mbox{]}} in the commit message.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# an example of a commit message that would not trigger CI workflows}
+\DoxyCodeLine{git commit -\/m "my normal commit message [skip ci]"}
+\DoxyCodeLine{\# or}
+\DoxyCodeLine{git commit -\/m "my normal commit message [ci skip]"}
+\end{DoxyCode}
+\hypertarget{md_CONTRIBUTING_autotoc_md13}{}\doxysection{Review process}\label{md_CONTRIBUTING_autotoc_md13}
+After submitting a pull request, members of the team will review your code. We will assign the request to an appropriate reviewer (if applicable). Any member of the community may participate in the review, but at least one member of the project team will ultimately approve the request.
+
+Often, multiple iterations or discussions will be needed to responding to feedback from reviewers. Try looking at \href{https://github.com/filipdutescu/modern-cpp-template/pulls?q=is\%3Apr+is\%3Aclosed}{\texttt{ past pull requests}} to see what the experience might be like.\hypertarget{md_CONTRIBUTING_autotoc_md14}{}\doxysection{Contributor License Agreement}\label{md_CONTRIBUTING_autotoc_md14}
+Before we can review and accept a pull request from you, you\textquotesingle{}ll need to sign a Contributor License Agreement (C\+LA). The C\+LA ensures that the community is free to use your contributions. Signing the C\+LA is a manual process, and you need to do it for each pull request made. This is done by checking the boxes in the \href{PULL_REQUEST_TEMPLATE.md\#Pull-Request-Readiness-Checklist}{\texttt{ Pull Request Readiness Checklist of a Pull Request}}.\hypertarget{md_CONTRIBUTING_autotoc_md15}{}\doxysubsection{I\+M\+P\+O\+R\+T\+A\+NT}\label{md_CONTRIBUTING_autotoc_md15}
+{\itshape {\bfseries{Checking the aforementioned boxes means that you agree to provide your change and/or code F\+R\+EE TO U\+SE and S\+U\+B\+J\+E\+CT TO C\+H\+A\+N\+G\+ES for the entire community!}}}
+
+You don\textquotesingle{}t need to sign a C\+LA until you\textquotesingle{}re ready to create a pull request. When your pull request is created, it is reviewed by a team member which, if the change is trivial (i.\+e. you just fixed a typo) will be labelled as {\ttfamily cla-\/not-\/required}. Otherwise, it\textquotesingle{}s classified as {\ttfamily cla-\/required}, if not already signed. 

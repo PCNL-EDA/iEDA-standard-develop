@@ -1,1 +1,0 @@
-/bin/x86_64-linux-gnu-g++-9  -g   CMakeFiles/ProjectTests.dir/src/tmp_test.cpp.o  -o ProjectTests  /usr/lib/x86_64-linux-gnu/libgtest.a /usr/lib/x86_64-linux-gnu/libgtest_main.a ../libProject.a /usr/lib/x86_64-linux-gnu/libgtest.a -lpthread 

@@ -1,0 +1,147 @@
+\href{https://github.com/filipdutescu/modern-cpp-template/actions}{\texttt{ }} \href{https://github.com/filipdutescu/modern-cpp-template/actions}{\texttt{ }} \href{https://github.com/filipdutescu/modern-cpp-template/actions}{\texttt{ }} \href{https://codecov.io/gh/filipdutescu/modern-cpp-template}{\texttt{ }} \href{https://github.com/filipdutescu/modern-cpp-template/releases}{\texttt{ }}\hypertarget{md_README_autotoc_md23}{}\doxysection{Modern C++ Template}\label{md_README_autotoc_md23}
+A quick C++ template for modern C\+Make projects, aimed to be an easy to use starting point.
+
+This is my personal take on such a type of template, thus I might not use the best practices or you might disagree with how I do things. Any and all feedback is greatly appreciated!\hypertarget{md_README_autotoc_md24}{}\doxysubsection{Features}\label{md_README_autotoc_md24}
+
+\begin{DoxyItemize}
+\item Modern {\bfseries{C\+Make}} configuration and project, which, to the best of my knowledge, uses the best practices,
+\item An example of a {\bfseries{Clang-\/\+Format}} config, inspired from the base {\itshape Google} model, with minor tweaks. This is aimed only as a starting point, as coding style is a subjective matter, everyone is free to either delete it (for the {\itshape L\+L\+VM} default) or supply their own alternative,
+\item {\bfseries{Static analyzers}} integration, with {\itshape Clang-\/\+Tidy} and {\itshape Cppcheck}, the former being the default option,
+\item {\bfseries{Doxygen}} support, through the {\ttfamily E\+N\+A\+B\+L\+E\+\_\+\+D\+O\+X\+Y\+G\+EN} option, which you can enable if you wish to use it,
+\item {\bfseries{Unit testing}} support, through {\itshape Google\+Test} (with an option to enable {\itshape Google\+Mock}) or {\itshape Catch2},
+\item {\bfseries{Code coverage}}, enabled by using the {\ttfamily E\+N\+A\+B\+L\+E\+\_\+\+C\+O\+D\+E\+\_\+\+C\+O\+V\+E\+R\+A\+GE} option, through {\itshape Codecov} CI integration,
+\item {\bfseries{Package manager support}}, with {\itshape Conan} and {\itshape Vcpkg}, through their respective options
+\item {\bfseries{CI workflows for Windows, Linux and Mac\+OS}} using {\itshape Git\+Hub Actions}, making use of the caching features, to ensure minimum run time,
+\item $\ast$$\ast$.md templates$\ast$$\ast$ for\+: {\itshape R\+E\+A\+D\+ME}, {\itshape Contributing Guideliness}, {\itshape Issues} and {\itshape Pull Requests},
+\item {\bfseries{Permissive license}} to allow you to integrate it as easily as possible. The template is licensed under the \href{https://unlicense.org/}{\texttt{ Unlicense}},
+\item Options to build as a header-\/only library or executable, not just a static or shared library.
+\item {\bfseries{Ccache}} integration, for speeding up rebuild times
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md25}{}\doxysubsection{Getting Started}\label{md_README_autotoc_md25}
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.\hypertarget{md_README_autotoc_md26}{}\doxysubsubsection{Prerequisites}\label{md_README_autotoc_md26}
+This project is meant to be only a template, thus versions of the software used can be change to better suit the needs of the developer(s). If you wish to use the template {\itshape as-\/is}, meaning using the versions recommended here, then you will need\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{C\+Make v3.\+15+}} -\/ found at \href{https://cmake.org/}{\texttt{ https\+://cmake.\+org/}}
+\item {\bfseries{C++ Compiler}} -\/ needs to support at least the {\bfseries{C++17}} standard, i.\+e. {\itshape M\+S\+VC}, {\itshape G\+CC}, {\itshape Clang}
+\end{DoxyItemize}
+
+\begin{quote}
+{\itshape {\bfseries{Note\+:}}} {\itshape You also need to be able to provide {\itshape {\bfseries{C\+Make}}} a supported }\end{quote}
+\href{https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html}{\texttt{ generator}}.
+
+{\itshape }\hypertarget{md_README_autotoc_md27}{}\doxysubsubsection{Installing}\label{md_README_autotoc_md27}
+{\itshape  It is fairly easy to install the project, all you need to do is clone if from \href{https://github.com/filipdutescu/modern-cpp-template}{\texttt{ Git\+Hub}} or \href{https://github.com/filipdutescu/modern-cpp-template/generate}{\texttt{ generate a new repository from it}} (also on {\bfseries{Git\+Hub}}).}
+
+{\itshape If you wish to clone the repository, rather than generate from it, you simply need to run\+:}
+
+{\itshape 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git clone https://github.com/filipdutescu/modern-\/cpp-\/template/}
+\end{DoxyCode}
+}
+
+{\itshape After finishing getting a copy of the project, with any of the methods above, create a new folder in the {\ttfamily include/} folder, with the name of your project. Edit {\ttfamily cmake/\+Sources\+And\+Headers.\+cmake} to add your files.}
+
+{\itshape You will also need to rename the {\ttfamily cmake/\+Project\+Config.\+cmake.\+in} file to start with the {\itshape {\bfseries{exact name of your project}}}. Such as {\ttfamily cmake/\+My\+New\+Project\+Config.\+cmake.\+in}. You should also make the same changes in the Git\+Hub workflows provided, notably \href{.github/workflows/ubuntu.yml}{\texttt{ {\ttfamily .github/workflows/ubuntu.\+yml}}}, in which you should replace the C\+Make option {\ttfamily -\/D\+Project\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+O\+D\+E\+\_\+\+C\+O\+V\+E\+R\+A\+GE=1} to {\ttfamily -\/D\+My\+New\+Project\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+O\+D\+E\+\_\+\+C\+O\+V\+E\+R\+A\+GE=1}.}
+
+{\itshape Finally, change {\ttfamily \char`\"{}\+Project\char`\"{}} from {\ttfamily C\+Make\+Lists.\+txt}, from}
+
+{\itshape 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{project(}
+\DoxyCodeLine{  "Project"}
+\DoxyCodeLine{  VERSION 0.1.0}
+\DoxyCodeLine{  LANGUAGES CXX}
+\DoxyCodeLine{)}
+\end{DoxyCode}
+}
+
+{\itshape to the {\itshape {\bfseries{exact name of your project}}}, i.\+e. using the previous name it will become\+:}
+
+{\itshape 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{project(}
+\DoxyCodeLine{  MyNewProject}
+\DoxyCodeLine{  VERSION 0.1.0}
+\DoxyCodeLine{  LANGUAGES CXX}
+\DoxyCodeLine{)}
+\end{DoxyCode}
+}
+
+{\itshape To install an already built project, you need to run the {\ttfamily install} target with C\+Make. For example\+:}
+
+{\itshape 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake -\/-\/build build -\/-\/target install -\/-\/config Release}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# a more general syntax for that command is:}
+\DoxyCodeLine{cmake -\/-\/build <build\_directory> -\/-\/target install -\/-\/config <desired\_config>}
+\end{DoxyCode}
+}
+
+{\itshape }\hypertarget{md_README_autotoc_md28}{}\doxysubsection{Building the project}\label{md_README_autotoc_md28}
+{\itshape  To build the project, all you need to do, {\itshape {\bfseries{after correctly \href{README.md\#Installing}{\texttt{ installing the project}}}}}, is run a similar {\bfseries{C\+Make}} routine to the the one below\+:}
+
+{\itshape 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir build/ \&\& cd build/}
+\DoxyCodeLine{cmake .. -\/DCMAKE\_INSTALL\_PREFIX=/absolute/path/to/custom/install/directory}
+\DoxyCodeLine{cmake -\/-\/build . -\/-\/target install}
+\end{DoxyCode}
+}
+
+{\itshape \begin{quote}
+{\itshape {\bfseries{Note\+:}}} {\itshape The custom {\ttfamily C\+M\+A\+K\+E\+\_\+\+I\+N\+S\+T\+A\+L\+L\+\_\+\+P\+R\+E\+F\+IX} can be omitted if you wish to }\end{quote}
+install in \href{https://cmake.org/cmake/help/latest/module/GNUInstallDirs.html}{\texttt{ the default install location}}.}
+
+{\itshape More options that you can set for the project can be found in the \href{cmake/StandardSettings.cmake}{\texttt{ {\ttfamily cmake/\+Standard\+Settings.\+cmake} file}}. For certain options additional configuration may be needed in their respective {\ttfamily $\ast$.cmake} files (i.\+e. Conan needs the {\ttfamily C\+O\+N\+A\+N\+\_\+\+R\+E\+Q\+U\+I\+R\+ES} and might need the {\ttfamily C\+O\+N\+A\+N\+\_\+\+O\+P\+T\+I\+O\+NS} to be setup for it work correctly; the two are set in the \href{cmake/Conan.cmake}{\texttt{ {\ttfamily cmake/\+Conan.\+cmake} file}}).}
+
+{\itshape }\hypertarget{md_README_autotoc_md29}{}\doxysubsection{Generating the documentation}\label{md_README_autotoc_md29}
+{\itshape  In order to generate documentation for the project, you need to configure the build to use Doxygen. This is easily done, by modifying the workflow shown above as follows\+:}
+
+{\itshape 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir build/ \&\& cd build/}
+\DoxyCodeLine{cmake .. -\/D<project\_name>\_ENABLE\_DOXYGEN=1 -\/DCMAKE\_INSTALL\_PREFIX=/absolute/path/to/custom/install/directory}
+\DoxyCodeLine{cmake -\/-\/build . -\/-\/target doxygen-\/docs}
+\end{DoxyCode}
+}
+
+{\itshape \begin{quote}
+{\itshape {\bfseries{Note\+:}}} {\itshape This will generate a {\ttfamily docs/} directory in the {\bfseries{project\textquotesingle{}s root directory}}.} \end{quote}
+}
+
+{\itshape }\hypertarget{md_README_autotoc_md30}{}\doxysubsection{Running the tests}\label{md_README_autotoc_md30}
+{\itshape  By default, the template uses \href{https://github.com/google/googletest/}{\texttt{ Google Test}} for unit testing. Unit testing can be disabled in the options, by setting the {\ttfamily E\+N\+A\+B\+L\+E\+\_\+\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+I\+NG} (from \href{cmake/StandardSettings.cmake}{\texttt{ cmake/\+Standard\+Settings.\+cmake}}) to be false. To run the tests, simply use C\+Test, from the build directory, passing the desire configuration for which to run tests for. An example of this procedure is\+:}
+
+{\itshape 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd build          \# if not in the build directory already}
+\DoxyCodeLine{ctest -\/C Release  \# or `ctest -\/C Debug` or any other configuration you wish to test}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# you can also run tests with the `-\/VV` flag for a more verbose output (i.e.}
+\DoxyCodeLine{\#GoogleTest output as well)}
+\end{DoxyCode}
+}
+
+{\itshape }\hypertarget{md_README_autotoc_md31}{}\doxysubsubsection{End to end tests}\label{md_README_autotoc_md31}
+{\itshape  If applicable, should be presented here.}
+
+{\itshape }\hypertarget{md_README_autotoc_md32}{}\doxysubsubsection{Coding style tests}\label{md_README_autotoc_md32}
+{\itshape  If applicable, should be presented here.}
+
+{\itshape }\hypertarget{md_README_autotoc_md33}{}\doxysubsection{Contributing}\label{md_README_autotoc_md33}
+{\itshape  Please read \mbox{\hyperlink{md_CONTRIBUTING}{C\+O\+N\+T\+R\+I\+B\+U\+T\+I\+NG.md}} for details on our how you can become a contributor and the process for submitting pull requests to us.}
+
+{\itshape }\hypertarget{md_README_autotoc_md34}{}\doxysubsection{Versioning}\label{md_README_autotoc_md34}
+{\itshape  This project makes use of \href{http://semver.org/}{\texttt{ Sem\+Ver}} for versioning. A list of existing versions can be found in the \href{https://github.com/filipdutescu/modern-cpp-template/releases}{\texttt{ project\textquotesingle{}s releases}}.}
+
+{\itshape }\hypertarget{md_README_autotoc_md35}{}\doxysubsection{Authors}\label{md_README_autotoc_md35}
+{\itshape 
+\begin{DoxyItemize}
+\item {\bfseries{Filip-\/\+Ioan Dutescu}} -\/ \href{https://github.com/filipdutescu}{\texttt{ @filipdutescu}}
+\end{DoxyItemize}}
+
+{\itshape }\hypertarget{md_README_autotoc_md36}{}\doxysubsection{License}\label{md_README_autotoc_md36}
+{\itshape  This project is licensed under the \href{https://unlicense.org/}{\texttt{ Unlicense}} -\/ see the \mbox{[}L\+I\+C\+E\+N\+SE\mbox{]}(L\+I\+C\+E\+N\+SE) file for details }
