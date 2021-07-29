@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/src/tmp.cpp
+tmp.hpp
+/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/src/tmp.hpp
+iostream
+-
+cmath
+-
+
+/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/test/tmp_test.cpp
+tmp.hpp
+/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/test/tmp.hpp
+gtest/gtest.h
+-
+iostream
+-
+
+include/tmp.hpp
+vector
+-
+list
+-
+
