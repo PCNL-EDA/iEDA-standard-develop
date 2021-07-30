@@ -1,5 +1,5 @@
 /*
-@file: test.h
+@file: gtest.cpp
 @brief: definition of gtest functions
 @author: Shengkun Wu
 @data: 2021/7/26
@@ -9,8 +9,6 @@
 #include <gtest/gtest.h>
 #include "graph.h"
 #include "mytest.h"
-
-
 
 /*
 @brief: check Graph::SetDist() and Graph::GetDist()

@@ -10,7 +10,7 @@
 
 /*
 @fn: main
-@details: Call function test1;
+@details: Call function mytest;
 */
 int main(){
     mytest();

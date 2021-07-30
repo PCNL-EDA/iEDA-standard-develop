@@ -1,5 +1,5 @@
 /*
-@file: test.h
+@file: graph.h
 @brief: declaration of classes of graph
 @author: Shengkun Wu
 @data: 2021/7/26
@@ -25,18 +25,20 @@ public:
     int _y;//y coordinate of a node
     int _color;//color of a node, 0 for white, 1 for black
     std::vector<Cor> aroud;// coordinates of surrounding white node
-    double _dist; //distance of this point from the start point
+    double _dist; //distance of this point to the start point
     Node(){
         _x=0;_y=0;_color=0;  aroud={}; _dist=-1; 
     }
 };
 
-//graph class
+/*
+@brief: graph class
+*/
 class Graph{
 public:
     Graph(const std::vector<std::vector<int>> M);// generation of a graph through a matrix M
     ~Graph(); //destructor;
-    void SetDist(const int i,const int j, Graph &G);//Compute distance of all point from (i,j)
+    void SetDist(const int i,const int j, Graph &G);//Compute distance of all point to (i,j)
     void PrintPath(const int i,const int j,const int k,const int l);
     //print the path from (i,j) to (k,l)
     int getxmax(){return _xmax;}

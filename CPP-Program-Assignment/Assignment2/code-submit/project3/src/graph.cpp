@@ -1,11 +1,10 @@
 /*
-@file: test.h
+@file: graph.cpp
 @brief: definition of functions in graph class
 @author: Shengkun Wu
 @data: 2021/7/26
 */
 #include "graph.h"
-
 
 
 /*
@@ -65,12 +64,12 @@ Graph::Graph(const std::vector<std::vector<int> > M){
 @param[in]; M has to be a matrix;
 */
 Graph::~Graph(){
-        for(int i=0;i<_nodes.size();++i){
-            for(int j=0; j<_ymax;++j){
-                delete this->_nodes[i][j];
-            }
+    for(int i=0;i<_nodes.size();++i){
+        for(int j=0; j<_ymax;++j){
+            delete this->_nodes[i][j];
         }
     }
+}
 
 /*
 @fn: SetDist

@@ -1,5 +1,5 @@
 /*
-@file: test.h
+@file: mytest.cpp
 @brief: definition of my test functions
 @author: Shengkun Wu
 @data: 2021/7/26
