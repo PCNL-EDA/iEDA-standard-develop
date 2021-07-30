@@ -39,24 +39,27 @@ namespace Astart {
    *            including the Node' index in the mapArr and cost variables such as g,h,f, \n
    *            and the pointer variable parent designed to find the shortest path.
   */
-  class Node{
-   public:
-    Node (int x, int y) { this->_astart_x = x; this->_astart_y = y;}
-   public:
-    int _astart_x, _astart_y;   ///<此节点对应的mapArr数组的下标<x,y>
-    int _astart_g;              ///<起始点到当前节点路径长度/cost
-    int _astart_h;              ///<当前节点到终点的路径长度h_cost，即启明函数的值
-    int _astart_f;              ///<f = g + h
+class Node{
+ public:
+  Node(int x, int y) {
+    this->_astart_x = x;
+    this->_astart_y = y;
+  }
+ public:
+    int _astart_x, _astart_y;   ///< 此节点对应的mapArr数组的下标<x,y>
+    int _astart_g;              ///< 起始点到当前节点路径长度/cost
+    int _astart_h;              ///< 当前节点到终点长度h_cost，即启明函数的值
+    int _astart_f;              ///< f = g + h
     Node *parent;
-  };
+};
 
-  std::vector<Node *> openList; ///<将当前点紧邻的八个方向点Node
-  std::vector<Node *> closeList; ///<将障碍点和已在路径上的点放置在close列表中
+  std::vector<Node *> openList;  ///< 将当前点紧邻的八个方向点Node
+  std::vector<Node *> closeList;  ///< 将障碍点和已在路径上的点放置在close列表中
 
 
   void initMapArr(Node * &start, Node * &endNode);
   void printMap();
-  void printPath (Node * node);
+  void printPath(Node * node);
   bool isContain(std::vector<Node *> *v, int x, int y);
   int funcH(Node *node, Node *end);
   void modifyNode(int x, int y, Node * cur_node, Node *end);
@@ -73,25 +76,25 @@ namespace Astart {
    * @see         function main will call this function     
    * 
    */  
-  inline void initMapArr(Node * &start, Node * &endNode) {
+  inline void initMapArr(Node* &start, Node* &endNode) {
     start = new Node(0, 0);
     endNode = new Node(3, 7);
   }
 
 
-  /**
-   * @fn          print_map
-   * @brief       print the mapArr array, show the origin map in the first and the shortest path in the mapArr.
-   * @return      none
-   * @see         function main will call this function twice to show the difference.    
-   */ 
-  inline void printMap () {
-      for (int i = 0; i < gRowMapArr; i++) {
-          for (int j = 0; j < gColMapArr; j++)
-              std::cout << mapArr[i][j] << " ";
-          std::cout << std::endl;
-      }
-  }
+  // /**
+  //  * @fn          print_map
+  //  * @brief       print the mapArr array, show the origin map in the first and the shortest path in the mapArr.
+  //  * @return      none
+  //  * @see         function main will call this function twice to show the difference.    
+  //  */ 
+  // inline void printMap() {
+  //     for (int i = 0; i < gRowMapArr; i++) {
+  //         for (int j = 0; j < gColMapArr; j++)
+  //             std::cout << mapArr[i][j] << " ";
+  //         std::cout << std::endl;
+  //     }
+  // }
 
 
   /**
@@ -110,18 +113,18 @@ namespace Astart {
       return false;
   }
 
-  
-    /**
-   * @fn          func_h
-   * @brief       valuate the cost between chosen node and end node.
-   * @param       node    param node assigned the pointer of chosen node.
-   * @param       end     param end assigned the pointer of end node of path, valuate the cost.
-   * @return      the cost value of between chosen node and end.
-   * @see         function modify_node.
-   */ 
-  inline int funcH(Node *node, Node *end) {
-      return abs(end->_astart_x - node->_astart_x) + abs(end->_astart_y - node->_astart_y);
-  }
+  // /**
+  //  * @fn          func_h
+  //  * @brief       valuate the cost between chosen node and end node.
+  //  * @param       node    param node assigned the pointer of chosen node.
+  //  * @param       end     param end assigned the pointer of end node of path, valuate the cost.
+  //  * @return      the cost value of between chosen node and end.
+  //  * @see         function modify_node.
+  //  */ 
+  // inline int funcH(Node *node, Node *end) {
+  //     return abs(end->_astart_x - node->_astart_x)
+  //             + abs(end->_astart_y - node->_astart_y);
+  // }
 
   /**
    * @fn          releaseNode
@@ -131,13 +134,12 @@ namespace Astart {
    * @see         function search_path calls this function
    * 
    */ 
-  inline void releaseNode(Node* n) {     
+  inline void releaseNode(Node* n) {
       if (n->parent)
           Astart::releaseNode(n->parent);
       delete n;
   }
 
-  
   /**
    * @fn          compare
    * @brief       define the rules of sort for template vector
@@ -146,11 +148,10 @@ namespace Astart {
    * @return      return type bool
    * @see         function vector instance's sort
    */ 
-  inline bool compare(Node* n1, Node* n2) {//vector对象的sort函数降序排序
+  inline bool compare(Node* n1, Node* n2) {   ///< vector对象的sort函数降序排序
       return n1->_astart_f < n2->_astart_f;
   }
 
-}
+}   ///< namespace Astart
 
-
-#endif
+#endif  // CPP_PROGRAM_ASSIGNMENT_ASSIGNMENT2_CODE_SUBMIT_INCLUDE_PROJECT_ASTART_H_
