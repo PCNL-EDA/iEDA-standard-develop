@@ -7,6 +7,7 @@
  * @version  1.0.0
  * @note     all the definition of functions located in this project should define in this file. 
  * @copyright liujikang
+ * 
  */
 #include <gtest/gtest.h>
 #include "include/project/astart.h"
