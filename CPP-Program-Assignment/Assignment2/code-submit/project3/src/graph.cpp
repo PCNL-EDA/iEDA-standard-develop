@@ -59,7 +59,11 @@ Graph::Graph(const std::vector<std::vector<int> > M){
     }
 }
 
-
+/*
+@fn: ~Graph
+@brief: generation of a graph through a matrix M
+@param[in]; M has to be a matrix;
+*/
 Graph::~Graph(){
         for(int i=0;i<_nodes.size();++i){
             for(int j=0; j<_ymax;++j){
@@ -107,15 +111,20 @@ void Graph::SetDist(const int i,const int j, Graph &G){
     return;
 }
 
-
+/*
+@fn: GetDist
+@brief: return the distance of the node (k,l) to the start point
+@param[in]：(k,l) is the end point
+*/
 double Graph::GetDist(int k, int l){
-        if(k>=0&& k<_xmax && l>=0 && l<_ymax ){
-            return _nodes[k][l]->_dist;
-        }
-        else{
-            return -1;
-        }
-    };
+    if(k>=0&& k<_xmax && l>=0 && l<_ymax ){
+        return _nodes[k][l]->_dist;
+    }
+    else{
+        return -1;
+    }
+};
+
 
 /*
 @fn: PrintPath
