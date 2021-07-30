@@ -12,7 +12,9 @@
 
 
 
-
+/*
+@brief: check Graph::SetDist() and Graph::GetDist()
+*/
 TEST(dist, distingraph)
 {
     int Matrix[4][8]={{0,0,0,0,1,1,1,1},
@@ -38,6 +40,10 @@ TEST(dist, distingraph)
     EXPECT_EQ(3*sqrt(2)+4,G.GetDist(3,7));
 }
 
+/*
+@brief: main function in google test
+@details: call all google test functions
+*/
 int main(int argc, char *argv[])
 {
     testing::InitGoogleTest(&argc, argv);

@@ -44,8 +44,8 @@ public:
     void PrintGraph();//print graph
     double GetDist(int k, int l);// return the distance of (k,l) to the start point.
 private:
-    int _xmax;//max value of x-1
-    int _ymax;//max value of y-1
+    int _xmax;//horizontal length
+    int _ymax;//longitudinal length
     std::vector<std::vector<Node*> > _nodes;// node matrix
 };
 
