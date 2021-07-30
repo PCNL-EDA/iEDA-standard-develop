@@ -5,7 +5,7 @@
 @data 2021/7/25 
 */
 #include <iostream>
-#include "test.h"
+#include "mytest.h"
 
 
 /*
@@ -13,6 +13,6 @@
 @details: Call function test1;
 */
 int main(){
-    test1();
+    mytest();
     return 0;
 }

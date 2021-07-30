@@ -6,10 +6,12 @@
 */
 #include "graph.h"
 
+
+
 /*
 @fn: Graph
 @brief: generation of a graph through a matrix M
-@param[in]; M as a matrix
+@param[in]; M has to be a matrix;
 */
 Graph::Graph(const std::vector<std::vector<int> > M){
     _xmax=(int)M.size(); _ymax=(int)M[0].size();
@@ -57,11 +59,20 @@ Graph::Graph(const std::vector<std::vector<int> > M){
     }
 }
 
+
+Graph::~Graph(){
+        for(int i=0;i<_nodes.size();++i){
+            for(int j=0; j<_ymax;++j){
+                delete this->_nodes[i][j];
+            }
+        }
+    }
+
 /*
 @fn: SetDist
 @brief: Compute distance of all point from (i,j)
 @param[in]： i(j) is the x(y) coordinate of the start point 
-@details: initial value of dist of each point is -1
+@details: initial value of dist of each point is -1;
 */
 void Graph::SetDist(const int i,const int j, Graph &G){
     G._nodes[i][j]->_dist=0;
@@ -95,6 +106,16 @@ void Graph::SetDist(const int i,const int j, Graph &G){
     }
     return;
 }
+
+
+double Graph::GetDist(int k, int l){
+        if(k>=0&& k<_xmax && l>=0 && l<_ymax ){
+            return _nodes[k][l]->_dist;
+        }
+        else{
+            return -1;
+        }
+    };
 
 /*
 @fn: PrintPath
@@ -130,6 +151,7 @@ void Graph::PrintPath(const int i,const int j,const int k,const int l){
     printf("\n");
     return;
 }
+
 
 /*
 @fn: PrintGraph

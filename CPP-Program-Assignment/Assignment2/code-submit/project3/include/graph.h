@@ -33,31 +33,20 @@ public:
 
 //graph class
 class Graph{
-private:
-    int _xmax;//max value of x-1
-    int _ymax;//max value of y-1
-    std::vector<std::vector<Node*> > _nodes;
 public:
     Graph(const std::vector<std::vector<int>> M);// generation of a graph through a matrix M
-    ~Graph(){
-        for(int i=0;i<_nodes.size();++i){
-            for(int j=0; j<_ymax;++j){
-                delete this->_nodes[i][j];
-            }
-        }
-    };
+    ~Graph(); //destructor;
     void SetDist(const int i,const int j, Graph &G);//Compute distance of all point from (i,j)
     void PrintPath(const int i,const int j,const int k,const int l);
     //print the path from (i,j) to (k,l)
     int getxmax(){return _xmax;}
     int getymax(){return _ymax;}
     void PrintGraph();//print graph
-    void PrintDist(int k,int l){
-        if(k>=0&& k<_xmax && l>=0 && l<_ymax ){
-            printf("end point dist=%f\n",_nodes[k][l]->_dist);
-        }
-        else{printf("Can't find this point\n");}
-    }
+    double GetDist(int k, int l);// return the distance of (k,l) to the start point.
+private:
+    int _xmax;//max value of x-1
+    int _ymax;//max value of y-1
+    std::vector<std::vector<Node*> > _nodes;// node matrix
 };
 
 #endif

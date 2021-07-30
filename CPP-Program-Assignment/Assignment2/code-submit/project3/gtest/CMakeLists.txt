@@ -4,4 +4,9 @@ project(graph)
 
 include_directories(../include)
 
-add_executable()
+link_libraries(gtest)
+
+link_libraries(pthread)
+
+add_executable(gtextexe gtest.cpp ../src/graph.cpp)
+

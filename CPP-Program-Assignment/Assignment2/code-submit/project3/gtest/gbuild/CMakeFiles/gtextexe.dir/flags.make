@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/include
+CXX_INCLUDES = -I/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/gtest/../include
 
 CXX_FLAGS = 
 

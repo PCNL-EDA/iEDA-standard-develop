@@ -5,13 +5,13 @@
 @data: 2021/7/26
 */
 
-#ifndef _TEST_H_
-#define _TEST_H_
+#ifndef _MYTEST_H_
+#define _MYTEST_H_
 
 #include "graph.h"
 
 bool CheckMatrx(const std::vector<std::vector<int> > M);
-void test1();
+void mytest();
 
 
 #endif
