@@ -1,3 +1,0 @@
-/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/CMakeFiles/rebuild_cache.dir
-/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/CMakeFiles/edit_cache.dir
-/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/CMakeFiles/exe.dir

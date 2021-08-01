@@ -13,11 +13,10 @@
 #include"../include/Node.h"
 #include"../include/Coordinate.h"
 #include"../include/Map.h"
-namespace {
   TEST(RoutingTest, Reached)
   {
     MyAStar::Map a(4,8);
-    std::vector<std::vector<int>>_obstaclelist=a.getMap({{0, 2},
+    std::vector<std::vector<int>>obstacle_list=a.getMap({{0, 2},
                                                          {0, 3},
                                                          {1, 2},
                                                          {3, 2},
@@ -30,10 +29,9 @@ namespace {
                                                          {7, 0},
                                                          {7, 1}});
     //<Set start and end node
-    MyAStar::Node _start(0,0);
-    MyAStar::Node _end(3,7);									   
-    MyAStar::AStar astar(_obstaclelist);
-    //EXPECT_TRUE(astar.getPath(_start, _end, false).size());
-    EXPECT_EQ(8,astar.getPath(_start, _end, false).size());
+    MyAStar::Node start_node(0,0);
+    MyAStar::Node end_node(3,7);									   
+    MyAStar::AStar astar(obstacle_list);
+    //EXPECT_TRUE(astar.getPath(start_node, end_node, false).size());
+    EXPECT_EQ(8,astar.getPath(start_node, end_node, false).size());
   }
-}  // namespace

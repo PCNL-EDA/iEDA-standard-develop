@@ -24,7 +24,7 @@ namespace MyAStar{
     int AStar::calcG(Node *start, Node *node)
 	{
         int extraG = (abs(node->get_x()-start->get_x()) + abs(node->get_y()-start->get_y())) == 1 ? kCost1 : kCost2;
-	    int parentG = node->get_parent_node() == NULL ? 0 : node->get_parent_node()->_G; 
+	    int parentG = node->get_parent_node() == nullptr ? 0 : node->get_parent_node()->_G; 
 	    return parentG + extraG;
     }
     /**
@@ -68,7 +68,7 @@ namespace MyAStar{
 			 }
 			 return resNode;
 	     }    
-		 return NULL;
+		 return nullptr;
      }
     /**
      * @brief Determine whether a node is in the list
@@ -117,7 +117,8 @@ namespace MyAStar{
 			else
 			{
 				///<Judgment of diagonal relationship
-				if (_obstacle_list[node->get_x()][target->get_y()]==0 || _obstacle_list[target->get_x()][node->get_y()]==0)
+				if (_obstacle_list[node->get_x()][target->get_y()]==0 
+				|| _obstacle_list[target->get_x()][node->get_y()]==0)
 				{
 					return true;
 			    }
@@ -200,7 +201,7 @@ namespace MyAStar{
 			     }
 		     }
 	     }
-         return NULL;
+         return nullptr;
      }
 	/**
      * @brief Output found path

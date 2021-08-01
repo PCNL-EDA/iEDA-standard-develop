@@ -1,0 +1,1 @@
+/usr/bin/c++   -O3 -Wall   CMakeFiles/test1.dir/test/test.cpp.o  -o test1  liblvyaxing.a 
