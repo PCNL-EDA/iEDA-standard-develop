@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/main.dir/src/mian.cpp.o CMakeFiles/main.dir/src/process.cpp.o -o bin/main 
