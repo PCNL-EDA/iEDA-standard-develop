@@ -1,8 +1,8 @@
 /**
  * @file        process
- * @brief       the
+ * @brief       the content function of A-STAR algorithm
  * @author      liujikang    
- * @date        2021-07-30
+ * @date        2021-07-31
  * @copyright   liujikang
  */ 
 #include "GridMap.h"
