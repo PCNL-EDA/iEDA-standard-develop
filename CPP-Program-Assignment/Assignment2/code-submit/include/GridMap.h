@@ -20,7 +20,7 @@ class GridMap {
   ///< getter
   int get_row_num() const { return _row_num; }
   int get_col_num() const { return _col_num; }
-  T* get_arrNode() const { return _arrNode; }
+  T** get_arrNode() const { return _arrNode; }
   ///< overload the operator [],design to invite arrNode
   T* operator[](const int i) { return _arrNode[i]; }
 
