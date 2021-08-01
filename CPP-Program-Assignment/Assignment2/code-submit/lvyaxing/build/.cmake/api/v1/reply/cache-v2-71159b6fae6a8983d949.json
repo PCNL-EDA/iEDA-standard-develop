@@ -971,7 +971,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "AStar"
+			"value" : "Lvyaxing"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1276,6 +1276,30 @@
 			],
 			"type" : "PATH",
 			"value" : ""
+		},
+		{
+			"name" : "Lvyaxing_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build"
+		},
+		{
+			"name" : "Lvyaxing_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing"
 		},
 		{
 			"name" : "TestsTestsTestsTestsTestsTestsTestsTests_BINARY_DIR",

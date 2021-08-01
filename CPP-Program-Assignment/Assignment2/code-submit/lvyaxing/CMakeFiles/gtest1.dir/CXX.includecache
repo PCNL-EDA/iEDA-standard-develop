@@ -38,12 +38,6 @@ cmath
 vector
 -
 
-/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/src/Map.cpp
-vector
--
-../include/Map.h
-/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/include/Map.h
-
 /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/test/gtest.cpp
 gtest/gtest.h
 /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/test/gtest/gtest.h

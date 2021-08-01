@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
+  "../bin/gtest1"
+  "../bin/gtest1.pdb"
   "CMakeFiles/gtest1.dir/src/AStar.cpp.o"
   "CMakeFiles/gtest1.dir/src/Map.cpp.o"
   "CMakeFiles/gtest1.dir/test/gtest.cpp.o"
-  "gtest1"
-  "gtest1.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

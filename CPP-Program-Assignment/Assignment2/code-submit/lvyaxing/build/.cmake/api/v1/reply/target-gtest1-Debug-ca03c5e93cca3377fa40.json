@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "gtest1"
+			"path" : "/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/bin/gtest1"
 		}
 	],
 	"backtrace" : 1,
@@ -25,13 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 7,
+				"line" : 8,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 4,
+				"line" : 5,
 				"parent" : 0
 			}
 		]

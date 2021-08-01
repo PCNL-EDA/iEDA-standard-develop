@@ -1,1 +1,1 @@
-/usr/bin/c++     CMakeFiles/gtest1.dir/test/gtest.cpp.o CMakeFiles/gtest1.dir/src/AStar.cpp.o CMakeFiles/gtest1.dir/src/Map.cpp.o  -o gtest1  -Wl,-Bstatic -lgtest -lgtest_main -Wl,-Bdynamic -lpthread 
+/usr/bin/c++     CMakeFiles/gtest1.dir/test/gtest.cpp.o CMakeFiles/gtest1.dir/src/AStar.cpp.o CMakeFiles/gtest1.dir/src/Map.cpp.o  -o bin/gtest1  -Wl,-Bstatic -lgtest -lgtest_main -Wl,-Bdynamic -lpthread 

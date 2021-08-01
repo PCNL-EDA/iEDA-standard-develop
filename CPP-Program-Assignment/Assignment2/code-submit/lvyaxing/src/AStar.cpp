@@ -24,7 +24,7 @@ namespace MyAStar{
     int AStar::calcG(Node *start, Node *node)
 	{
         int extraG = (abs(node->get_x()-start->get_x()) + abs(node->get_y()-start->get_y())) == 1 ? kCost1 : kCost2;
-	    int parentG = node->get_parent_node() == nullptr ? 0 : node->get_parent_node()->_G; 
+	    int parentG = node->get_parent_node() == nullptr ? 0 : node->get_parent_node()->get_G(); 
 	    return parentG + extraG;
     }
     /**
@@ -47,7 +47,7 @@ namespace MyAStar{
      */
      int AStar::calcF(Node *node)
      {
-	     return node->_G + node->_H;
+	     return node->get_G() + node->get_H();
      }
     /**
      * @brief Find the node with the smallest F value around the node
@@ -61,7 +61,7 @@ namespace MyAStar{
 			 Node* resNode = _open_list.front();
 			 for (Node* node : _open_list)
 			 {
-				 if (node->_F<resNode->_F)
+				 if (node->get_F()<resNode->get_F())
 				 {
 					 resNode = node;
 				 }
@@ -176,9 +176,9 @@ namespace MyAStar{
 				 if (!isInlist(_open_list, target))
 				 {
 					 target->set_parent_node(curNode);
-					 target->_G = calcG(curNode, target);
-				     target->_H = calcH(target, &goalNode);
-				     target->_F = calcF(target);
+					 target->set_G(calcG(curNode, target));
+				     target->set_H(calcH(target, &goalNode));
+				     target->set_F(calcF(target));
 					 _open_list.push_back(target);
 			     }
 			     ///<3，For a node, if it is in the open list, recalculate the g value. 
@@ -187,11 +187,11 @@ namespace MyAStar{
 			     else
 				 {
 					 int tempG = calcG(curNode, target);
-					 if (tempG<target->_G)
+					 if (tempG<target->get_G())
 					 {
 						 target->set_parent_node(curNode);
-						 target->_G = tempG;
-					     target->_F = calcF(target);
+						 target->set_G(tempG);
+					     target->set_F(calcF(target));
 				     }
 			     }
 			     Node *resNode = isInlist(_open_list, &goalNode);///<Judge whether the goal node is in the open list
@@ -226,4 +226,5 @@ namespace MyAStar{
 	     _close_list.clear();
          return path;
      }
+	 
 }// namespace MyAStar

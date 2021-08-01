@@ -23,13 +23,20 @@ namespace MyAStar {
         ~Node(){_parent_node = nullptr; }
 	    int get_x()const{return _x;}
 	    int get_y()const{return _y;}
+		void set_F(int f){_F=f;}
+		void set_G(int g){_G=g;}
+		void set_H(int h){_H=h;}
+		int get_F()const{return _F;}
+		int get_G()const{return _G;}
+		int get_H()const{return _H;}
 	    Node* get_parent_node()const{return _parent_node;}
 	    void set_parent_node(Node *_parent){_parent_node=_parent;}
-	    int _F,_G,_H;
-        Node* _parent_node;
-
+	   
+    
 	    private:
 	    int _x,_y;
+		Node* _parent_node; 
+		int _F,_G,_H;
 
     };
 }// namespace MyAStar

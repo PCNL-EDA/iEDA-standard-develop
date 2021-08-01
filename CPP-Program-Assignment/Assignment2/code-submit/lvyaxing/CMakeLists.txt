@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.11)
-project(AStar)
+project(Lvyaxing)
+SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 
 include_directories(include)
 

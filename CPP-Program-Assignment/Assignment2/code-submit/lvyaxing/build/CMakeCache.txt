@@ -178,7 +178,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=AStar
+CMAKE_PROJECT_NAME:STATIC=Lvyaxing
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/bin/ranlib
@@ -247,6 +247,12 @@ EXECUTABLE_OUTPUT_PATH:PATH=
 
 //Single output directory for building all libraries.
 LIBRARY_OUTPUT_PATH:PATH=
+
+//Value Computed by CMake
+Lvyaxing_BINARY_DIR:STATIC=/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build
+
+//Value Computed by CMake
+Lvyaxing_SOURCE_DIR:STATIC=/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing
 
 //Value Computed by CMake
 TestsTestsTestsTestsTestsTestsTestsTests_BINARY_DIR:STATIC=/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build

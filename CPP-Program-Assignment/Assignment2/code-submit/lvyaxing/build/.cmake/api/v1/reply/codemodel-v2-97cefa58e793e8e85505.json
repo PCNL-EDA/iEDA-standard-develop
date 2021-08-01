@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "AStar",
+					"name" : "Lvyaxing",
 					"targetIndexes" : 
 					[
 						0,
@@ -40,14 +40,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "gtest1::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-gtest1-Debug-5c23b81c2689c01124fb.json",
+					"jsonFile" : "target-gtest1-Debug-ca03c5e93cca3377fa40.json",
 					"name" : "gtest1",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test1::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test1-Debug-86371be675d541e22d8f.json",
+					"jsonFile" : "target-test1-Debug-8c3dc3ba6066ffc738ba.json",
 					"name" : "test1",
 					"projectIndex" : 0
 				}
