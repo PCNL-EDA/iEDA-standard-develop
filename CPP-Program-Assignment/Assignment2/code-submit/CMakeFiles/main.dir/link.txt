@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/main.dir/src/A-star.cpp.o CMakeFiles/main.dir/src/mian.cpp.o -o bin/main 

@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/A-star.hpp
+
+/home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/include/A-star.hpp
+
+/home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/src/A-star.cpp
+../include/A-star.hpp
+/home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/include/A-star.hpp
+iostream
+-
+
+/home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/src/mian.cpp
+A-star.hpp
+/home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/src/A-star.hpp
+

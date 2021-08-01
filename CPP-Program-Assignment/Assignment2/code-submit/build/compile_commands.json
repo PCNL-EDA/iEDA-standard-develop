@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/build",
+  "command": "/bin/clang++-12  -I/home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/include -g -o CMakeFiles/main.dir/src/A-star.cpp.o -c /home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/src/A-star.cpp",
+  "file": "/home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/src/A-star.cpp"
+},
+{
+  "directory": "/home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/build",
+  "command": "/bin/clang++-12  -I/home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/include -g -o CMakeFiles/main.dir/src/mian.cpp.o -c /home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/src/mian.cpp",
+  "file": "/home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/src/mian.cpp"
+}
+]
