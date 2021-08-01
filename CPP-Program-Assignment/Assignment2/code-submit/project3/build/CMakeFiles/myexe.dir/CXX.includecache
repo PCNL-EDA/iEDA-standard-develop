@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/graph.h
+iostream
+-
+node.h
+../include/node.h
+
+../include/node.h
+iostream
+-
+vector
+-
+
+/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/main.cpp
+iostream
+-
+graph.h
+/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/graph.h
+
+/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/graph.cpp
+graph.h
+/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/graph.h
+
+/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/node.cpp
+node.h
+/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/node.h
+
