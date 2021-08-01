@@ -55,7 +55,6 @@ CMAKE_BINARY_DIR = /home/litar/template/iEDA-standard-develop/CPP-Program-Assign
 # The main recursive "all" target.
 all: CMakeFiles/gtest1.dir/all
 all: CMakeFiles/test1.dir/all
-all: CMakeFiles/lvyaxing.dir/all
 
 .PHONY : all
 
@@ -67,7 +66,6 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/gtest1.dir/clean
 clean: CMakeFiles/test1.dir/clean
-clean: CMakeFiles/lvyaxing.dir/clean
 
 .PHONY : clean
 
@@ -75,15 +73,15 @@ clean: CMakeFiles/lvyaxing.dir/clean
 # Target rules for target CMakeFiles/gtest1.dir
 
 # All Build rule for target.
-CMakeFiles/gtest1.dir/all: CMakeFiles/lvyaxing.dir/all
+CMakeFiles/gtest1.dir/all:
 	$(MAKE) -f CMakeFiles/gtest1.dir/build.make CMakeFiles/gtest1.dir/depend
 	$(MAKE) -f CMakeFiles/gtest1.dir/build.make CMakeFiles/gtest1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build/CMakeFiles --progress-num=1,2 "Built target gtest1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build/CMakeFiles --progress-num=1,2,3,4 "Built target gtest1"
 .PHONY : CMakeFiles/gtest1.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/gtest1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/gtest1.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build/CMakeFiles 0
 .PHONY : CMakeFiles/gtest1.dir/rule
@@ -102,15 +100,15 @@ CMakeFiles/gtest1.dir/clean:
 # Target rules for target CMakeFiles/test1.dir
 
 # All Build rule for target.
-CMakeFiles/test1.dir/all: CMakeFiles/lvyaxing.dir/all
+CMakeFiles/test1.dir/all:
 	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/depend
 	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build/CMakeFiles --progress-num=6,7 "Built target test1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build/CMakeFiles --progress-num=5,6,7,8 "Built target test1"
 .PHONY : CMakeFiles/test1.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test1.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build/CMakeFiles 0
 .PHONY : CMakeFiles/test1.dir/rule
@@ -124,33 +122,6 @@ test1: CMakeFiles/test1.dir/rule
 CMakeFiles/test1.dir/clean:
 	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/clean
 .PHONY : CMakeFiles/test1.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/lvyaxing.dir
-
-# All Build rule for target.
-CMakeFiles/lvyaxing.dir/all:
-	$(MAKE) -f CMakeFiles/lvyaxing.dir/build.make CMakeFiles/lvyaxing.dir/depend
-	$(MAKE) -f CMakeFiles/lvyaxing.dir/build.make CMakeFiles/lvyaxing.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build/CMakeFiles --progress-num=3,4,5 "Built target lvyaxing"
-.PHONY : CMakeFiles/lvyaxing.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/lvyaxing.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build/CMakeFiles 3
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/lvyaxing.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build/CMakeFiles 0
-.PHONY : CMakeFiles/lvyaxing.dir/rule
-
-# Convenience name for target.
-lvyaxing: CMakeFiles/lvyaxing.dir/rule
-
-.PHONY : lvyaxing
-
-# clean rule for target.
-CMakeFiles/lvyaxing.dir/clean:
-	$(MAKE) -f CMakeFiles/lvyaxing.dir/build.make CMakeFiles/lvyaxing.dir/clean
-.PHONY : CMakeFiles/lvyaxing.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

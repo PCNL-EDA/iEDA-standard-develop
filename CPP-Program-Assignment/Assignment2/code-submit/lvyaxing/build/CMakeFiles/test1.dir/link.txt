@@ -1,1 +1,1 @@
-/bin/x86_64-linux-gnu-g++-9   -O3 -Wall   CMakeFiles/test1.dir/test/test.cpp.o  -o test1  liblvyaxing.a 
+/bin/x86_64-linux-gnu-g++-9  -g   CMakeFiles/test1.dir/test/test.cpp.o CMakeFiles/test1.dir/src/AStar.cpp.o CMakeFiles/test1.dir/src/Map.cpp.o  -o test1 

@@ -136,26 +136,14 @@ test1/fast:
 	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/build
 .PHONY : test1/fast
 
-#=============================================================================
-# Target rules for targets named lvyaxing
-
-# Build rule for target.
-lvyaxing: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 lvyaxing
-.PHONY : lvyaxing
-
-# fast build rule for target.
-lvyaxing/fast:
-	$(MAKE) -f CMakeFiles/lvyaxing.dir/build.make CMakeFiles/lvyaxing.dir/build
-.PHONY : lvyaxing/fast
-
 src/AStar.o: src/AStar.cpp.o
 
 .PHONY : src/AStar.o
 
 # target to build an object file
 src/AStar.cpp.o:
-	$(MAKE) -f CMakeFiles/lvyaxing.dir/build.make CMakeFiles/lvyaxing.dir/src/AStar.cpp.o
+	$(MAKE) -f CMakeFiles/gtest1.dir/build.make CMakeFiles/gtest1.dir/src/AStar.cpp.o
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/AStar.cpp.o
 .PHONY : src/AStar.cpp.o
 
 src/AStar.i: src/AStar.cpp.i
@@ -164,7 +152,8 @@ src/AStar.i: src/AStar.cpp.i
 
 # target to preprocess a source file
 src/AStar.cpp.i:
-	$(MAKE) -f CMakeFiles/lvyaxing.dir/build.make CMakeFiles/lvyaxing.dir/src/AStar.cpp.i
+	$(MAKE) -f CMakeFiles/gtest1.dir/build.make CMakeFiles/gtest1.dir/src/AStar.cpp.i
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/AStar.cpp.i
 .PHONY : src/AStar.cpp.i
 
 src/AStar.s: src/AStar.cpp.s
@@ -173,7 +162,8 @@ src/AStar.s: src/AStar.cpp.s
 
 # target to generate assembly for a file
 src/AStar.cpp.s:
-	$(MAKE) -f CMakeFiles/lvyaxing.dir/build.make CMakeFiles/lvyaxing.dir/src/AStar.cpp.s
+	$(MAKE) -f CMakeFiles/gtest1.dir/build.make CMakeFiles/gtest1.dir/src/AStar.cpp.s
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/AStar.cpp.s
 .PHONY : src/AStar.cpp.s
 
 src/Map.o: src/Map.cpp.o
@@ -182,7 +172,8 @@ src/Map.o: src/Map.cpp.o
 
 # target to build an object file
 src/Map.cpp.o:
-	$(MAKE) -f CMakeFiles/lvyaxing.dir/build.make CMakeFiles/lvyaxing.dir/src/Map.cpp.o
+	$(MAKE) -f CMakeFiles/gtest1.dir/build.make CMakeFiles/gtest1.dir/src/Map.cpp.o
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/Map.cpp.o
 .PHONY : src/Map.cpp.o
 
 src/Map.i: src/Map.cpp.i
@@ -191,7 +182,8 @@ src/Map.i: src/Map.cpp.i
 
 # target to preprocess a source file
 src/Map.cpp.i:
-	$(MAKE) -f CMakeFiles/lvyaxing.dir/build.make CMakeFiles/lvyaxing.dir/src/Map.cpp.i
+	$(MAKE) -f CMakeFiles/gtest1.dir/build.make CMakeFiles/gtest1.dir/src/Map.cpp.i
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/Map.cpp.i
 .PHONY : src/Map.cpp.i
 
 src/Map.s: src/Map.cpp.s
@@ -200,7 +192,8 @@ src/Map.s: src/Map.cpp.s
 
 # target to generate assembly for a file
 src/Map.cpp.s:
-	$(MAKE) -f CMakeFiles/lvyaxing.dir/build.make CMakeFiles/lvyaxing.dir/src/Map.cpp.s
+	$(MAKE) -f CMakeFiles/gtest1.dir/build.make CMakeFiles/gtest1.dir/src/Map.cpp.s
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/Map.cpp.s
 .PHONY : src/Map.cpp.s
 
 test/gtest.o: test/gtest.cpp.o
@@ -267,7 +260,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... gtest1"
 	@echo "... test1"
-	@echo "... lvyaxing"
 	@echo "... src/AStar.o"
 	@echo "... src/AStar.i"
 	@echo "... src/AStar.s"

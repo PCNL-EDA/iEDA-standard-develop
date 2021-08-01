@@ -47,5 +47,4 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/gtest1.dir/DependInfo.cmake"
   "CMakeFiles/test1.dir/DependInfo.cmake"
-  "CMakeFiles/lvyaxing.dir/DependInfo.cmake"
   )

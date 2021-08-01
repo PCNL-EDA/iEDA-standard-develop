@@ -8,19 +8,18 @@
 					"build" : ".",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.15"
+						"string" : "3.11"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
 					"targetIndexes" : 
 					[
 						0,
-						1,
-						2
+						1
 					]
 				}
 			],
-			"name" : "Release",
+			"name" : "Debug",
 			"projects" : 
 			[
 				{
@@ -28,12 +27,11 @@
 					[
 						0
 					],
-					"name" : "ASTAR",
+					"name" : "AStar",
 					"targetIndexes" : 
 					[
 						0,
-						1,
-						2
+						1
 					]
 				}
 			],
@@ -42,21 +40,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "gtest1::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-gtest1-Release-d741f0e47818aa38de27.json",
+					"jsonFile" : "target-gtest1-Debug-5c23b81c2689c01124fb.json",
 					"name" : "gtest1",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
-					"id" : "lvyaxing::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-lvyaxing-Release-3bb3d093f41e65931d9e.json",
-					"name" : "lvyaxing",
-					"projectIndex" : 0
-				},
-				{
-					"directoryIndex" : 0,
 					"id" : "test1::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test1-Release-e2ae55043fd60e77ae21.json",
+					"jsonFile" : "target-test1-Debug-86371be675d541e22d8f.json",
 					"name" : "test1",
 					"projectIndex" : 0
 				}

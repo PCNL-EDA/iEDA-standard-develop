@@ -1,22 +1,32 @@
 [
 {
   "directory": "/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxinginclude -I/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing -I/google/googletest   -O3 -Wall   -o CMakeFiles/gtest1.dir/test/gtest.cpp.o -c /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/test/gtest.cpp",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/include  -g   -o CMakeFiles/gtest1.dir/test/gtest.cpp.o -c /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/test/gtest.cpp",
   "file": "/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/test/gtest.cpp"
 },
 {
   "directory": "/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxinginclude -I/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing -I/google/googletest   -O3 -Wall   -o CMakeFiles/test1.dir/test/test.cpp.o -c /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/test/test.cpp",
-  "file": "/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/test/test.cpp"
-},
-{
-  "directory": "/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxinginclude -I/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing -I/google/googletest   -O3 -Wall   -o CMakeFiles/lvyaxing.dir/src/AStar.cpp.o -c /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/src/AStar.cpp",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/include  -g   -o CMakeFiles/gtest1.dir/src/AStar.cpp.o -c /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/src/AStar.cpp",
   "file": "/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/src/AStar.cpp"
 },
 {
   "directory": "/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxinginclude -I/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing -I/google/googletest   -O3 -Wall   -o CMakeFiles/lvyaxing.dir/src/Map.cpp.o -c /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/src/Map.cpp",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/include  -g   -o CMakeFiles/gtest1.dir/src/Map.cpp.o -c /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/src/Map.cpp",
+  "file": "/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/src/Map.cpp"
+},
+{
+  "directory": "/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/include  -g   -o CMakeFiles/test1.dir/test/test.cpp.o -c /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/test/test.cpp",
+  "file": "/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/test/test.cpp"
+},
+{
+  "directory": "/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/include  -g   -o CMakeFiles/test1.dir/src/AStar.cpp.o -c /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/src/AStar.cpp",
+  "file": "/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/src/AStar.cpp"
+},
+{
+  "directory": "/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/include  -g   -o CMakeFiles/test1.dir/src/Map.cpp.o -c /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/src/Map.cpp",
   "file": "/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/src/Map.cpp"
 }
 ]
