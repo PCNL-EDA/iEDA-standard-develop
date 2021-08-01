@@ -164,33 +164,6 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
-src/A-star.o: src/A-star.cpp.o
-
-.PHONY : src/A-star.o
-
-# target to build an object file
-src/A-star.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/A-star.cpp.o
-.PHONY : src/A-star.cpp.o
-
-src/A-star.i: src/A-star.cpp.i
-
-.PHONY : src/A-star.i
-
-# target to preprocess a source file
-src/A-star.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/A-star.cpp.i
-.PHONY : src/A-star.cpp.i
-
-src/A-star.s: src/A-star.cpp.s
-
-.PHONY : src/A-star.s
-
-# target to generate assembly for a file
-src/A-star.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/A-star.cpp.s
-.PHONY : src/A-star.cpp.s
-
 src/mian.o: src/mian.cpp.o
 
 .PHONY : src/mian.o
@@ -218,6 +191,33 @@ src/mian.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/mian.cpp.s
 .PHONY : src/mian.cpp.s
 
+src/process.o: src/process.cpp.o
+
+.PHONY : src/process.o
+
+# target to build an object file
+src/process.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/process.cpp.o
+.PHONY : src/process.cpp.o
+
+src/process.i: src/process.cpp.i
+
+.PHONY : src/process.i
+
+# target to preprocess a source file
+src/process.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/process.cpp.i
+.PHONY : src/process.cpp.i
+
+src/process.s: src/process.cpp.s
+
+.PHONY : src/process.s
+
+# target to generate assembly for a file
+src/process.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/process.cpp.s
+.PHONY : src/process.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -229,12 +229,12 @@ help:
 	@echo "... package_source"
 	@echo "... rebuild_cache"
 	@echo "... main"
-	@echo "... src/A-star.o"
-	@echo "... src/A-star.i"
-	@echo "... src/A-star.s"
 	@echo "... src/mian.o"
 	@echo "... src/mian.i"
 	@echo "... src/mian.s"
+	@echo "... src/process.o"
+	@echo "... src/process.i"
+	@echo "... src/process.s"
 .PHONY : help
 
 

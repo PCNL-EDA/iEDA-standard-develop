@@ -25,9 +25,10 @@ int main() {
                                {2, 1}, {2, 3}, {2, 4}, {3, 0} });
 
   astar_proc.printMap();
-  //astar_proc.findPath();
-  //astar_proc.printPath();
-    
+  bool findPath = astar_proc.findPath();
+  if (findPath) {
+    astar_proc.printPath(astar_proc.get_curr_node());
+  }
 
   return 0;
 }

@@ -76,22 +76,9 @@ include CMakeFiles/main.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/main.dir/flags.make
 
-CMakeFiles/main.dir/src/A-star.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/A-star.cpp.o: src/A-star.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/src/A-star.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/A-star.cpp.o -c /home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/src/A-star.cpp
-
-CMakeFiles/main.dir/src/A-star.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/A-star.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/src/A-star.cpp > CMakeFiles/main.dir/src/A-star.cpp.i
-
-CMakeFiles/main.dir/src/A-star.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/A-star.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/src/A-star.cpp -o CMakeFiles/main.dir/src/A-star.cpp.s
-
 CMakeFiles/main.dir/src/mian.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/mian.cpp.o: src/mian.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/mian.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/src/mian.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/mian.cpp.o -c /home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/src/mian.cpp
 
 CMakeFiles/main.dir/src/mian.cpp.i: cmake_force
@@ -102,16 +89,29 @@ CMakeFiles/main.dir/src/mian.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/mian.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/src/mian.cpp -o CMakeFiles/main.dir/src/mian.cpp.s
 
+CMakeFiles/main.dir/src/process.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/process.cpp.o: src/process.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/process.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/process.cpp.o -c /home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/src/process.cpp
+
+CMakeFiles/main.dir/src/process.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/process.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/src/process.cpp > CMakeFiles/main.dir/src/process.cpp.i
+
+CMakeFiles/main.dir/src/process.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/process.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/src/process.cpp -o CMakeFiles/main.dir/src/process.cpp.s
+
 # Object files for target main
 main_OBJECTS = \
-"CMakeFiles/main.dir/src/A-star.cpp.o" \
-"CMakeFiles/main.dir/src/mian.cpp.o"
+"CMakeFiles/main.dir/src/mian.cpp.o" \
+"CMakeFiles/main.dir/src/process.cpp.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
-bin/main: CMakeFiles/main.dir/src/A-star.cpp.o
 bin/main: CMakeFiles/main.dir/src/mian.cpp.o
+bin/main: CMakeFiles/main.dir/src/process.cpp.o
 bin/main: CMakeFiles/main.dir/build.make
 bin/main: CMakeFiles/main.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/liujikang/Downloads/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable bin/main"
