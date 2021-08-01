@@ -101,8 +101,6 @@ void Process::addNeighborToOpen() {
     if (isInCloseList(neighbor) || isObsNode(neighbor)) {
       continue;
     }
-
-
     if (!isInOpenlist(neighbor)) {
       neighbor->set_cost_start(_curr_node->get_start_cost() + 1);   //update cost from start to current
       double costToEnd = std::abs(_end_node->get_index_x() - neighbor->get_index_x()) +
@@ -118,7 +116,9 @@ void Process::addNeighborToOpen() {
   }
 }
 
-bool compare(Node* n1, Node* n2) { return n1->get_total_cost() < n2->get_total_cost(); }
+bool compare(Node* n1, Node* n2) { 
+  return n1->get_total_cost() < n2->get_total_cost(); 
+}
 
 bool Process::findPath() {
   _openlist.push_back(_start_node);
@@ -129,16 +129,13 @@ bool Process::findPath() {
       findPath = true;
       break;
     }
-
     addNeighborToOpen();
-
     ///< closeList add, openlist.erase(cur_node)
     _curr_node->set_state(NodeState::kClose);
     _openlist.erase(_openlist.begin());
 
     std::sort(_openlist.begin(), _openlist.end(), astar::compare);  ///<
   }
-
   return findPath;
 }
 
