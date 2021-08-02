@@ -36,7 +36,7 @@ bool Coordinate::checkIn( const int xmax, const int ymax){
 @para[in]: vc is a given vector of coordinate.
 @details:check if this coordinate in a given vector of coordinate.
 */
-bool Coordinate::chekcInVec(const std::vector<Coordinate> vc){
+bool Coordinate::checkInVec(const std::vector<Coordinate> vc){
     for(int i=0; i<vc.size(); ++i){
         if(this->_x==vc[i]._x && this->_y==vc[i]._y){
             return true;

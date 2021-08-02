@@ -42,13 +42,14 @@ int example(){
     Coordinate end(3,7);
     Graph G(M);
     G.genArround(M);
-    //G.printGraph();
+    G.printGraph();
     G.assignAllDist(start,end);
-    //G.printAlldist();
+    G.printAlldist();
     std::vector<Coordinate> path=G.reverseSearch(start,end);
     printPath(path);
     return 0;
 }
+
 /*
 @fn: main
 @details: Show the given example;

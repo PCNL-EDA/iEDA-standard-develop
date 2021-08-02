@@ -2,7 +2,8 @@ Explanation of algorithm:
 This algorithm is not the A* algorithm. Because I can not prove that the path found by \
   the A* algorithm is the best one, I tried anothor strategy. 
 This algorithm is not the Dijkstra algorithm, either. 
-The complexity of the Dijkstra algorithm is O(n^2), So I didn't use it.
+The complexity of the Dijkstra algorithm is O(n^2), So I didn't use it. 
+I can show that my algorithm is faster than the Dijkstra algorithm in many cases.
 My strategy is to find the distance generation by generation.
 
 

@@ -8,5 +8,5 @@ link_libraries(gtest)
 
 link_libraries(pthread)
 
-add_executable(gexe gtest.cpp ../src/graph.cpp ../src/node.cpp)
+add_executable(gexe testgraph.cpp testnode.cpp ../src/graph.cpp ../src/node.cpp)
 

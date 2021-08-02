@@ -3,6 +3,41 @@
 @brief: definition of functions in graph class
 @author: Shengkun Wu
 @data: 2021/7/26
+
+@Explanation of algorithm: 
+This algorithm is not the A* algorithm. Because I can not prove that the path found by \
+  the A* algorithm is the best one, I tried anothor strategy. 
+This algorithm is not the Dijkstra algorithm, either. 
+The complexity of the Dijkstra algorithm is O(n^2), So I didn't use it.
+My strategy is to find the distance generation by generation.
+
+
+Step1:definition of around vector of each point.
+The around vector of a point consists of points which are white \
+    and can jump to the point by one step.
+
+
+Step2: definition of generations.
+The first generation consists of the start point.
+The nth generation consists of points which are in the around vector of \
+    a point in the (n-1)th generation and not in previous generations.
+
+Step3: assign distance to each points:
+1: the distance of start point with start point is ofcouse 0.
+2: Suppose we have assigned the distance for each points in the (n-1)th generation.
+Next, we need to compute the distance of each point in the nth generation. 
+To make the distance small enough, we start from the points which are connected to \
+    the point with the minimum distance in the (n-1)th generation.
+
+Step4: search path reversly.
+We begin with the end point. We consider the around vector of the end point and \
+    choose the point which has the minimum distance in the around vector. 
+Let this point be the new end point. 
+After that we begin with the new end point and consider it around vector.
+We continue to do this procejure untail we find the start point.
+There is one special case. Note that the initialization of distance is -1.
+If the distance of the end point is -1, it means that it hasn't been reached. 
+In this case the path is set to be empty.
 */
 #include "graph.h"
 
@@ -24,10 +59,10 @@ Graph::Graph(const std::vector<std::vector<int> > M){
             tn->_x=i; 
             tn->_y=j;
             if(M[i][j]==0){
-                tn->_color=white;
+                tn->_color=kWhite;
             }
             if(M[i][j]==1){
-                tn->_color=black;
+                tn->_color=kBlack;
             }
             tmp.push_back(tn);
         }
@@ -45,7 +80,7 @@ bool Graph::checkJump(Coordinate c1, Coordinate c2){
     if(!c2.checkIn(_xmax,_ymax)){
         return false;
     }
-    if(_nodes[c1._x][c1._y]->_color==black || _nodes[c2._x][c2._y]->_color==black){
+    if(_nodes[c1._x][c1._y]->_color==kBlack || _nodes[c2._x][c2._y]->_color==kBlack){
         return false;
     }
     if(c1.connectDist(c2)==0){ 
@@ -54,10 +89,10 @@ bool Graph::checkJump(Coordinate c1, Coordinate c2){
     if(c1.connectDist(c2)==10){
         return true;
     }
-    if(_nodes[c1._x][c2._y]->_color==white){
+    if(_nodes[c1._x][c2._y]->_color==kWhite){
         return true;
     }
-    if(_nodes[c2._x][c1._y]->_color==white){
+    if(_nodes[c2._x][c1._y]->_color==kWhite){
         return true;
     }
     return false;
@@ -185,8 +220,8 @@ void Graph::assignAllDist(Coordinate start,Coordinate end){
             std::vector<Coordinate> c_ar=get_around(c);
             if(c_ar.size()!=0){
                 for(std::vector<Coordinate>::iterator it=c_ar.begin(); it!=c_ar.end();++it){
-                    if((*it).chekcInVec(nt)){
-                        if(!(*it).chekcInVec(ctt)&& get_dist(*it)==-1){
+                    if((*it).checkInVec(nt)){
+                        if(!(*it).checkInVec(ctt)&& get_dist(*it)==-1){
                             ctt.push_back(*it);
                         }
                         int dd=c.connectDist(*it);
@@ -212,7 +247,7 @@ void Graph::printAlldist(){
     for(int i=0; i<_xmax;++i){
         for(int j=0; j<_ymax; ++j){
             Coordinate tmp(i,j);
-            printf("dist(%d,%d)=%d   ",i,j,get_dist(tmp));
+            printf("(%d,%d)%d   ",i,j,get_dist(tmp));
         }
         printf("\n");
     }
@@ -248,10 +283,10 @@ std::vector<Coordinate> Graph::reverseSearch(Coordinate start,Coordinate end){
 void Graph::printGraph(){
     for (int i=0; i<_xmax; ++i){
         for(int j=0; j<_ymax;++j){
-            if(_nodes[i][j]->_color==white){
+            if(_nodes[i][j]->_color==kWhite){
                 printf("color=white (%d,%d)->>>",i,j);
             }
-            if(_nodes[i][j]->_color==black){
+            if(_nodes[i][j]->_color==kBlack){
                 printf("color=black (%d,%d)->>>",i,j);
             }
             Coordinate c(i,j);
