@@ -1,6 +1,5 @@
 set(sources
     src/astar.cpp
-    src/pathsolver.cpp
     src/map2d.cpp
     test/src/tmp_test.cpp
 )

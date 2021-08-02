@@ -19,7 +19,8 @@ set(test_sources
   src/tmp_test.cpp
 )
 add_executable(${PROJECT_NAME} ${test_sources})
-# add_executable( ${test_sources})
+
+
 #
 # Set the compiler standard
 #

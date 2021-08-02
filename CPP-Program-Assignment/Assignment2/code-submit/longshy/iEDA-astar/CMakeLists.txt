@@ -279,16 +279,6 @@ message(STATUS "Finished building requirements for installing the package.\n")
 #
 # Unit testing setup
 #
-include_directories(${PROJECT_SOURCE_DIR}/include)
-set(SRC 
-    ${PROJECT_SOURCE_DIR}/src/main.cpp
-)
-add_library(main
-    ${SRC}
-)
-link_libraries(main)
-add_executable(Demonstration ${PROJECT_SOURCE_DIR}/src/main.cpp)
-
 
 if(${PROJECT_NAME}_ENABLE_UNIT_TESTING)
   enable_testing()
@@ -296,3 +286,13 @@ if(${PROJECT_NAME}_ENABLE_UNIT_TESTING)
   add_subdirectory(test)
 endif()
 
+
+include_directories(${PROJECT_SOURCE_DIR}/include/project)
+
+add_library(astar
+src/astar.cpp
+src/main.cpp
+src/map2d.cpp
+)
+add_executable(main src/main.cpp)
+target_link_libraries(main astar)
