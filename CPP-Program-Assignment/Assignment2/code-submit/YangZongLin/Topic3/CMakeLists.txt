@@ -10,8 +10,6 @@ include_directories("include")
 
 add_library(modelLib src/Model.cpp)
 
-add_executable(testExe test/sample.cpp src/Model.cpp)
-
 add_executable(gtestExe test/gtest.cpp src/Model.cpp)
 
 target_link_libraries(gtestExe libgtest.a libgtest_main.a pthread)

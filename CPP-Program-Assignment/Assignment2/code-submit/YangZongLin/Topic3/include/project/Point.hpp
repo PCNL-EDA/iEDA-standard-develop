@@ -10,18 +10,14 @@
 #define PROJECT_POINT_HPP_
 
 namespace astar {
+/**
+ * @class Point
+ * @brief This class is an abstraction of the lattices on the map
+ */
 class Point {
- private:
-  int _x = 0;
-  int _y = 0;
-  bool _obstacle_status = false;
-  int _have_cost = 0;
-  int _need_cost = 0;
-  int _cost = 0;
-
  public:
-  Point() {}
-  ~Point() {}
+  Point() = default;
+  ~Point() = default;
 
   void operator=(const Point& point) {
     _x = point._x;
@@ -50,6 +46,15 @@ class Point {
   void set_have_cost(int cost) { _have_cost = cost; }
   void set_need_cost(int cost) { _need_cost = cost; }
   void set_cost(int cost) { _cost = cost; }
+
+ private:
+  int _x = 0;                    /**< Ordinate of the lattice */
+  int _y = 0;                    /**< Abscissa of the lattice */
+  bool _obstacle_status = false; /**< Are there any obstacles at this lattice */
+  int _have_cost = 0; /**< Distance to go from the start point to the grid */
+  int _need_cost =
+      0;         /**< Estimate the distance to go from the grid to the end */
+  int _cost = 0; /** Sum of _have_cost and _need_cost */
 };
 }  // namespace astar
 
