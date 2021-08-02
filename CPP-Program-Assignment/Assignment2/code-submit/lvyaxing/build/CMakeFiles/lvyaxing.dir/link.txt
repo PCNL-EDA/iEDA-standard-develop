@@ -1,2 +1,0 @@
-/bin/ar qc liblvyaxing.a  CMakeFiles/lvyaxing.dir/src/AStar.cpp.o CMakeFiles/lvyaxing.dir/src/Map.cpp.o
-/bin/ranlib liblvyaxing.a

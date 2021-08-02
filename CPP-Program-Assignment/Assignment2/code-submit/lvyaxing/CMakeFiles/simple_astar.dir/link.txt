@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/simple_astar.dir/test/simple_astar.cpp.o CMakeFiles/simple_astar.dir/src/AStar.cpp.o CMakeFiles/simple_astar.dir/src/Map.cpp.o  -o bin/simple_astar 
