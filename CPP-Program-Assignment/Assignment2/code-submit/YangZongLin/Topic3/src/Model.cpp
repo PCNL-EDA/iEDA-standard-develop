@@ -24,7 +24,7 @@ std::list<Point>& Model::findBestWay() {
     else
       continueFindWay();  // Didn't reached the end point,Continue find way
   }
-  _close_list.clear();    // Can't find a way reach the end point
+  _close_list.clear();    // Can't find a way reach the end point.
   return getCloseList();  // Return the empty list
 }
 
