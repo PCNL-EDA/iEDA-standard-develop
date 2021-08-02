@@ -23,8 +23,6 @@ int main() {
   astar_proc.setObstacleNode({ {0, 4}, {0, 5}, {0, 6}, {0, 7},
                                {1, 5}, {1, 6}, {1, 7}, {2, 0},
                                {2, 1}, {2, 3}, {2, 4}, {3, 0} });
-
-  //astar_proc.printMap();
   bool findPath = astar_proc.findPath();
   if (findPath) {
     astar_proc.printPath(astar_proc.get_curr_node());

@@ -75,11 +75,46 @@ bool Process::isLegalNeighbor(int x, int y) {
              (0 <= y && y < _gridmap.get_col_num());
 }
 
+/**
+ * @brief     The path cost of the movement in the diagonal direction is defined as 1.44, 
+ *            and the cost of the movement in the horizontal and vertical directions is defined as 1.
+ * @param     the pointer to neighbor node.
+ * @return    the path cost.
+ *            
+ */ 
+double Process::getCostCurrToNeighbor(Node* neighbor) {
+  double x_offset = abs(neighbor->get_index_x() - _curr_node->get_index_x());
+  double y_offset = abs(neighbor->get_index_y() - _curr_node->get_index_y());
+  double cost_offset = x_offset + y_offset;
+  if (cost_offset == static_cast<double>(1)) {
+    return static_cast<double> (1);
+  } else {
+    return static_cast<double> (1.44);
+  }
+}
+
+/**
+ * @details     The path cost from the starting point to the neighboring node through the current node, 
+ *              and the path cost saved by the neighboring node. 
+ *              If the former is less than the latter, it returns true, otherwise it returns false.
+ * @param       neighbor type Node *
+ * @return      true or false     
+ */ 
+bool Process::isBetterParentByCurr(Node* neighbor) {
+  double cost_Curr_Nei = getCostCurrToNeighbor(neighbor);
+  if (_curr_node->get_start_cost() + cost_Curr_Nei <
+      neighbor->get_start_cost()) {
+    return true;
+  }
+  return false;
+}
+
 void Process::inviteNeighborByCur(std::vector<Node*>& neighborList) {
   int x = _curr_node->get_index_x();
   int y = _curr_node->get_index_y();
-  std::vector<std::pair<int, int>> offsetList = {{1, 0}, {-1, 0}, {0, 1}, {0, -1},
-                                                  {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
+  std::vector<std::pair<int, int>> offsetList = {
+                        {1, 0}, {-1, 0}, {0, 1}, {0, -1},
+                        {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
   for (int i = 0; i < offsetList.size(); i++) {
     int neigh_x = x + offsetList[i].first;
     int neigh_y = y + offsetList[i].second;
@@ -89,10 +124,15 @@ void Process::inviteNeighborByCur(std::vector<Node*>& neighborList) {
   }
 }
 
-void Process::updateNeighbor(Node* node) {    // no use now
+void Process::updateNeighborParent(Node* node) {    // no use now
   node->set_parent(_curr_node);
 }
 
+/**
+ * @brief     push neighbor node of current-node in _openlist \n
+ *            if the neighbor node meet the conditions.
+ * @note      the call sort of other function in addNeighborToOPen.
+ */ 
 void Process::addNeighborToOpen() {
   std::vector<Node*> neighborList;
   inviteNeighborByCur(neighborList);
@@ -101,8 +141,20 @@ void Process::addNeighborToOpen() {
     if (isInCloseList(neighbor) || isObsNode(neighbor)) {
       continue;
     }
-    if (!isInOpenlist(neighbor)) {
-      neighbor->set_cost_start(_curr_node->get_start_cost() + 1);   //update cost from start to current
+    ///< if the neighnor node included in openlist,
+    ///< judge the cost from start to neighbor,modify the value
+    if (isInOpenlist(neighbor)) {
+      if (isBetterParentByCurr(neighbor)) {
+        double curr_cost = getCostCurrToNeighbor(neighbor);
+        double cost_start_to_curr = curr_cost + _curr_node->get_start_cost();
+        neighbor->set_cost_start(cost_start_to_curr);
+        neighbor->updateTotalCost();
+        updateNeighborParent(_curr_node);
+      }
+    } else {
+      ///< neighbor node out of openlist,
+      ///< new instance and assign values,then push into openlist
+      neighbor->set_cost_start(_curr_node->get_start_cost() + 1);
       double costToEnd = std::abs(_end_node->get_index_x() - neighbor->get_index_x()) +
                           std::abs(_end_node->get_index_y() - neighbor->get_index_y());
       neighbor->set_cost_end(costToEnd);
@@ -112,14 +164,21 @@ void Process::addNeighborToOpen() {
 
       _openlist.push_back(neighbor);
     }
-
   }
 }
 
-bool compare(Node* n1, Node* n2) { 
-  return n1->get_total_cost() < n2->get_total_cost(); 
+bool compare(Node* n1, Node* n2) {
+  return n1->get_total_cost() < n2->get_total_cost();
 }
 
+/**
+ * @brief     find the optimal path by using a-star algorithm.
+ * @details   in the step, push the _start_node in _openlist, the _start_node is the min-cost node,
+ *            get its neighbor nodes in a vectoer container, then call the sort function operator _openlist.
+ *            erase the _start_node from openlist, add _start_node to path.
+ *            repeat the operation if _openlist is not empty, if find _end_node, return true, if not return false;
+ * @return    true or false
+ */ 
 bool Process::findPath() {
   _openlist.push_back(_start_node);
   bool findPath = false;
@@ -129,12 +188,15 @@ bool Process::findPath() {
       findPath = true;
       break;
     }
+    ///< push neighbor node of current-node in _openlist
     addNeighborToOpen();
     ///< closeList add, openlist.erase(cur_node)
     _curr_node->set_state(NodeState::kClose);
     _openlist.erase(_openlist.begin());
-
-    std::sort(_openlist.begin(), _openlist.end(), astar::compare);  ///<
+    ///< using the lambda function instead of compare function
+    std::sort(_openlist.begin(), _openlist.end(), [](Node* n1, Node* n2) {
+      return n1->get_total_cost() < n2->get_total_cost();
+    });
   }
   return findPath;
 }
@@ -165,9 +227,18 @@ void Process::printMap() {
 }
 
 void Process::destoryProcess() {
-  _start_node = nullptr;
-  _end_node = nullptr;
-  _curr_node = nullptr;
+  if (_start_node != nullptr) {
+    delete _start_node;
+    _start_node = nullptr;
+  }
+  if (_end_node != nullptr) {
+    delete _end_node;
+    _end_node = nullptr;
+  }
+  if (_curr_node != nullptr) {
+    delete _curr_node;
+    _curr_node = nullptr;
+  }
 }
 
 }  // namespace astar

@@ -25,6 +25,12 @@ enum class NodeState {
   kClose = 2
 };
 
+ /**
+   * @class     Node
+   * @brief     a Node instance stores all kinds information needed by A-star algorithm,\n
+   *            including the Node' index in the mapArr and cost variables such as g,h,f, \n
+   *            and the pointer variable parent designed to find the shortest path.
+  */
 class Node {
  public:
   Node() {}   ///< non-need param-constructor
@@ -49,7 +55,8 @@ class Node {
   void set_cost_end(const double cost_end) { _curr_end_cost = cost_end; }
   void set_total_cost(const double cost_path) { _total_cost = cost_path; }
   ///< function
-  
+  void updateTotalCost() { _total_cost = _curr_start_cost + _curr_end_cost; }
+
  private:
   int _index_x = 0;
   int _index_y = 0;

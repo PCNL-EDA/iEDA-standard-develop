@@ -11,12 +11,19 @@
 #include <vector>
 #include <utility>
 
-#ifndef CODE_SUBMIT_INCLUDE_PROCESS_H_
-#define CODE_SUBMIT_INCLUDE_PROCESS_H_
+#ifndef CODE_SUBMIT_LIUJIKANG_INCLUDE_PROCESS_H_
+#define CODE_SUBMIT_LIUJIKANG_INCLUDE_PROCESS_H_
 namespace astar {
+
+ /**
+   * @class     Process
+   * @brief     a Process instance stores all functions needed by A-start algorithm,\n
+   *            including the function of initializing the grid Map and performing the optimal path finding function, 
+   *            and the path output function.
+  */
 class Process {
  public:
-  Process() {}
+  Process() = default;
   ~Process() { destoryProcess(); }
 
   ///< getter
@@ -40,8 +47,10 @@ class Process {
   void sortOpenlist();
 
   bool isLegalNeighbor(int x, int y);
+  double getCostCurrToNeighbor(Node* neighbor);
+  bool isBetterParentByCurr(Node* neighbor);
   void inviteNeighborByCur(std::vector<Node*>& neighborList);
-  void updateNeighbor(Node* node);
+  void updateNeighborParent(Node* node);
   void addNeighborToOpen();
 
   bool findPath();
@@ -58,4 +67,4 @@ class Process {
 
 }  // namespace astar
 
-#endif  // CODE_SUBMIT_INCLUDE_PROCESS_H_
+#endif  // CODE_SUBMIT_LIUJIKANG_INCLUDE_PROCESS_H_
