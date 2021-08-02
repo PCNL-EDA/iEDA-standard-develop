@@ -111,30 +111,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named gtest1
+# Target rules for targets named simple_astar_test
 
 # Build rule for target.
-gtest1: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gtest1
-.PHONY : gtest1
+simple_astar_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 simple_astar_test
+.PHONY : simple_astar_test
 
 # fast build rule for target.
-gtest1/fast:
-	$(MAKE) -f CMakeFiles/gtest1.dir/build.make CMakeFiles/gtest1.dir/build
-.PHONY : gtest1/fast
+simple_astar_test/fast:
+	$(MAKE) -f CMakeFiles/simple_astar_test.dir/build.make CMakeFiles/simple_astar_test.dir/build
+.PHONY : simple_astar_test/fast
 
 #=============================================================================
-# Target rules for targets named test1
+# Target rules for targets named simple_astar
 
 # Build rule for target.
-test1: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test1
-.PHONY : test1
+simple_astar: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 simple_astar
+.PHONY : simple_astar
 
 # fast build rule for target.
-test1/fast:
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/build
-.PHONY : test1/fast
+simple_astar/fast:
+	$(MAKE) -f CMakeFiles/simple_astar.dir/build.make CMakeFiles/simple_astar.dir/build
+.PHONY : simple_astar/fast
 
 src/AStar.o: src/AStar.cpp.o
 
@@ -142,8 +142,8 @@ src/AStar.o: src/AStar.cpp.o
 
 # target to build an object file
 src/AStar.cpp.o:
-	$(MAKE) -f CMakeFiles/gtest1.dir/build.make CMakeFiles/gtest1.dir/src/AStar.cpp.o
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/AStar.cpp.o
+	$(MAKE) -f CMakeFiles/simple_astar_test.dir/build.make CMakeFiles/simple_astar_test.dir/src/AStar.cpp.o
+	$(MAKE) -f CMakeFiles/simple_astar.dir/build.make CMakeFiles/simple_astar.dir/src/AStar.cpp.o
 .PHONY : src/AStar.cpp.o
 
 src/AStar.i: src/AStar.cpp.i
@@ -152,8 +152,8 @@ src/AStar.i: src/AStar.cpp.i
 
 # target to preprocess a source file
 src/AStar.cpp.i:
-	$(MAKE) -f CMakeFiles/gtest1.dir/build.make CMakeFiles/gtest1.dir/src/AStar.cpp.i
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/AStar.cpp.i
+	$(MAKE) -f CMakeFiles/simple_astar_test.dir/build.make CMakeFiles/simple_astar_test.dir/src/AStar.cpp.i
+	$(MAKE) -f CMakeFiles/simple_astar.dir/build.make CMakeFiles/simple_astar.dir/src/AStar.cpp.i
 .PHONY : src/AStar.cpp.i
 
 src/AStar.s: src/AStar.cpp.s
@@ -162,8 +162,8 @@ src/AStar.s: src/AStar.cpp.s
 
 # target to generate assembly for a file
 src/AStar.cpp.s:
-	$(MAKE) -f CMakeFiles/gtest1.dir/build.make CMakeFiles/gtest1.dir/src/AStar.cpp.s
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/AStar.cpp.s
+	$(MAKE) -f CMakeFiles/simple_astar_test.dir/build.make CMakeFiles/simple_astar_test.dir/src/AStar.cpp.s
+	$(MAKE) -f CMakeFiles/simple_astar.dir/build.make CMakeFiles/simple_astar.dir/src/AStar.cpp.s
 .PHONY : src/AStar.cpp.s
 
 src/Map.o: src/Map.cpp.o
@@ -172,8 +172,8 @@ src/Map.o: src/Map.cpp.o
 
 # target to build an object file
 src/Map.cpp.o:
-	$(MAKE) -f CMakeFiles/gtest1.dir/build.make CMakeFiles/gtest1.dir/src/Map.cpp.o
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/Map.cpp.o
+	$(MAKE) -f CMakeFiles/simple_astar_test.dir/build.make CMakeFiles/simple_astar_test.dir/src/Map.cpp.o
+	$(MAKE) -f CMakeFiles/simple_astar.dir/build.make CMakeFiles/simple_astar.dir/src/Map.cpp.o
 .PHONY : src/Map.cpp.o
 
 src/Map.i: src/Map.cpp.i
@@ -182,8 +182,8 @@ src/Map.i: src/Map.cpp.i
 
 # target to preprocess a source file
 src/Map.cpp.i:
-	$(MAKE) -f CMakeFiles/gtest1.dir/build.make CMakeFiles/gtest1.dir/src/Map.cpp.i
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/Map.cpp.i
+	$(MAKE) -f CMakeFiles/simple_astar_test.dir/build.make CMakeFiles/simple_astar_test.dir/src/Map.cpp.i
+	$(MAKE) -f CMakeFiles/simple_astar.dir/build.make CMakeFiles/simple_astar.dir/src/Map.cpp.i
 .PHONY : src/Map.cpp.i
 
 src/Map.s: src/Map.cpp.s
@@ -192,63 +192,63 @@ src/Map.s: src/Map.cpp.s
 
 # target to generate assembly for a file
 src/Map.cpp.s:
-	$(MAKE) -f CMakeFiles/gtest1.dir/build.make CMakeFiles/gtest1.dir/src/Map.cpp.s
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/Map.cpp.s
+	$(MAKE) -f CMakeFiles/simple_astar_test.dir/build.make CMakeFiles/simple_astar_test.dir/src/Map.cpp.s
+	$(MAKE) -f CMakeFiles/simple_astar.dir/build.make CMakeFiles/simple_astar.dir/src/Map.cpp.s
 .PHONY : src/Map.cpp.s
 
-test/gtest.o: test/gtest.cpp.o
+test/simple_astar.o: test/simple_astar.cpp.o
 
-.PHONY : test/gtest.o
-
-# target to build an object file
-test/gtest.cpp.o:
-	$(MAKE) -f CMakeFiles/gtest1.dir/build.make CMakeFiles/gtest1.dir/test/gtest.cpp.o
-.PHONY : test/gtest.cpp.o
-
-test/gtest.i: test/gtest.cpp.i
-
-.PHONY : test/gtest.i
-
-# target to preprocess a source file
-test/gtest.cpp.i:
-	$(MAKE) -f CMakeFiles/gtest1.dir/build.make CMakeFiles/gtest1.dir/test/gtest.cpp.i
-.PHONY : test/gtest.cpp.i
-
-test/gtest.s: test/gtest.cpp.s
-
-.PHONY : test/gtest.s
-
-# target to generate assembly for a file
-test/gtest.cpp.s:
-	$(MAKE) -f CMakeFiles/gtest1.dir/build.make CMakeFiles/gtest1.dir/test/gtest.cpp.s
-.PHONY : test/gtest.cpp.s
-
-test/test.o: test/test.cpp.o
-
-.PHONY : test/test.o
+.PHONY : test/simple_astar.o
 
 # target to build an object file
-test/test.cpp.o:
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/test/test.cpp.o
-.PHONY : test/test.cpp.o
+test/simple_astar.cpp.o:
+	$(MAKE) -f CMakeFiles/simple_astar.dir/build.make CMakeFiles/simple_astar.dir/test/simple_astar.cpp.o
+.PHONY : test/simple_astar.cpp.o
 
-test/test.i: test/test.cpp.i
+test/simple_astar.i: test/simple_astar.cpp.i
 
-.PHONY : test/test.i
+.PHONY : test/simple_astar.i
 
 # target to preprocess a source file
-test/test.cpp.i:
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/test/test.cpp.i
-.PHONY : test/test.cpp.i
+test/simple_astar.cpp.i:
+	$(MAKE) -f CMakeFiles/simple_astar.dir/build.make CMakeFiles/simple_astar.dir/test/simple_astar.cpp.i
+.PHONY : test/simple_astar.cpp.i
 
-test/test.s: test/test.cpp.s
+test/simple_astar.s: test/simple_astar.cpp.s
 
-.PHONY : test/test.s
+.PHONY : test/simple_astar.s
 
 # target to generate assembly for a file
-test/test.cpp.s:
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/test/test.cpp.s
-.PHONY : test/test.cpp.s
+test/simple_astar.cpp.s:
+	$(MAKE) -f CMakeFiles/simple_astar.dir/build.make CMakeFiles/simple_astar.dir/test/simple_astar.cpp.s
+.PHONY : test/simple_astar.cpp.s
+
+test/simple_astar_test.o: test/simple_astar_test.cpp.o
+
+.PHONY : test/simple_astar_test.o
+
+# target to build an object file
+test/simple_astar_test.cpp.o:
+	$(MAKE) -f CMakeFiles/simple_astar_test.dir/build.make CMakeFiles/simple_astar_test.dir/test/simple_astar_test.cpp.o
+.PHONY : test/simple_astar_test.cpp.o
+
+test/simple_astar_test.i: test/simple_astar_test.cpp.i
+
+.PHONY : test/simple_astar_test.i
+
+# target to preprocess a source file
+test/simple_astar_test.cpp.i:
+	$(MAKE) -f CMakeFiles/simple_astar_test.dir/build.make CMakeFiles/simple_astar_test.dir/test/simple_astar_test.cpp.i
+.PHONY : test/simple_astar_test.cpp.i
+
+test/simple_astar_test.s: test/simple_astar_test.cpp.s
+
+.PHONY : test/simple_astar_test.s
+
+# target to generate assembly for a file
+test/simple_astar_test.cpp.s:
+	$(MAKE) -f CMakeFiles/simple_astar_test.dir/build.make CMakeFiles/simple_astar_test.dir/test/simple_astar_test.cpp.s
+.PHONY : test/simple_astar_test.cpp.s
 
 # Help Target
 help:
@@ -258,20 +258,20 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... gtest1"
-	@echo "... test1"
+	@echo "... simple_astar_test"
+	@echo "... simple_astar"
 	@echo "... src/AStar.o"
 	@echo "... src/AStar.i"
 	@echo "... src/AStar.s"
 	@echo "... src/Map.o"
 	@echo "... src/Map.i"
 	@echo "... src/Map.s"
-	@echo "... test/gtest.o"
-	@echo "... test/gtest.i"
-	@echo "... test/gtest.s"
-	@echo "... test/test.o"
-	@echo "... test/test.i"
-	@echo "... test/test.s"
+	@echo "... test/simple_astar.o"
+	@echo "... test/simple_astar.i"
+	@echo "... test/simple_astar.s"
+	@echo "... test/simple_astar_test.o"
+	@echo "... test/simple_astar_test.i"
+	@echo "... test/simple_astar_test.s"
 .PHONY : help
 
 

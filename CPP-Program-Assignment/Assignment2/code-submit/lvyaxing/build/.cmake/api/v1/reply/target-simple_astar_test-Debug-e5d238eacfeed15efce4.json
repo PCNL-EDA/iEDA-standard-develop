@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/bin/test1"
+			"path" : "/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing/bin/simple_astar_test"
 		}
 	],
 	"backtrace" : 1,
@@ -25,7 +25,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 7,
+				"line" : 8,
 				"parent" : 0
 			},
 			{
@@ -61,7 +61,7 @@
 			]
 		}
 	],
-	"id" : "test1::@6890427a1f51a3e7e1df",
+	"id" : "simple_astar_test::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -73,12 +73,32 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
+			},
+			{
+				"fragment" : "-Wl,-Bstatic",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgtest",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgtest_main",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-Wl,-Bdynamic",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lpthread",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
-	"name" : "test1",
-	"nameOnDisk" : "test1",
+	"name" : "simple_astar_test",
+	"nameOnDisk" : "simple_astar_test",
 	"paths" : 
 	{
 		"build" : ".",
@@ -101,7 +121,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "test/test.cpp",
+			"path" : "test/simple_astar_test.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

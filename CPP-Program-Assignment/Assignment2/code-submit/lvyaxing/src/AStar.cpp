@@ -36,7 +36,7 @@ namespace MyAStar{
      */
      int AStar::calcH(Node *node, Node *goal)
 	 {
-	     double a=abs(goal->get_x() - node->get_x())+ abs(goal->get_y() - node->get_y());///<Hamiltonian distance
+	     double a=abs(goal->get_x() - node->get_x())+ abs(goal->get_y() - node->get_y());///<Manhattan distance
          return a*kCost1;
      }
     /**
@@ -51,10 +51,10 @@ namespace MyAStar{
      }
     /**
      * @brief Find the node with the smallest F value around the node
-     * @fn getNearestnode
+     * @fn getNearestNode
      * @return Node* 
      */
-     Node *AStar::getNearestnode()
+     Node *AStar::getNearestNode()
      {
 	     if (!_open_list.empty())
 		 {
@@ -72,12 +72,12 @@ namespace MyAStar{
      }
     /**
      * @brief Determine whether a node is in the list
-     * @fn isInlist 
+     * @fn isInList 
      * @param list 
      * @param node 
      * @return Node* 
      */
-     Node *AStar::isInlist(const std::list<Node *> &list, const Node *node) const
+     Node *AStar::isInList(const std::list<Node *> &list, const Node *node) const
 	 {
 		 for (Node* p : list)
 		 {
@@ -91,20 +91,32 @@ namespace MyAStar{
  
     /**
      * @brief Judge whether two nodes are reachable
-     * @fn isCanreach
+     * @fn isCanReach
      * @param node 
      * @param target 
      * @param isIgnoreCorner 
      * @return true 
      * @return false 
      */
-     bool AStar::isCanreach(const Node *node, const Node *target, bool isIgnoreCorner) const
+     bool AStar::isCanReach(const Node *node, const Node *target, bool isIgnoreCorner) const
 	 {    
-		 if (target->get_x()<0 || target->get_x()>_obstacle_list.size()-1
-		|| target->get_y()<0 || target->get_y()>_obstacle_list[0].size() - 1
-		||_obstacle_list[target->get_x()][target->get_y()] == 1
-		|| (target->get_y() == node->get_y()&&target->get_y()== node->get_y())
-		|| isInlist(_close_list, target))
+		 if (target->get_x()<0 || target->get_x()>_obstacle_list.size()-1)
+		 {
+			 return false;
+		 }
+		 if (target->get_y()<0 || target->get_y()>_obstacle_list[0].size() - 1)
+		  {
+			 return false;
+		 }
+		 if (_obstacle_list[target->get_x()][target->get_y()] == 1)
+		  {
+			 return false;
+		 }
+		 if (target->get_y() == node->get_y()&&target->get_y()== node->get_y())
+		  {
+			 return false;
+		 }
+		 if (isInList(_close_list, target))
 		{ 
 		return false;
 		}
@@ -131,23 +143,25 @@ namespace MyAStar{
      }  
     /**
      * @brief Find the reachable nodes around the specified node
-     * @fn getNearnodes
+     * @fn getNearNodes
      * @param node 
      * @param isIgnoreCorner 
      * @return vector<Node *> 
      */
-     std::vector<Node *> AStar::getNearnodes(const Node *node, bool isIgnoreCorner) const
+     std::vector<Node *> AStar::getNearNodes(const Node *node, bool isIgnoreCorner)
 	 {
 		 std::vector<Node *> Nearnodes;
 		 for (int i = node->get_x() - 1&&i>0; i<= node->get_x()+ 1; i++)
 		 {
 			 for (int j = node->get_y() - 1&&j>0; j<= node->get_y()+ 1; j++)
-			 {
-				 if (isCanreach(node, new Node(i, j), isIgnoreCorner))
+			 {      
+				  _curr_node =new Node(i,j);
+				 if (isCanReach(node, _curr_node, isIgnoreCorner))
 				 {
-					 Nearnodes.push_back(new Node(i, j));
+					 Nearnodes.push_back(_curr_node);
 	             }
 	         }
+			
 	     }
          return Nearnodes;
      } 
@@ -161,19 +175,20 @@ namespace MyAStar{
      */
      Node *AStar::findPath(Node &startNode, Node &goalNode, bool isIgnoreCorner)
 	 {   ///<Put in the starting node, copy a starting node, and start looking for the path
-		 _open_list.push_back(new Node(startNode.get_x(), startNode.get_y()));
+	      _curr_node =new Node(startNode.get_x(), startNode.get_y());
+		 _open_list.push_back(_curr_node);
 		 while (!_open_list.empty())
 		 {
-			 Node* curNode =getNearestnode(); ///<Find the node with the smallest F value
+			 Node* curNode =getNearestNode(); ///<Find the node with the smallest F value
 			 _open_list.remove(curNode); ///<Remove from open list
 			 _close_list.push_back(curNode); ///<Drop to close list
 			 //1.Find the nodes that can pass through the current eight surrounding nodes
-			 std::vector<Node*> surroundNodes = getNearnodes(curNode, isIgnoreCorner);
+			 std::vector<Node*> surroundNodes = getNearNodes(curNode, isIgnoreCorner);
 			 for (Node *target : surroundNodes)
 			 {
 				 //2,For a node, if it is not in the open list, add it to the open list, 
 				 //  set the current node as its parent node, and calculate F G H
-				 if (!isInlist(_open_list, target))
+				 if (!isInList(_open_list, target))
 				 {
 					 target->set_parent_node(curNode);
 					 target->set_G(calcG(curNode, target));
@@ -194,7 +209,7 @@ namespace MyAStar{
 					     target->set_F(calcF(target));
 				     }
 			     }
-			     Node *resNode = isInlist(_open_list, &goalNode);///<Judge whether the goal node is in the open list
+			     Node *resNode = isInList(_open_list, &goalNode);///<Judge whether the goal node is in the open list
 			     if (resNode)
 				 {
 					 return resNode; ///<Return the node pointer in the list
@@ -226,5 +241,19 @@ namespace MyAStar{
 	     _close_list.clear();
          return path;
      }
+	 /**
+	  * @brief release space
+	  * @fn free
+	  */
+	 void AStar::free()
+	 {
+       if(_start_node!=nullptr)
+			delete _start_node;
+			if(_goal_node!=nullptr)
+			delete _goal_node;
+			if(_curr_node!=nullptr)
+			delete _curr_node;
+     }
+
 	 
 }// namespace MyAStar

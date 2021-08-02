@@ -29,18 +29,23 @@ namespace MyAStar{
 	{
 		public:
 		AStar(const std::vector<std::vector<int>>&_obstacle):_obstacle_list(_obstacle){}
-	    ~AStar(){}
+	    ~AStar(){
+			free();
+			}
 	    std::list<Node*>getPath(Node &startNode,Node &goalNode,bool isIgnoreCorner);
-	    private:
 	    int calcG(Node*start,Node*node);
 	    int calcH(Node*node,Node*goal);
 	    int calcF(Node*node);
 	    Node* findPath(Node &startNode,Node &goalNode,bool isIgnoreCorner);
-	    std::vector<Node*>getNearnodes(const Node *node,bool isIgnoreCorner)const;
-	    bool isCanreach(const Node*node,const Node*goal,bool isIgnoreCorner)const;
-	    Node *isInlist (const std::list <Node*>&list,const Node*node)const;
-	    Node *getNearestnode();
-	    Node* _start_node,*_goal_node;
+	    std::vector<Node*>getNearNodes(const Node *node,bool isIgnoreCorner);
+	    bool isCanReach(const Node*node,const Node *goal,bool isIgnoreCorner)const;
+	    Node *isInList (const std::list <Node*>&list,const Node*node)const;
+	    Node *getNearestNode();
+        void free();
+		private:
+	    Node *_start_node=nullptr;
+		Node *_goal_node=nullptr;
+		Node *_curr_node=nullptr;
 	    std::vector<std::vector<int>>_obstacle_list;
 	    std::list<Node*>_open_list;
 	    std::list<Node*>_close_list;

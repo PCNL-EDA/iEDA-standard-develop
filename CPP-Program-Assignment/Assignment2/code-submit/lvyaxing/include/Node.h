@@ -20,7 +20,14 @@ namespace MyAStar {
 	{
 		public:
 	    Node(int a,int b):_x(a),_y(b),_F(0),_G(0),_H(0),_parent_node(nullptr){}
-        ~Node(){_parent_node = nullptr; }
+        ~Node(){
+			if(_parent_node!=nullptr)
+			{
+		        delete _parent_node;
+			}
+		}	
+		void set_x(int x){_x=x;}
+		void set_y(int y){_y=y;}
 	    int get_x()const{return _x;}
 	    int get_y()const{return _y;}
 		void set_F(int f){_F=f;}

@@ -10,7 +10,7 @@
  */
 #ifndef _INCLUDE_MAP_H_
 #define _INCLUDE_MAP_H_
-#include"malloc.h"
+//#include"malloc.h"
 #include"Coordinate.h"
 #include <vector>
 namespace MyAStar {

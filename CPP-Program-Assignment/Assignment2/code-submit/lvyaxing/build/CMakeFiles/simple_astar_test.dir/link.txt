@@ -1,0 +1,1 @@
+/bin/x86_64-linux-gnu-g++-9  -g   CMakeFiles/simple_astar_test.dir/test/simple_astar_test.cpp.o CMakeFiles/simple_astar_test.dir/src/AStar.cpp.o CMakeFiles/simple_astar_test.dir/src/Map.cpp.o  -o ../bin/simple_astar_test  -Wl,-Bstatic -lgtest -lgtest_main -Wl,-Bdynamic -lpthread 

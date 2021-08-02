@@ -22,7 +22,7 @@ namespace MyAStar{
         {
             for(int k=1;k<=obstacle.size();k++)
             {
-                map[obstacle[k-1].get_y()][obstacle[k-1].get_x()]=1;
+                map[obstacle[k-1].get_x()][obstacle[k-1].get_y()]=1;
             }
             return map;
         }

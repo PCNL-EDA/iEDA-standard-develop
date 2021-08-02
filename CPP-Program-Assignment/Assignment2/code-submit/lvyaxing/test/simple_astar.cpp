@@ -22,18 +22,19 @@
  */
 int main(){
   MyAStar::Map a(4,8);
-  std::vector<std::vector<int>>obstacle_list=a.getMap({{0, 2},
-                                                       {0, 3},
-                                                       {1, 2},
-                                                       {3, 2},
-                                                       {4, 0},
-                                                       {4, 2},
-                                                       {5, 0},
-                                                       {5, 1},
-                                                       {6, 0},
-                                                       {6, 1},
-                                                       {7, 0},
-                                                       {7, 1}});
+  std::vector<std::vector<int>>obstacle_list=a.getMap({{2,0},
+                                                       {3,0},
+                                                       {2,1},
+                                                       {2,3},
+                                                       {0,4},
+                                                       {2,4},
+                                                       {0,5},
+                                                       {1,5},
+                                                       {0,6},
+                                                       {1,6},
+                                                       {0,7},
+                                                       {1,7}});
+
 
   ///<Set start and end node
   MyAStar::Node start_node(0,0);

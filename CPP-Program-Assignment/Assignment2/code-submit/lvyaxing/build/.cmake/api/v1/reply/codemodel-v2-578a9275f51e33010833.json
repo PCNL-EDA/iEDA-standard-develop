@@ -39,16 +39,16 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "gtest1::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-gtest1-Debug-ca03c5e93cca3377fa40.json",
-					"name" : "gtest1",
+					"id" : "simple_astar::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-simple_astar-Debug-0a0d3c8baf4ca5545390.json",
+					"name" : "simple_astar",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
-					"id" : "test1::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test1-Debug-8c3dc3ba6066ffc738ba.json",
-					"name" : "test1",
+					"id" : "simple_astar_test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-simple_astar_test-Debug-e5d238eacfeed15efce4.json",
+					"name" : "simple_astar_test",
 					"projectIndex" : 0
 				}
 			]

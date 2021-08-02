@@ -1,0 +1,1 @@
+/bin/x86_64-linux-gnu-g++-9  -g   CMakeFiles/simple_astar.dir/test/simple_astar.cpp.o CMakeFiles/simple_astar.dir/src/AStar.cpp.o CMakeFiles/simple_astar.dir/src/Map.cpp.o  -o ../bin/simple_astar 
