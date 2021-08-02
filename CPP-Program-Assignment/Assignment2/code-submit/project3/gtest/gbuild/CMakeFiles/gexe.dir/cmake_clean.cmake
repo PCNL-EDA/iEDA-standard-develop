@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/gexe.dir/gtest.cpp.o"
   "CMakeFiles/gexe.dir/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/graph.cpp.o"
   "CMakeFiles/gexe.dir/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/node.cpp.o"
+  "CMakeFiles/gexe.dir/testgraph.cpp.o"
+  "CMakeFiles/gexe.dir/testnode.cpp.o"
   "gexe"
   "gexe.pdb"
 )

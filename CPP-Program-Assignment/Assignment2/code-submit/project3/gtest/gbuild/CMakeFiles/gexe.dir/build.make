@@ -76,22 +76,35 @@ include CMakeFiles/gexe.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/gexe.dir/flags.make
 
-CMakeFiles/gexe.dir/gtest.cpp.o: CMakeFiles/gexe.dir/flags.make
-CMakeFiles/gexe.dir/gtest.cpp.o: ../gtest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/gtest/gbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/gexe.dir/gtest.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gexe.dir/gtest.cpp.o -c /home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/gtest/gtest.cpp
+CMakeFiles/gexe.dir/testgraph.cpp.o: CMakeFiles/gexe.dir/flags.make
+CMakeFiles/gexe.dir/testgraph.cpp.o: ../testgraph.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/gtest/gbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/gexe.dir/testgraph.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gexe.dir/testgraph.cpp.o -c /home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/gtest/testgraph.cpp
 
-CMakeFiles/gexe.dir/gtest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gexe.dir/gtest.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/gtest/gtest.cpp > CMakeFiles/gexe.dir/gtest.cpp.i
+CMakeFiles/gexe.dir/testgraph.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gexe.dir/testgraph.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/gtest/testgraph.cpp > CMakeFiles/gexe.dir/testgraph.cpp.i
 
-CMakeFiles/gexe.dir/gtest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gexe.dir/gtest.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/gtest/gtest.cpp -o CMakeFiles/gexe.dir/gtest.cpp.s
+CMakeFiles/gexe.dir/testgraph.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gexe.dir/testgraph.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/gtest/testgraph.cpp -o CMakeFiles/gexe.dir/testgraph.cpp.s
+
+CMakeFiles/gexe.dir/testnode.cpp.o: CMakeFiles/gexe.dir/flags.make
+CMakeFiles/gexe.dir/testnode.cpp.o: ../testnode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/gtest/gbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/gexe.dir/testnode.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gexe.dir/testnode.cpp.o -c /home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/gtest/testnode.cpp
+
+CMakeFiles/gexe.dir/testnode.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gexe.dir/testnode.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/gtest/testnode.cpp > CMakeFiles/gexe.dir/testnode.cpp.i
+
+CMakeFiles/gexe.dir/testnode.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gexe.dir/testnode.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/gtest/testnode.cpp -o CMakeFiles/gexe.dir/testnode.cpp.s
 
 CMakeFiles/gexe.dir/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/graph.cpp.o: CMakeFiles/gexe.dir/flags.make
 CMakeFiles/gexe.dir/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/graph.cpp.o: /home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/graph.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/gtest/gbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/gexe.dir/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/graph.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/gtest/gbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/gexe.dir/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/graph.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gexe.dir/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/graph.cpp.o -c /home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/graph.cpp
 
 CMakeFiles/gexe.dir/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/graph.cpp.i: cmake_force
@@ -104,7 +117,7 @@ CMakeFiles/gexe.dir/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Pro
 
 CMakeFiles/gexe.dir/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/node.cpp.o: CMakeFiles/gexe.dir/flags.make
 CMakeFiles/gexe.dir/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/node.cpp.o: /home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/gtest/gbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/gexe.dir/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/node.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/gtest/gbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/gexe.dir/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/node.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gexe.dir/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/node.cpp.o -c /home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/node.cpp
 
 CMakeFiles/gexe.dir/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/node.cpp.i: cmake_force
@@ -117,19 +130,21 @@ CMakeFiles/gexe.dir/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Pro
 
 # Object files for target gexe
 gexe_OBJECTS = \
-"CMakeFiles/gexe.dir/gtest.cpp.o" \
+"CMakeFiles/gexe.dir/testgraph.cpp.o" \
+"CMakeFiles/gexe.dir/testnode.cpp.o" \
 "CMakeFiles/gexe.dir/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/graph.cpp.o" \
 "CMakeFiles/gexe.dir/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/node.cpp.o"
 
 # External object files for target gexe
 gexe_EXTERNAL_OBJECTS =
 
-gexe: CMakeFiles/gexe.dir/gtest.cpp.o
+gexe: CMakeFiles/gexe.dir/testgraph.cpp.o
+gexe: CMakeFiles/gexe.dir/testnode.cpp.o
 gexe: CMakeFiles/gexe.dir/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/graph.cpp.o
 gexe: CMakeFiles/gexe.dir/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/node.cpp.o
 gexe: CMakeFiles/gexe.dir/build.make
 gexe: CMakeFiles/gexe.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/gtest/gbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable gexe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/gtest/gbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable gexe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gexe.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

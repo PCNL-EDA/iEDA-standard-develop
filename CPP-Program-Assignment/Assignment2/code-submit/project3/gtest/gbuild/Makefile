@@ -142,33 +142,6 @@ gexe/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gexe.dir/build.make CMakeFiles/gexe.dir/build
 .PHONY : gexe/fast
 
-gtest.o: gtest.cpp.o
-
-.PHONY : gtest.o
-
-# target to build an object file
-gtest.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gexe.dir/build.make CMakeFiles/gexe.dir/gtest.cpp.o
-.PHONY : gtest.cpp.o
-
-gtest.i: gtest.cpp.i
-
-.PHONY : gtest.i
-
-# target to preprocess a source file
-gtest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gexe.dir/build.make CMakeFiles/gexe.dir/gtest.cpp.i
-.PHONY : gtest.cpp.i
-
-gtest.s: gtest.cpp.s
-
-.PHONY : gtest.s
-
-# target to generate assembly for a file
-gtest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gexe.dir/build.make CMakeFiles/gexe.dir/gtest.cpp.s
-.PHONY : gtest.cpp.s
-
 home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/graph.o: home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/graph.cpp.o
 
 .PHONY : home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/graph.o
@@ -223,6 +196,60 @@ home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assi
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gexe.dir/build.make CMakeFiles/gexe.dir/home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/node.cpp.s
 .PHONY : home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/node.cpp.s
 
+testgraph.o: testgraph.cpp.o
+
+.PHONY : testgraph.o
+
+# target to build an object file
+testgraph.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gexe.dir/build.make CMakeFiles/gexe.dir/testgraph.cpp.o
+.PHONY : testgraph.cpp.o
+
+testgraph.i: testgraph.cpp.i
+
+.PHONY : testgraph.i
+
+# target to preprocess a source file
+testgraph.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gexe.dir/build.make CMakeFiles/gexe.dir/testgraph.cpp.i
+.PHONY : testgraph.cpp.i
+
+testgraph.s: testgraph.cpp.s
+
+.PHONY : testgraph.s
+
+# target to generate assembly for a file
+testgraph.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gexe.dir/build.make CMakeFiles/gexe.dir/testgraph.cpp.s
+.PHONY : testgraph.cpp.s
+
+testnode.o: testnode.cpp.o
+
+.PHONY : testnode.o
+
+# target to build an object file
+testnode.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gexe.dir/build.make CMakeFiles/gexe.dir/testnode.cpp.o
+.PHONY : testnode.cpp.o
+
+testnode.i: testnode.cpp.i
+
+.PHONY : testnode.i
+
+# target to preprocess a source file
+testnode.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gexe.dir/build.make CMakeFiles/gexe.dir/testnode.cpp.i
+.PHONY : testnode.cpp.i
+
+testnode.s: testnode.cpp.s
+
+.PHONY : testnode.s
+
+# target to generate assembly for a file
+testnode.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gexe.dir/build.make CMakeFiles/gexe.dir/testnode.cpp.s
+.PHONY : testnode.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -232,15 +259,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... gexe"
-	@echo "... gtest.o"
-	@echo "... gtest.i"
-	@echo "... gtest.s"
 	@echo "... home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/graph.o"
 	@echo "... home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/graph.i"
 	@echo "... home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/graph.s"
 	@echo "... home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/node.o"
 	@echo "... home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/node.i"
 	@echo "... home/shengkunwu/myfile/example/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/project3/src/node.s"
+	@echo "... testgraph.o"
+	@echo "... testgraph.i"
+	@echo "... testgraph.s"
+	@echo "... testnode.o"
+	@echo "... testnode.i"
+	@echo "... testnode.s"
 .PHONY : help
 
 
