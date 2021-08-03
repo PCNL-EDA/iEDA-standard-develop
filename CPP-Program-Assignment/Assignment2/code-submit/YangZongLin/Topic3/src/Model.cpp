@@ -19,12 +19,13 @@ std::list<Point>& Model::findBestWay() {
   while (_open_list.empty() != 1) {
     setCurrentPoint(*_open_list.begin());  // Take the first element in openlist
                                            // as the current point
-    if (_curr_point == *_end_point)        // If reached the end point
+    if (_curr_point == *_end_point) {      // If reached the end point
       return getCloseList();
-    else
-      continueFindWay();  // Didn't reached the end point,Continue find way
+    } else {  // Didn't reached the end point,Continue find way
+      continueFindWay();
+    }
   }
-  _close_list.clear();    // Can't find a way reach the end point.
+  _close_list.clear();    // Can't find a way reach the end point
   return getCloseList();  // Return the empty list
 }
 
