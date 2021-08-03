@@ -11,11 +11,9 @@ This algorithm is not the Dijkstra algorithm, either.
 The complexity of the Dijkstra algorithm is O(n^2), So I didn't use it.
 My strategy is to find the distance generation by generation.
 
-
 Step1:definition of around vector of each point.
 The around vector of a point consists of points which are white \
     and can jump to the point by one step.
-
 
 Step2: definition of generations.
 The first generation consists of the start point.
@@ -50,8 +48,8 @@ In this case the path is set to be empty.
 set around tabel by another function.
 */
 Graph::Graph(const std::vector<std::vector<int> > M){
-    _xmax=(int)M.size(); 
-    _ymax=(int)M[0].size();
+    _xmax=static_cast<int> (M.size()); 
+    _ymax=static_cast<int> (M[0].size());
     for (int i = 0; i < _xmax; ++i){
         std::vector<Node*> tmp;
         for(int j=0; j<_ymax;++j){
@@ -68,7 +66,6 @@ Graph::Graph(const std::vector<std::vector<int> > M){
         }
         _nodes.push_back(tmp);
     }
-
 }
 
 /*details:return true only if c1 and c2 are both in the graph and can jump to each other.
@@ -167,8 +164,8 @@ std::vector<Coordinate> Graph::findNext(std::vector<Coordinate> tt){
         }
         return nt;
     }
-    
 }
+
 /*
 @details;Get a point  which have the minimal distance in a vector of Coordinate 
     and its distance is not -1. If no such point return the fisrt point in the vector.
@@ -194,10 +191,8 @@ Coordinate Graph::minDist(std::vector<Coordinate> tt){
     else{
         Coordinate c(0,0);
         return c;
-    }
-    
+    }   
 }
-
 
 /*
 @brief: Compute distance to start of each point between start and end and assign it to _dist;
@@ -217,7 +212,7 @@ void Graph::assignAllDist(Coordinate start,Coordinate end){
             Coordinate c=minDist(ctt);
             c.deleteFrom(ctt);
             int dc=getDist(c);
-            std::vector<Coordinate> c_ar=get_around(c);
+            std::vector<Coordinate> c_ar=getAround(c);
             if(c_ar.size()!=0){
                 for(std::vector<Coordinate>::iterator it=c_ar.begin(); it!=c_ar.end();++it){
                     if((*it).checkInVec(nt)){
@@ -264,7 +259,7 @@ std::vector<Coordinate> Graph::reverseSearch(Coordinate start,Coordinate end){
     path.push_back(end);
     Coordinate medial(end);
     while(!start.checkEq(medial)){
-        std::vector<Coordinate> ar_med=get_around(medial);
+        std::vector<Coordinate> ar_med=getAround(medial);
         medial=minDist(ar_med);
         path.insert(path.begin(),medial);
         if(getDist(medial)==-1){
@@ -273,7 +268,6 @@ std::vector<Coordinate> Graph::reverseSearch(Coordinate start,Coordinate end){
     }
     return path;
 }
-
 
 /*
 @fn: PrintGraph
@@ -290,7 +284,7 @@ void Graph::printGraph(){
                 printf("color=black (%d,%d)->>>",i,j);
             }
             Coordinate c(i,j);
-            std::vector<Coordinate> ar=get_around(c);
+            std::vector<Coordinate> ar=getAround(c);
             printPath(ar);
         }
     }

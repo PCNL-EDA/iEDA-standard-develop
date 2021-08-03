@@ -34,7 +34,7 @@ public:
     int getGen(Coordinate c){return _nodes[c._x][c._y]->_gen;};
     void assignAllDist(Coordinate start,Coordinate end); 
     //Compute the distance of each point to start
-    std::vector<Coordinate> get_around(const Coordinate c){return _nodes[c._x][c._y]->_around;}
+    std::vector<Coordinate> getAround(const Coordinate c){return _nodes[c._x][c._y]->_around;}
     std::vector<Coordinate> reverseSearch(Coordinate start,Coordinate end);
     //search the path from the start point to the end point
     int get_xmax(){return _xmax;}

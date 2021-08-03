@@ -10,10 +10,11 @@
 
 
 std::vector<std::vector<int> > setM(){
-    int Matrix[4][8]={{0,0,0,0,1,1,1,1},
-                      {0,0,0,0,0,0,1,1},
+    int Matrix[5][8]={{0,0,0,0,1,1,1,1},
+                      {0,0,0,0,1,0,1,1},
                       {1,1,1,0,1,0,0,0},
-                      {1,0,0,0,0,0,0,0}};
+                      {1,0,0,0,1,0,0,0},
+                      {1,1,1,0,0,0,1,0}};
     std::vector<std::vector<int> > M;
     
     for(int i=0; i<sizeof(Matrix)/sizeof(Matrix[0]);++i){
@@ -32,7 +33,7 @@ inline Coordinate setStart(){
 }
 
 inline Coordinate setEnd(){
-    Coordinate end(3,7);
+    Coordinate end(4,7);
     return end;
 }
 
