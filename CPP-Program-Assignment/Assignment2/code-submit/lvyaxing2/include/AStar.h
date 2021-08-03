@@ -17,10 +17,11 @@
 #include"Node.h"
 //using namespace std;
 namespace MyAStar{
-	const int kCost1 = 10; ///<Move one grid horizontally
-	const int kCost2 = 14; ///<Move diagonally one grid horizontally
-
-
+	enum cost
+	{
+        kCost1 = 10,///<Move one grid horizontally
+	    kCost2 = 14 ///<Move diagonally one grid horizontally
+	};
 /**
  * @brief Algorithm class:function declaration and definition
  * 

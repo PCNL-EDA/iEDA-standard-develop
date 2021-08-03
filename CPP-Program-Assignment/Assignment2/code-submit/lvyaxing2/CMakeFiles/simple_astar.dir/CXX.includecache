@@ -36,12 +36,6 @@ cmath
 vector
 -
 
-/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing2/src/Map.cpp
-vector
--
-../include/Map.h
-/home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing2/include/Map.h
-
 /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing2/test/simple_astar.cpp
 ../include/AStar.h
 /home/litar/template/iEDA-standard-develop/CPP-Program-Assignment/Assignment2/code-submit/lvyaxing2/include/AStar.h

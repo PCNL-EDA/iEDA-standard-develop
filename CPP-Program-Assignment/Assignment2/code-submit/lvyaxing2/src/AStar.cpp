@@ -22,9 +22,23 @@ namespace MyAStar{
     * @return int 
     */
     int AStar::calcG(Node *start, Node *node)
-	{
-        int extraG = (abs(node->get_x()-start->get_x()) + abs(node->get_y()-start->get_y())) == 1 ? kCost1 : kCost2;
-	    int parentG = node->get_parent_node() == nullptr ? 0 : node->get_parent_node()->get_G(); 
+    {   int extraG, parentG;
+		if((abs(node->get_x()-start->get_x()) + abs(node->get_y()-start->get_y())) == 1 )
+	    {
+			extraG=cost::kCost1;
+		}
+			else 
+			{
+				extraG=cost::kCost2;
+			}
+		if(node->get_parent_node() != nullptr)
+		{
+		    parentG =node->get_parent_node()->get_G();
+		}
+		else 
+		{
+			parentG =0;
+		}
 	    return parentG + extraG;
     }
     /**
@@ -37,7 +51,7 @@ namespace MyAStar{
      int AStar::calcH(Node *node, Node *goal)
 	 {
 	     double a=abs(goal->get_x() - node->get_x())+ abs(goal->get_y() - node->get_y());///<Manhattan distance
-         return a*kCost1;
+         return a*cost::kCost1;
      }
     /**
      * @brief F=G+H; Use F to select node

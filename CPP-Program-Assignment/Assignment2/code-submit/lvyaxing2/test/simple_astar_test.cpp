@@ -32,6 +32,5 @@
     MyAStar::Node start_node(0,0);
     MyAStar::Node end_node(3,7);									   
     MyAStar::AStar astar(obstacle_list);
-    //EXPECT_TRUE(astar.getPath(start_node, end_node, false).size());
     EXPECT_EQ(8,astar.getPath(start_node, end_node, false).size());
   }
