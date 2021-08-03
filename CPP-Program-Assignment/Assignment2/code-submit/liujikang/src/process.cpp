@@ -129,6 +129,16 @@ void Process::updateNeighborParent(Node* node) {    // no use now
 }
 
 /**
+ * @brief     The estimating function used to estimate the path cost from the current node to the destination, 
+ *            using Manhattan distance.
+ */ 
+double Process::calCostCurrToEnd(Node* node) {
+  double costToEnd = std::abs(_end_node->get_index_x() - node->get_index_x()) +
+                    std::abs(_end_node->get_index_y() - node->get_index_y());
+  return costToEnd;
+}
+
+/**
  * @brief     push neighbor node of current-node in _openlist \n
  *            if the neighbor node meet the conditions.
  * @note      the call sort of other function in addNeighborToOPen.
@@ -154,12 +164,12 @@ void Process::addNeighborToOpen() {
     } else {
       ///< neighbor node out of openlist,
       ///< new instance and assign values,then push into openlist
-      neighbor->set_cost_start(_curr_node->get_start_cost() + 1);
-      double costToEnd = std::abs(_end_node->get_index_x() - neighbor->get_index_x()) +
-                          std::abs(_end_node->get_index_y() - neighbor->get_index_y());
+      double costCurrToNei = getCostCurrToNeighbor(neighbor);
+      double costToStart = _curr_node->get_start_cost() + costCurrToNei;
+      double costToEnd = calCostCurrToEnd(neighbor);
+      neighbor->set_cost_start(costToStart);
       neighbor->set_cost_end(costToEnd);
-      double totalCost = neighbor->get_start_cost() + neighbor->get_end_cost();
-      neighbor->set_total_cost(totalCost);
+      neighbor->updateTotalCost();
       neighbor->set_parent(_curr_node);
 
       _openlist.push_back(neighbor);
@@ -226,19 +236,14 @@ void Process::printMap() {
   }
 }
 
+/**
+ * @brief   According to the node object release rules I designed, 
+ *          there is no need to release the node pointed to by the _cur_node/_start_node/_end_node pointer.
+ */ 
 void Process::destoryProcess() {
-  if (_start_node != nullptr) {
-    delete _start_node;
-    _start_node = nullptr;
-  }
-  if (_end_node != nullptr) {
-    delete _end_node;
-    _end_node = nullptr;
-  }
-  if (_curr_node != nullptr) {
-    delete _curr_node;
-    _curr_node = nullptr;
-  }
+  _start_node = nullptr;
+  _end_node = nullptr;
+  _curr_node = nullptr;
 }
 
 }  // namespace astar

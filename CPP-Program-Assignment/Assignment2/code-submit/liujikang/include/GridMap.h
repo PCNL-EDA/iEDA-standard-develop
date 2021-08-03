@@ -6,8 +6,8 @@
  * 
  */
 
-#ifndef CODE_SUBMIT_INCLUDE_GRIDMAP_H_
-#define CODE_SUBMIT_INCLUDE_GRIDMAP_H_
+#ifndef CODE_SUBMIT_LIUJIKANG_INCLUDE_GRIDMAP_H_
+#define CODE_SUBMIT_LIUJIKANG_INCLUDE_GRIDMAP_H_
 
 namespace astar {
 
@@ -53,4 +53,4 @@ inline void GridMap<T>::deleteArrNode() {
 
 }  // namespace astar
 
-#endif  // CODE_SUBMIT_INCLUDE_GRIDMAP_H_
+#endif  // CODE_SUBMIT_LIUJIKANG_INCLUDE_GRIDMAP_H_

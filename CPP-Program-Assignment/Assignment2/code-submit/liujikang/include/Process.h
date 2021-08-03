@@ -24,7 +24,7 @@ namespace astar {
 class Process {
  public:
   Process() = default;
-  ~Process() { destoryProcess(); }
+  ~Process() = default;
 
   ///< getter
   std::vector<Node*>& get_openlist() { return _openlist; }
@@ -32,7 +32,7 @@ class Process {
   Node* get_end_node() { return _end_node; }
   Node* get_curr_node() { return _curr_node; }
 
-  ///< function
+  ///< initialization function of GridMap and nodes
   void setNode(const std::pair<int, int>& p, const NodeType& nodeType);
   void setMapSize(int row_num, int col_num);
   void setStartnode(const int index_x, const int index_y);
@@ -40,19 +40,21 @@ class Process {
   void setObstacleNode(const std::vector<std::pair<int, int>>& obstacleList);
   void initOpenlist();
 
+  ///< Operation function of A-STAR algorithm
   bool isEndNode(Node* n);
   bool isObsNode(Node* n);
   bool isInOpenlist(Node* node);
   bool isInCloseList(Node* node);
   void sortOpenlist();
-
   bool isLegalNeighbor(int x, int y);
   double getCostCurrToNeighbor(Node* neighbor);
   bool isBetterParentByCurr(Node* neighbor);
   void inviteNeighborByCur(std::vector<Node*>& neighborList);
   void updateNeighborParent(Node* node);
+  double calCostCurrToEnd(Node* node);
   void addNeighborToOpen();
-
+  
+  ///< Print function of the optimal path
   bool findPath();
   void printPath(Node* node);
   void printMap();

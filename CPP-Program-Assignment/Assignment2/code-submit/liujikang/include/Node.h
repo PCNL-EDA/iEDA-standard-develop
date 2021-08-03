@@ -7,8 +7,8 @@
  * 
  */ 
 
-#ifndef CODE_SUBMIT_INCLUDE_NODE_H_
-#define CODE_SUBMIT_INCLUDE_NODE_H_
+#ifndef CODE_SUBMIT_LIUJIKANG_INCLUDE_NODE_H_
+#define CODE_SUBMIT_LIUJIKANG_INCLUDE_NODE_H_
 
 namespace astar {
 
@@ -34,7 +34,7 @@ enum class NodeState {
 class Node {
  public:
   Node() {}   ///< non-need param-constructor
-  ~Node() { _parent = nullptr; }
+  ~Node() = default;
 
   ///< get or set variables
   int get_index_x() const { return _index_x; }
@@ -51,12 +51,21 @@ class Node {
   void set_type(const NodeType &type) { _type = type; }
   void set_state(const NodeState &state) { _state = state; }
   void set_parent(Node* parent) { _parent = parent; }
-  void set_cost_start(const double cost_start) { _curr_start_cost = cost_start; }
+  void set_cost_start(const double cost_start) {_curr_start_cost = cost_start;}
   void set_cost_end(const double cost_end) { _curr_end_cost = cost_end; }
   void set_total_cost(const double cost_path) { _total_cost = cost_path; }
   ///< function
   void updateTotalCost() { _total_cost = _curr_start_cost + _curr_end_cost; }
-
+  /**
+   * @brief   According to the node object release rules I designed, 
+   *          there is no need to release the node pointed to by the _parent pointer.
+   */ 
+  void releaseNode() {
+    if (_parent != nullptr) {
+      delete _parent;
+      _parent = nullptr;
+      }
+  }
  private:
   int _index_x = 0;
   int _index_y = 0;
@@ -68,4 +77,4 @@ class Node {
   double _total_cost = 0;
 };
 }  // namespace astar
-#endif  // CODE_SUBMIT_INCLUDE_NODE_H_
+#endif  // CODE_SUBMIT_LIUJIKANG_INCLUDE_NODE_H_
