@@ -15,7 +15,6 @@
 #include <list>
 #include<cmath>
 #include"Node.h"
-//using namespace std;
 namespace MyAStar{
 	enum cost
 	{
