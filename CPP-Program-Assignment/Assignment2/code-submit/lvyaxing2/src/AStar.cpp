@@ -135,8 +135,9 @@ namespace MyAStar{
 		return false;
 		}
 		else
-		{
-			if (abs(node->get_x()- target->get_y()) + abs(node->get_x() - target->get_y()) <= 1) ///<Horizontal or vertical relationship
+		{   
+			///<Horizontal or vertical relationship
+			if (abs(node->get_x()- target->get_y()) + abs(node->get_x() - target->get_y()) <= 1) 
 			{
 			return true;
 		    }
@@ -223,7 +224,8 @@ namespace MyAStar{
 					     target->set_F(calcF(target));
 				     }
 			     }
-			     Node *resNode = isInList(_open_list, &goalNode);///<Judge whether the goal node is in the open list
+				 ///<Judge whether the goal node is in the open list
+			     Node *resNode = isInList(_open_list, &goalNode);
 			     if (resNode)
 				 {
 					 return resNode; ///<Return the node pointer in the list
