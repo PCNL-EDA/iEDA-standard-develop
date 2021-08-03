@@ -2,7 +2,7 @@
  * @Author: shuaiying long (longshy@pcl.ac.cn)
  * @Date: 2021-07-31
  * @Description:This is the source file of main function.
- * @FilePath: /a-star/src/main.cpp
+ * @FilePath: /IEDA-ASTAR/src/main.cpp
  */
 
 #include <iostream>
