@@ -81,8 +81,9 @@ class Model {
     int increment =
         point.get_x() != getCurrPoint().get_x() &&
                 point.get_y() != getCurrPoint().get_y()
-            ? 144: 100;  // If this point is in the same row or column as the current
-                         // point, set the distance increment to 100, otherwise 144
+            ? 144: 100;  // If this point is in the same row or column as the
+                         // current point, set the distance increment to 100,
+                         // otherwise 144
     point.set_have_cost(
         increment +
         getCurrPoint()
