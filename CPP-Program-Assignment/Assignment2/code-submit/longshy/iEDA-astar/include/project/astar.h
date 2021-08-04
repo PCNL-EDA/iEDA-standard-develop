@@ -21,23 +21,18 @@ class astar : public pathsolver {
   std::vector<location2d> getPath() const;
 
  private:
-  // Points that have been traversed
+  // points that have been traversed
   std::set<location2d> _dead;
-  // Query whether the point is in the path
+  // query whether the point is in the path
   std::set<location2d> _inpath;
-  // Record the path
+  // record the path
   std::vector<location2d> _path;
-
+  // use totalDisToStart to record the distance from start to curr
+  double totalDisToStart = 0;
   enum Cost {
-    kLinearCost = 5,
-    kObliqueCost = 7,
+    kLinearCost = 10,
+    kObliqueCost = 14,
   };
 
-  double distance(const location2d& lhs, const location2d& rhs);
-  double max(const double& lhs, const double& rhs) const {
-    return lhs < rhs ? rhs : lhs;
-  }
-  double min(const double& lhs, const double& rhs) const {
-    return lhs > rhs ? rhs : lhs;
-  }
+  double disToEnd(const location2d& lhs, const location2d& rhs);
 };

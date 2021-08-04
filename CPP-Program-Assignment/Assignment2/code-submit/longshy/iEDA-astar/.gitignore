@@ -3,7 +3,13 @@
 CMakeCache.*
 CMakeFiles/*
 [Tt]esting/*
-
+CMakeLists_bak.txt
+codecov.yaml
+CONTRIBUTING.md
+Dockerfile
+LICENSE
+Makefile
+PULL_REQUEST_TEMPLATE.md
 ### VisualStudioCode ###
 .vscode/*
 .vscode/settings.json

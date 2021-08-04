@@ -27,7 +27,6 @@ struct location2d {
 // map2d:represents a map
 class map2d {
  public:
-  // using location2d = location2d;
   map2d(const std::vector<std::vector<char>>& rawmap,
         const std::vector<location2d>& move, const location2d& start,
         const location2d& end);

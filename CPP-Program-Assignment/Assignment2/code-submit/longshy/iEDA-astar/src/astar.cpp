@@ -7,12 +7,10 @@
 
 #include "astar.h"
 
-double astar::distance(const location2d& lhs, const location2d& rhs) {
-  // double dx = abs(lhs.x - rhs.x);
-  // double dy = abs(lhs.y - rhs.y);
-  // return kLinearCost * max(dx, dy) + (kObliqueCost - kLinearCost) * min(dx,
-  // dy);
-  return (lhs.x - rhs.x) * (lhs.x - rhs.x) + (lhs.y - rhs.y) * (lhs.y - rhs.y);
+double astar::disToEnd(const location2d& lhs, const location2d& rhs) {
+  // use Euclidean distance as a heuristic function
+  return 10 * sqrt((lhs.x - rhs.x) * (lhs.x - rhs.x) +
+                   (lhs.y - rhs.y) * (lhs.y - rhs.y));
 }
 
 bool astar::solve(const map_t& map) {
@@ -39,7 +37,8 @@ bool astar::solve(const map_t& map) {
       // order the adjacencies from smallest to largest
       std::sort(next.begin(), next.end(),
                 [&](const location2d& lhs, const location2d& rhs) {
-                  return distance(lhs, end) < distance(rhs, end);
+                  return totalDisToStart + disToEnd(lhs, end) <
+                         totalDisToStart + disToEnd(rhs, end);
                 });
       bool flag = false;
       for (const location2d& n : next) {
@@ -48,6 +47,11 @@ bool astar::solve(const map_t& map) {
           flag = true;
           _path.push_back(n);
           _inpath.insert(n);
+          if (abs(curr.x - n.x) + abs(curr.y - n.y) == 1) {
+            totalDisToStart += kLinearCost;
+          } else {
+            totalDisToStart += kObliqueCost;
+          }
           break;
         }
       }
