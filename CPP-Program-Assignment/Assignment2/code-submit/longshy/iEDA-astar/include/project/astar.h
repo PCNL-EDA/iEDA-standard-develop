@@ -28,7 +28,7 @@ class astar : public pathsolver {
   // record the path
   std::vector<location2d> _path;
   // use totalDisToStart to record the distance from start to curr
-  double totalDisToStart = 0;
+  double _totaldis_to_start = 0;
   enum Cost {
     kLinearCost = 10,
     kObliqueCost = 14,
