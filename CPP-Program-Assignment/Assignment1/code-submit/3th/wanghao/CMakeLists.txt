@@ -1,6 +1,7 @@
-cmake_minimum_required (VERSION 2.8)
+cmake_minimum_required (VERSION 3.0)
 project (Assignment1_wanghao)
 
-set(CXX_FLAGS "")
+include_directories(${CMAKE_SOURCE_DIR}/include)
 
-add_executable(hello main.cpp)
+add_subdirectory(src)
+install(TARGETS hello RUNTIME DESTINATION bin)

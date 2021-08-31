@@ -1,6 +1,6 @@
-#include <iostream>
+#include <main.h>
 
 int main() {
-  printf("hello cmake\n");
+  doHello();
   return 0;
 }
