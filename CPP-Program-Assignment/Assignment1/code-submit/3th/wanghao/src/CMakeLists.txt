@@ -4,6 +4,8 @@ if(${GXX_PATH} STREQUAL "GXX_PATH-NOTFOUND")
 endif()
 
 set(CMAKE_CXX_COMPILER  ${GXX_PATH}/g++)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Og -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -std=c++11 -fsanitize=address")
+link_libraries("-fsanitize=address")
 
-add_executable(hello main.cpp)
+aux_source_directory(. SRC)
+add_executable(hello ${SRC})

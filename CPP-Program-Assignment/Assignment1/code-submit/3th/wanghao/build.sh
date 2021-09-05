@@ -1,4 +1,9 @@
 #!/bin/bash
+# file          main.cpp
+# brief         
+# author        wanghao (harry0789@qq.com)
+# date          2021-09-01
+# copyright     Copyright (c) 2021 PCL IEDA
 
 set -e
 echo -e "\033[47;30m               program build start               \033[0m"
@@ -28,4 +33,4 @@ cd $BASEPATH/build/cmake_cache
 cmake -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR $BASEPATH
 make
 make install
-echo -e "\033[47;30m run $INSTALL_DIR/bin/hello' to execute the program! \033[0m"
+echo -e "\033[47;30m run '$INSTALL_DIR/bin/hello' to execute the program! \033[0m"
