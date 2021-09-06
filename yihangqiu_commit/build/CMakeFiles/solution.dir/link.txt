@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/solution.dir/src/euler.cpp.o CMakeFiles/solution.dir/src/main.cpp.o CMakeFiles/solution.dir/src/people.cpp.o  -o solution 

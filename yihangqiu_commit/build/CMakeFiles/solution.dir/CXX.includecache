@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/euler.h
+people.h
+../include/people.h
+stack
+-
+
+../include/people.h
+assert.h
+-
+fstream
+-
+string
+-
+vector
+-
+
+/home/yhqiu/pa1/src/euler.cpp
+euler.h
+/home/yhqiu/pa1/src/euler.h
+
+/home/yhqiu/pa1/src/main.cpp
+euler.h
+/home/yhqiu/pa1/src/euler.h
+
+/home/yhqiu/pa1/src/people.cpp
+people.h
+/home/yhqiu/pa1/src/people.h
+euler.h
+/home/yhqiu/pa1/src/euler.h
+assert.h
+-
+fstream
+-
+
