@@ -15,11 +15,11 @@ class People {
   ~People();
   void operator=(const People &) = delete;
 
-  void     printAll() const;
-  unsigned how_many_people() const;
+  inline void     printNameById(unsigned) const;
+  inline unsigned how_many_people() const;
 
+  void printAll() const;
   void read_file(FILE *);
-  void printNameById(unsigned);
 
   People(People &)  = delete;
   People(People &&) = delete;
@@ -27,5 +27,24 @@ class People {
  private:
   std::map<unsigned, const char *> *_people;
 };
+
+// inline function:
+
+/**
+ * @brief print name by id obviously
+ * @param id
+ */
+void People::printNameById(unsigned id) const {
+  auto person = _people->find(id);
+  if (person != _people->end()) {
+    printf("%u %s", id, person->second);
+  }
+}
+
+/**
+ * @brief return how many people's infomation are stored
+ * @return unsigned
+ */
+unsigned People::how_many_people() const { return _people->size(); }
 
 #endif

@@ -1,4 +1,5 @@
 .vscode
+.clang-format
 build
 temp
 题目.md

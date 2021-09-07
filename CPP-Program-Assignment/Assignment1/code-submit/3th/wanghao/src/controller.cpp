@@ -10,19 +10,11 @@
 #define PEOPLE_INSTANCE 0
 #define EULER_INSTANCE 1
 
-People *Controller::_people = nullptr;
-Euler * Controller::_euler  = nullptr;
+People *     Controller::_people = nullptr;
+GraphMatrix *Controller::_euler  = nullptr;
 
 /**
- * @brief print stored people and graph matrix for eulerian algorithm
- */
-void Controller::printALL() const {
-  _people->printAll();
-  _euler->printAll();
-}
-
-/**
- * @brief exit the program obviously
+ * @brief exit the program, but destroy _people and _euler firstly
  * @param exit_code
  */
 void Controller::exitProgram(bool exit_code) {
@@ -42,14 +34,15 @@ void Controller::exitProgram(bool exit_code) {
  * @return Controller*
  */
 Controller *Controller::getInstance() {
+  // loacl static ensure that thread safty (c++11)
   static Controller singleton;
   _people = _people ?: new People();
-  _euler  = _euler ?: new Euler();
+  _euler  = _euler ?: new GraphMatrix();
   return &singleton;
 }
 
 /**
- * @brief parse main function parameters, and collect files infomation to class People and class Euler
+ * @brief parse main function parameters, and collect files infomation to class People and class GraphMatrix
  * @param argc
  * @param argv
  */
@@ -60,7 +53,7 @@ void Controller::parseFilesInfo(int argc, const char **argv) {
   } else {
     printf(
       "invalid parameters\nprogram works with two parameters: "
-      "absolute path of \"people.txt\" and \"relationships.txt\", spilt with space\n");
+      "input path of \"people.txt\" and \"relationships.txt\", spilt with space\n");
     exitProgram(EXIT_FAILURE);
   }
 }
@@ -92,26 +85,27 @@ void Controller::parsePath2Data(const char *path, bool instance) {
  */
 void Controller::printEulerianPath() {
   if (_people && _euler) {
-    unsigned  people_size = _people->how_many_people();
-    unsigned *result      = new unsigned[people_size];
+    unsigned  path_length   = 0;
+    unsigned *p_path_length = &path_length;
+    unsigned  people_size   = _people->how_many_people();
+    unsigned  edge_size     = people_size * people_size;
+    unsigned *result        = new unsigned[edge_size];
+    memset(result, 0, edge_size * sizeof(unsigned));
 
     // print eulerian path
-    if (_euler->eulerianPath(result)) {
+    /// caculate the eulerian path
+    if (_euler->eulerianPath(result, p_path_length)) {
       // print name one by one
       size_t i = 0;
-      while (i < people_size) {
-        _people->printNameById(result[i]);
-        printf("%s", ++i == people_size ? "\n" : " -> ");
+      while (i < path_length) {
+        _people->printNameById(result[i++]);
+        printf(" -> ");
       }
+      // meet the first node(people)
+      _people->printNameById(result[0]);
+      printf("\n");
     }
 
     delete[] result;
   }
-}
-
-/**
- * @brief print help messages obviously
- */
-void Controller::printHelpMessages() const {
-  printf("The program will print Eulerian Path by given files path (people, relationships)\n");
 }
