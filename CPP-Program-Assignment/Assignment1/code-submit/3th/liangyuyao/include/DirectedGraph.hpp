@@ -27,17 +27,13 @@ class DirectedGraph {
   // constructor
   DirectedGraph() = default;
   ~DirectedGraph() = default;
+  DirectedGraph(DirectedGraph&) = delete;
 
   // get
   const AdjList getAdjList() const { return _adj_list; };
   Node_ID getVertexNum() const { return _adj_list.size(); }
   // set
-  DirectedGraph& setAdjList(AdjList list) {
-    _adj_list = list;
-    return *this;
-  }
-  // copy
-  DirectedGraph(DirectedGraph&) = delete;
+  void setAdjList(AdjList list) { _adj_list = list; }
 
  private:
   AdjList _adj_list;  // adjacency list

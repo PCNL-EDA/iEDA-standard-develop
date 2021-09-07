@@ -27,26 +27,16 @@ class Person {
   Person(Person_ID pid, std::string name, uint32_t year)
       : _pid(pid), _name(name), _year(year) {}
   ~Person() = default;
+  Person(const Person&) = default;
 
   // get
   const Person_ID getPid() const { return _pid; }
   const std::string getName() const { return _name; }
   const uint32_t getYear() const { return _year; }
   // set
-  Person& setPid(Person_ID pid) {
-    _pid = pid;
-    return *this;
-  }
-  Person& setName(std::string name) {
-    _name = name;
-    return *this;
-  }
-  Person& setYear(uint32_t year) {
-    _year = year;
-    return *this;
-  }
-  // copy
-  Person(const Person&) = default;
+  void setPid(Person_ID pid) { _pid = pid; }
+  void setName(std::string name) { _name = name; }
+  void setYear(uint32_t year) { _year = year; }
 
  private:
   Person_ID _pid;  // person id

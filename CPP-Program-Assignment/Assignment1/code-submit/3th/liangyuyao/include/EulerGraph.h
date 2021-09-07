@@ -25,12 +25,11 @@ class EulerGraph {
   // constructor
   EulerGraph() = default;  // a tool may not need instance
   ~EulerGraph() = default;
+  EulerGraph(EulerGraph&) = delete;
 
   static bool isExistEulerPath(const AdjList);
   static bool isExistEulerCircuit(const AdjList, std::vector<Node_ID>&,
                                   const Node_ID start = 0);
-  // copy
-  EulerGraph(EulerGraph&) = delete;
 };
 
 #endif  // __EULER_GRAPH_H_

@@ -41,13 +41,11 @@ class Resources {
   // constructor
   Resources() = default;  // a tool may not need instance
   ~Resources() = default;
+  Resources(Resources&) = delete;
 
   // file parser
   static void parsePeopleTxt(std::vector<Person>&);
   static void parseRelationshipTxt(DirectedGraph&);
-
-  // copy
-  Resources(Resources&) = delete;
 };
 
 /**
