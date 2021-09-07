@@ -10,6 +10,13 @@
 #include <cstdio>
 #include <cstring>
 
+/**
+ * @brief
+ *
+ * Class GraphMatrix stores graph matrix
+ * and provides Eulerian Path algorithm
+ *
+ */
 class GraphMatrix {
  public:
   GraphMatrix() = default;

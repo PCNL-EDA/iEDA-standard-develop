@@ -9,6 +9,13 @@
 #define PERSON_H_
 #include <map>
 
+/**
+ * @brief
+ *
+ * Class People stores everyone's id and name
+ * you can print each one of people's infomation
+ *
+ */
 class People {
  public:
   People();
