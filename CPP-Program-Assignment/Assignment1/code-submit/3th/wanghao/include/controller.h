@@ -7,14 +7,14 @@
  */
 #ifndef EULERIAN_PATH_H_
 #define EULERIAN_PATH_H_
-#include <map>
 #include <graph_matrix.h>
+#include <map>
 #include <people.h>
 
 #define PEOPLE_INSTANCE 0
 #define EULER_INSTANCE 1
 
-namespace Assignment1{
+namespace Assignment1 {
 /**
  * @brief
  *
@@ -23,10 +23,10 @@ namespace Assignment1{
  *
  */
 class Controller {
- public:
-  Controller(Controller &)  = delete;
+public:
+  Controller(Controller &) = delete;
   Controller(Controller &&) = delete;
-  ~Controller(){
+  ~Controller() {
     if (!_people) {
       delete _people;
     }
@@ -43,32 +43,30 @@ class Controller {
   // set
   void parse_files_info(int, const char **);
 
-  inline void printALL() const{
+  inline void printALL() const {
     _people->printAll();
     _euler->printAll();
   }
-  
-  inline void printHelpMessages() const{
-    printf("The program will print Eulerian Path by given files path (people, relationships)\n");
+
+  inline void printHelpMessages() const {
+    printf("The program will print Eulerian Path by given files path (people, "
+           "relationships)\n");
   }
 
   inline void exitProgram(bool exit_code) {
-    this->~People();
+    this->~Controller();
     exit(exit_code);
   }
 
   void printEulerianPath();
 
- private:
+private:
   explicit Controller() = default;
   void parsePath2Data(const char *, bool);
 
-  static People      *_people;
-  static GraphMatrix *_euler;
+  People      *_people;
+  GraphMatrix *_euler;
 };
-
-People      *Controller::_people = nullptr;
-GraphMatrix *Controller::_euler  = nullptr;
 
 } // namespace Assignment1
 

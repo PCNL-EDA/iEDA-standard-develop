@@ -8,7 +8,7 @@
 #include <controller.h>
 
 int main(int argc, const char **argv) {
-  Controller *step = Assignment1::Controller::get_instance();
+  Assignment1::Controller *step = Assignment1::Controller::get_instance();
 
   step->printHelpMessages();
   step->parse_files_info(argc, argv);

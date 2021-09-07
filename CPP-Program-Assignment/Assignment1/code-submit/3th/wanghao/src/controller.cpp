@@ -15,8 +15,8 @@ namespace Assignment1{
 Controller *Controller::get_instance() {
   // using loacl static to ensure thread safety (c++11)
   static Controller singleton;
-  _people = _people ?: new People();
-  _euler  = _euler ?: new GraphMatrix();
+  singleton._people = singleton._people ?: new People();
+  singleton._euler  = singleton._euler ?: new GraphMatrix();
   return &singleton;
 }
 
