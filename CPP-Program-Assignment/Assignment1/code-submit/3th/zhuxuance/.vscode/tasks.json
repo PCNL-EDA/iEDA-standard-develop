@@ -1,0 +1,26 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "cmake",
+            "command": "cmake",
+            "args": [
+                "."
+            ],
+        },
+        {
+            "label": "make", /////////要执行的第二个make命令
+            "type": "shell",
+            "command": "make",
+            "args": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": [
+                "cmake"
+            ], ///指定，在执行make之前，需先执行cmake
+        },
+    ],
+    "version": "2.0.0"
+}
