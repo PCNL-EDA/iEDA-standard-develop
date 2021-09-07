@@ -9,6 +9,9 @@
 #define PERSON_H_
 #include <map>
 
+#define NAME_BUFFER 128
+
+namespace Assignment1{
 /**
  * @brief
  *
@@ -18,40 +21,38 @@
  */
 class People {
  public:
-  People();
-  ~People();
-  void operator=(const People &) = delete;
-
-  inline void     printNameById(unsigned) const;
-  inline unsigned how_many_people() const;
-
-  void printAll() const;
-  void read_file(FILE *);
-
+  People() {
+    _people = new std::map<unsigned, const char *>; 
+  }
   People(People &)  = delete;
   People(People &&) = delete;
+  ~People() {
+    for (auto &person : *_people) {
+      delete person.second;
+    }
+    delete _people;
+  }
+  void operator=(const People &) = delete;
+
+  // get
+  inline unsigned how_many_people() const {
+    return _people->size();
+  }
+
+  // set
+  void read_file(FILE *);
+
+  void printAll() const;
+  inline void printNameById(unsigned id) const {
+    auto person = _people->find(id);
+    if (person != _people->end()) {
+      printf("%u %s", id, person->second);
+    }
+  }
 
  private:
   std::map<unsigned, const char *> *_people;
 };
 
-// inline function:
-
-/**
- * @brief print name by id obviously
- * @param id
- */
-void People::printNameById(unsigned id) const {
-  auto person = _people->find(id);
-  if (person != _people->end()) {
-    printf("%u %s", id, person->second);
-  }
-}
-
-/**
- * @brief return how many people's infomation are stored
- * @return unsigned
- */
-unsigned People::how_many_people() const { return _people->size(); }
-
+} // namespace Assignment1
 #endif

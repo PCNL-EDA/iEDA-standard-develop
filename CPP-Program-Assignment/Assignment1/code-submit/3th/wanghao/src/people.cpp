@@ -6,8 +6,8 @@
  * @copyright     Copyright (c) 2021 PCL IEDA
  */
 #include <people.h>
-#define NAME_BUFFER 128
 
+namespace Assignment1{
 /**
  * @brief read people's data from file fp
  * @param fp
@@ -29,24 +29,6 @@ void People::read_file(FILE *fp) {
 }
 
 /**
- * @brief Construct a new People:: People object
- */
-People::People() { _people = new std::map<unsigned, const char *>; }
-
-/**
- * @brief Destroy the People:: People object
- */
-People::~People() {
-  if (_people != nullptr) {
-    for (auto &person : *_people) {
-      delete person.second;
-    }
-
-    delete _people;
-  }
-}
-
-/**
  * @brief print people's infomation
  */
 void People::printAll() const {
@@ -56,3 +38,5 @@ void People::printAll() const {
   }
   putchar('\n');
 }
+
+} // namespace Assignment1

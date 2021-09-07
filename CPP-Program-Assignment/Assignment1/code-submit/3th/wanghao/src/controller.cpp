@@ -7,34 +7,13 @@
  */
 #include <controller.h>
 
-#define PEOPLE_INSTANCE 0
-#define EULER_INSTANCE 1
-
-People *     Controller::_people = nullptr;
-GraphMatrix *Controller::_euler  = nullptr;
-
-/**
- * @brief exit the program, but destroy _people and _euler firstly
- * @param exit_code
- */
-void Controller::exitProgram(bool exit_code) {
-  if (!_people) {
-    delete _people;
-  }
-
-  if (!_euler) {
-    delete _euler;
-  }
-
-  exit(exit_code);
-}
-
+namespace Assignment1{
 /**
  * @brief get pointer of Controller singleton instance
  * @return Controller*
  */
-Controller *Controller::getInstance() {
-  // loacl static ensure that thread safty (c++11)
+Controller *Controller::get_instance() {
+  // using loacl static to ensure thread safety (c++11)
   static Controller singleton;
   _people = _people ?: new People();
   _euler  = _euler ?: new GraphMatrix();
@@ -46,7 +25,7 @@ Controller *Controller::getInstance() {
  * @param argc
  * @param argv
  */
-void Controller::parseFilesInfo(int argc, const char **argv) {
+void Controller::parse_files_info(int argc, const char **argv) {
   if (argc == 3 && argv[1] && argv[2]) {
     parsePath2Data(argv[1], PEOPLE_INSTANCE);
     parsePath2Data(argv[2], EULER_INSTANCE);
@@ -109,3 +88,5 @@ void Controller::printEulerianPath() {
     delete[] result;
   }
 }
+
+} // namespace Assignment1

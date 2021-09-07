@@ -11,6 +11,10 @@
 #include <graph_matrix.h>
 #include <people.h>
 
+#define PEOPLE_INSTANCE 0
+#define EULER_INSTANCE 1
+
+namespace Assignment1{
 /**
  * @brief
  *
@@ -20,42 +24,52 @@
  */
 class Controller {
  public:
-  void operator=(const Controller &) = delete;
-  ~Controller()                      = default;
-
-  inline void printALL() const;
-  inline void printHelpMessages() const;
-
-  void printEulerianPath();
-  void exitProgram(bool exit_code);
-  void parseFilesInfo(int, const char **);
-
-  static Controller *getInstance();
-
   Controller(Controller &)  = delete;
   Controller(Controller &&) = delete;
+  ~Controller(){
+    if (!_people) {
+      delete _people;
+    }
+
+    if (!_euler) {
+      delete _euler;
+    }
+  }
+  void operator=(const Controller &) = delete;
+
+  // get
+  static Controller *get_instance();
+
+  // set
+  void parse_files_info(int, const char **);
+
+  inline void printALL() const{
+    _people->printAll();
+    _euler->printAll();
+  }
+  
+  inline void printHelpMessages() const{
+    printf("The program will print Eulerian Path by given files path (people, relationships)\n");
+  }
+
+  inline void exitProgram(bool exit_code) {
+    this->~People();
+    exit(exit_code);
+  }
+
+  void printEulerianPath();
 
  private:
   explicit Controller() = default;
   void parsePath2Data(const char *, bool);
 
-  static People *     _people;
+  static People      *_people;
   static GraphMatrix *_euler;
 };
 
-/**
- * @brief print help messages obviously
- */
-void Controller::printHelpMessages() const {
-  printf("The program will print Eulerian Path by given files path (people, relationships)\n");
-}
+People      *Controller::_people = nullptr;
+GraphMatrix *Controller::_euler  = nullptr;
 
-/**
- * @brief print stored people and graph matrix for eulerian algorithm
- */
-void Controller::printALL() const {
-  _people->printAll();
-  _euler->printAll();
-}
+} // namespace Assignment1
 
 #endif

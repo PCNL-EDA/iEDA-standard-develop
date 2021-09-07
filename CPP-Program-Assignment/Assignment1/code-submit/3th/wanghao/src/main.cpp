@@ -8,10 +8,10 @@
 #include <controller.h>
 
 int main(int argc, const char **argv) {
-  Controller *step = Controller::getInstance();
+  Controller *step = Assignment1::Controller::get_instance();
 
   step->printHelpMessages();
-  step->parseFilesInfo(argc, argv);
+  step->parse_files_info(argc, argv);
   step->printALL();
   step->printEulerianPath();
   step->exitProgram(EXIT_SUCCESS);

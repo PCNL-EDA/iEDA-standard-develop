@@ -7,6 +7,7 @@
  */
 #include <graph_matrix.h>
 
+namespace Assignment1{
 /**
  * @brief delete old data space and then creat a new space of a given size
  * @param size
@@ -32,15 +33,6 @@ void GraphMatrix::read_file(FILE *fp) {
   size *= size;
   for (size_t i = 0; i < size; ++i) {
     discard = fscanf(fp, " %u ", &_graph_matrix[i]);
-  }
-}
-
-/**
- * @brief Destroy the GraphMatrix:: GraphMatrix object
- */
-GraphMatrix::~GraphMatrix() {
-  if (_graph_matrix != nullptr) {
-    delete[] _graph_matrix;
   }
 }
 
@@ -147,7 +139,6 @@ void GraphMatrix::dfs_visit(unsigned node, unsigned *visited) const {
  * @param visited_edge
  * @param path_length
  */
-#define visit(i, j) visited_edge[i * _size + j]  // dimension manipulation: unsigned* -> unsigned**
 void GraphMatrix::dfs_order(unsigned curr_node, unsigned *order, unsigned *visited_edge, unsigned *path_length) const {
   order[(*path_length)++] = curr_node;
   for (size_t new_node = 0; new_node < _size; ++new_node) {
@@ -158,3 +149,5 @@ void GraphMatrix::dfs_order(unsigned curr_node, unsigned *order, unsigned *visit
     }
   }
 }
+
+} // namespace Assignment1

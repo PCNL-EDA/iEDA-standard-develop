@@ -10,6 +10,10 @@
 #include <cstdio>
 #include <cstring>
 
+// dimension manipulation, eg: unsigned* -> unsigned**
+#define visit(i, j) visited_edge[i * _size + j]  
+
+namespace Assignment1{
 /**
  * @brief
  *
@@ -19,24 +23,37 @@
  */
 class GraphMatrix {
  public:
-  GraphMatrix() = default;
-  ~GraphMatrix();
+  GraphMatrix()               = default;
+  GraphMatrix(GraphMatrix &)  = delete;
+  GraphMatrix(GraphMatrix &&) = delete;
+  ~GraphMatrix() {
+    if (_graph_matrix != nullptr) {
+      delete[] _graph_matrix;
+    }
+  }
   void operator=(const GraphMatrix &) = delete;
 
-  inline unsigned  get_graph_size() const;
-  inline unsigned &graph_edge(unsigned, unsigned) const;
-  inline bool      isEulerianPathExist() const;
+  // get
+  inline unsigned get_graph_size() const { 
+    return _size; 
+  }
+
+  inline unsigned &graph_edge(unsigned i, unsigned j) const { 
+    return _graph_matrix[i * _size + j]; 
+  }
+
+  // set
+  void read_file(FILE *);
 
   void printAll() const;
   bool isConnectedGraph() const;
   bool isDegreeInEqualsOut() const;
   bool eulerianPath(unsigned *, unsigned *) const;
-
-  void read_file(FILE *);
   void resetGraphSpace(unsigned);
 
-  GraphMatrix(GraphMatrix &)  = delete;
-  GraphMatrix(GraphMatrix &&) = delete;
+  inline bool isEulerianPathExist() const {
+    return (isConnectedGraph() && isDegreeInEqualsOut()) ? true : false;
+  }
 
  private:
   void dfs_visit(unsigned, unsigned *) const;
@@ -46,32 +63,5 @@ class GraphMatrix {
   unsigned  _size;
 };
 
-// inline function:
-
-/**
- * @brief get graph matrix size obviously
- * @return unsigned
- */
-unsigned GraphMatrix::get_graph_size() const { return _size; }
-
-/**
- * @brief get graph edge
- * @param i
- * @param j
- * @return unsigned&
- */
-unsigned &GraphMatrix::graph_edge(unsigned i, unsigned j) const { return _graph_matrix[i * _size + j]; }
-
-/**
- * @brief check the existance of Eulerian Path
- * @return true - if graph is connected and in/out degrees of each vertex are equal
- * @return false - if not
- */
-bool GraphMatrix::isEulerianPathExist() const {
-  if (isConnectedGraph() && isDegreeInEqualsOut()) {
-    return true;
-  }
-  return false;
-}
-
+} // namespace Assignment1
 #endif
