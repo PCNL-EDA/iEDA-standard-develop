@@ -5,12 +5,13 @@
  * @date        2021-09-06
  * @copyright   Copyright (c) 2021 PLAN-DROP_3th
  */
+#ifndef __EULER_GRAPH_H_
+#define __EULER_GRAPH_H_
 
 #include "DirectedGraph.hpp"
 #include "Person.hpp"
 
-#ifndef __EULER_GRAPH_H_
-#define __EULER_GRAPH_H_
+namespace DROP_3th_ASSIGNMENT1 {
 
 /**
  * @brief
@@ -32,4 +33,5 @@ class EulerGraph {
                                   const Node_ID start = 0);
 };
 
+}  // namespace DROP_3th_ASSIGNMENT1
 #endif  // __EULER_GRAPH_H_

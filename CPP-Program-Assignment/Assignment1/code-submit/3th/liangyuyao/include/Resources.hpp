@@ -5,14 +5,15 @@
  * @date        2021-09-06
  * @copyright   Copyright (c) 2021 PLAN-DROP_3th
  */
+#ifndef __RESOURCES_HPP_
+#define __RESOURCES_HPP_
 
 #include <assert.h>
 
 #include "DirectedGraph.hpp"
 #include "Person.hpp"
 
-#ifndef __RESOURCES_HPP_
-#define __RESOURCES_HPP_
+namespace DROP_3th_ASSIGNMENT1 {
 
 /**
  * @brief
@@ -71,4 +72,5 @@ void Resources::parseResource(K_RESOURCE_TYPE type, T& container) {
   }
 }
 
+}  // namespace DROP_3th_ASSIGNMENT1
 #endif  // __RESOURCES_HPP_

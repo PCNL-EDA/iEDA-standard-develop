@@ -14,6 +14,8 @@
 #include "EulerGraph.h"
 #include "Resources.hpp"
 
+using namespace DROP_3th_ASSIGNMENT1;
+
 int main(int argc, char** argv) {
   printf("\n----- Assignment1_pro -----\n");
   DirectedGraph relation;

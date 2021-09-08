@@ -10,6 +10,9 @@
  * @param       people   data in people.txt
  * @exception
  */
+
+namespace DROP_3th_ASSIGNMENT1 {
+
 void EulerGraph::printEulerCircuit(const AdjList adj_list,
                                    const std::vector<Person> people) {
   if (adj_list.size() != people.size()) {
@@ -159,3 +162,5 @@ bool EulerGraph::isExistEulerCircuit(const AdjList adj_list,
   // If some edges are not visited, this graph must not exist Euler Circuit
   return edge_num == circuit.size() - 1;
 }
+
+}  // namespace DROP_3th_ASSIGNMENT1

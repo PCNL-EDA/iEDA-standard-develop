@@ -5,13 +5,14 @@
  * @date        2021-09-06
  * @copyright   Copyright (c) 2021 PLAN-DROP_3th
  */
+#ifndef __PERSON_HPP_
+#define __PERSON_HPP_
 
 #include <stdint.h>
 
 #include <string>
 
-#ifndef __PERSON_HPP_
-#define __PERSON_HPP_
+namespace DROP_3th_ASSIGNMENT1 {
 
 typedef uint32_t Person_ID;
 
@@ -44,4 +45,5 @@ class Person {
   uint32_t _year;  // year of birth
 };
 
+}  // namespace DROP_3th_ASSIGNMENT1
 #endif  // __PERSON_HPP_

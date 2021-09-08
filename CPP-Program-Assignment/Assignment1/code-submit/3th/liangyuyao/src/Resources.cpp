@@ -10,6 +10,8 @@
 
 #include <string.h>
 
+namespace DROP_3th_ASSIGNMENT1 {
+
 /**
  * @brief       parse relationship.txt
  *
@@ -107,3 +109,5 @@ void Resources::parsePeopleTxt(std::vector<Person> &people) {
     printf("path error: %s\n", file_path);
   }  // end if (fp)
 }
+
+}  // namespace DROP_3th_ASSIGNMENT1
