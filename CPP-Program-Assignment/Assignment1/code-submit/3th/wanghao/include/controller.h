@@ -27,13 +27,8 @@ public:
   Controller(Controller &) = delete;
   Controller(Controller &&) = delete;
   ~Controller() {
-    if (!_people) {
-      delete _people;
-    }
-
-    if (!_euler) {
-      delete _euler;
-    }
+    delete _people;
+    delete _euler;
   }
   void operator=(const Controller &) = delete;
 
@@ -54,7 +49,7 @@ public:
   }
 
   inline void exitProgram(bool exit_code) {
-    this->~Controller();
+    ~Controller();
     exit(exit_code);
   }
 

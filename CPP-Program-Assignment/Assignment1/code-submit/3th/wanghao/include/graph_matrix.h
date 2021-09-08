@@ -27,9 +27,7 @@ class GraphMatrix {
   GraphMatrix(GraphMatrix &)  = delete;
   GraphMatrix(GraphMatrix &&) = delete;
   ~GraphMatrix() {
-    if (_graph_matrix != nullptr) {
-      delete[] _graph_matrix;
-    }
+    delete[] _graph_matrix;
   }
   void operator=(const GraphMatrix &) = delete;
 
