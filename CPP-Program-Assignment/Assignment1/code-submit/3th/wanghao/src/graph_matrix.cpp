@@ -13,9 +13,7 @@ namespace Assignment1{
  * @param size
  */
 void GraphMatrix::resetGraphSpace(unsigned size) {
-  if (_graph_matrix != nullptr) {
-    delete[] _graph_matrix;
-  }
+  delete[] _graph_matrix;
   _size         = size;
   _graph_matrix = new unsigned[size * size];
 }
