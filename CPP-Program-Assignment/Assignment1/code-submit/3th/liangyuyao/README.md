@@ -13,6 +13,7 @@ The line below we should have GoogleTest
 You can 
 git clone https://github.com/google/googletest.git
 if you do not have that package
+Here we already offer it
  -->
 
 After we build the project, we alse can use ***google test*** to check the answer
