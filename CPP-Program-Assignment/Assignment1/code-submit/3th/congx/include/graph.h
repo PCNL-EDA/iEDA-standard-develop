@@ -124,10 +124,10 @@ void MatrixGraph<T>::dfs(int vertex_index,
                          std::vector<bool>* visited_ptr) const {
   (*visited_ptr)[vertex_index] = true;
   // std::cout << "visit vertex " << vertex_index << std::endl;
-  for (int index_adjacent = 0; index_adjacent < _vertex_num; index_adjacent++) {
-    if ((*_edges)[vertex_index][index_adjacent] == true &&
-        (*visited_ptr)[index_adjacent] == false) {
-      dfs(index_adjacent, visited_ptr);
+  for (int adjacent_index = 0; adjacent_index < _vertex_num; adjacent_index++) {
+    if ((*_edges)[vertex_index][adjacent_index] == true &&
+        (*visited_ptr)[adjacent_index] == false) {
+      dfs(adjacent_index, visited_ptr);
     }
   }
   // std::cout << "arrive vertex " << vertex_index << " again" << std::endl;
@@ -148,59 +148,52 @@ void MatrixGraph<T>::dfs(int vertex_index, std::vector<T>* euler_path_ptr) {
 
 template <typename T>
 bool MatrixGraph<T>::isConnectedGraph() const {
-  std::vector<bool> visited(_vertex_num, false);
-  dfs(0, &visited);
-  for (auto iter = visited.begin(); iter != visited.end(); iter++) {
-    if ((*iter) == false) {
-      return false;
+  for (int vertex_index = 0; vertex_index < _vertex_num; ++vertex_index) {
+    std::vector<bool> visited(_vertex_num, false);
+    dfs(vertex_index, &visited);
+    for (auto iter = visited.begin(); iter != visited.end(); iter++) {
+      if ((*iter) == false) {
+        break;
+      }
     }
+    return true;
   }
-  return true;
+  return false;
 }
 
 template <typename T>
 int MatrixGraph<T>::isEulerPath(int* begin_vertex_index_ptr) const {
   if (!isConnectedGraph()) return 0;
 
-  std::vector<int> in_degree(_vertex_num, 0);
-  std::vector<int> out_degree(_vertex_num, 0);
+  std::vector<int> degree_difference(_vertex_num, 0);
 
   for (int row = 0; row < _vertex_num; row++) {
     for (int col = 0; col < _vertex_num; col++) {
       if ((*_edges)[row][col] == true) {
-        out_degree[row]++;
-        in_degree[col]++;
+        degree_difference[row]++;
+        degree_difference[col]--;
       }
     }
   }
 
   int begin_vertex_index = 0;
-  int begin_count = 0;
-  int end_count = 0;
-  for (int vertex_index = 0; vertex_index < _vertex_num; vertex_index++) {
-    int degree_difference = out_degree[vertex_index] - in_degree[vertex_index];
-    switch (degree_difference) {
-      case -1:
-        ++end_count;
-        break;
-      case 1:
-        begin_vertex_index = vertex_index;
-        ++begin_count;
-        break;
-      case 0:
-        continue;
-        break;
-      default:
-        return 0;
-        break;
+  int count = 0;
+  for (int vertex_idx = 0; vertex_idx < _vertex_num; ++vertex_idx) {
+    if (degree_difference[vertex_idx] == 1) {
+      count += 2;
+      begin_vertex_index = vertex_idx;
+    } else if (degree_difference[vertex_idx] == -1) {
+      --count;
+    } else if(degree_difference[vertex_idx] != 0){
+      return 0;
     }
   }
-  *begin_vertex_index_ptr = begin_vertex_index;
-  if (begin_count == end_count && (begin_count == 0 || begin_count == 1)) {
-    return begin_count == 0 ? 1 : 2;
-  } else {
+  if(count !=0 && count != 1){
     return 0;
   }
+
+  *begin_vertex_index_ptr = begin_vertex_index;
+  return count == 0 ? 1 : 2;
 }
 
 template <typename T>
@@ -227,5 +220,6 @@ void MatrixGraph<T>::print() const {
     std::cout << std::endl;
   }
 }
+void fun() {}
 
-#endif  // CPP_PROGRAM_ASSIGNMENT_ASSIGNMENT1_CODE_SUBMIT_CONGX_GRAPH_H_
+#endif  // CPP_PROGRAM_ASSIGNMENT_ASSIGNMENT1_CODE_SUBMIT_3TH_CONGX_GRAPH_H_

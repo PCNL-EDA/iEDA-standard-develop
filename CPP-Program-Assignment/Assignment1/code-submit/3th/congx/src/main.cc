@@ -11,14 +11,22 @@
 
 #include <fstream>
 #include <iostream>
+#include <vector>
 
 #include "graph.h"
 #include "person.h"
 
-int main() {
-  MatrixGraph<Person> graph(std::string("people.txt"),
-                            std::string("relationship.txt"));
+void isEulerPath();
 
+int main() {
+  isEulerPath();
+
+  return 0;
+}
+
+void isEulerPath() {
+  MatrixGraph<Person> graph(std::string("../data/people.txt"),
+                            std::string("../data/relationship.txt"));
   int begin_vertex;
   int result = graph.isEulerPath(&begin_vertex);
   if (result == 0) {
@@ -32,6 +40,4 @@ int main() {
       std::cout << (iter + 1 != euler_path.end() ? " -> " : "\n");
     }
   }
-
-  return 0;
 }
