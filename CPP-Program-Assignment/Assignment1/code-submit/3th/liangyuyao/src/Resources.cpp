@@ -19,7 +19,9 @@ namespace DROP_3th_ASSIGNMENT1 {
  * @exception
  */
 void Resources::parseRelationshipTxt(DirectedGraph &graph) {
-  const char *file_path = "../resources/relationship.txt\0";
+  const char *file_path =
+      "/home/liangyuyao/iEDA-standard-develop/CPP-Program-Assignment/"
+      "Assignment1/code-submit/3th/liangyuyao/resources/relationship.txt\0";
   FILE *fp = fopen(file_path, "r");
   if (fp) {
     const uint16_t buff_szie = 128;
@@ -89,7 +91,9 @@ void Resources::parseRelationshipTxt(DirectedGraph &graph) {
  * @exception
  */
 void Resources::parsePeopleTxt(std::vector<Person> &people) {
-  const char *file_path = "../resources/people.txt\0";
+  const char *file_path =
+      "/home/liangyuyao/iEDA-standard-develop/CPP-Program-Assignment/"
+      "Assignment1/code-submit/3th/liangyuyao/resources/people.txt\0";
   FILE *fp = fopen(file_path, "r");
   if (fp) {
     const uint16_t buff_szie = 32;

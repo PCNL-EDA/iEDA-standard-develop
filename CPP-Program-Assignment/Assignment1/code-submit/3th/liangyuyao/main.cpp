@@ -18,11 +18,7 @@ using namespace DROP_3th_ASSIGNMENT1;
 
 int main(int argc, char** argv) {
   printf("\n----- Assignment1_pro -----\n");
-  DirectedGraph relation;
-  std::vector<Person> people;
-  Resources::parseResource(K_RESOURCE_TYPE::k_relation, relation);
-  Resources::parseResource(K_RESOURCE_TYPE::k_people, people);
-  EulerGraph::printEulerCircuit(relation.getAdjList(), people);
+  EulerGraph::printEulerCircuit();
   printf("\n----- Assignment1_pro END-----\n");
   return 0;
 }

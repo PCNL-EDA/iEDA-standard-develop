@@ -1,5 +1,5 @@
 BUILD_DIR = build
-BIN = Assignment1.out
+BIN = Assignment1_pro.out
 
 .PHONY:
 
@@ -8,12 +8,12 @@ run:clean
 	make -C $(BUILD_DIR)
 	cd $(BUILD_DIR) && ./$(BIN)
 
-vscode:clean
+build:clean
 	cmake . -B $(BUILD_DIR) -Ddebug=1
 	make -C $(BUILD_DIR)
 	cd $(BUILD_DIR)
 
-gdb:vscode
+gdb:build
 	cd $(BUILD_DIR) && gdb $(BIN)
 
 clean:

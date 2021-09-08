@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 
+#include "Resources.hpp"
+
 /**
  * @brief       print Euler Circuit if it exists
  *
@@ -13,42 +15,52 @@
 
 namespace DROP_3th_ASSIGNMENT1 {
 
-void EulerGraph::printEulerCircuit(const AdjList adj_list,
-                                   const std::vector<Person> people) {
-  if (adj_list.size() != people.size()) {
-    printf("Data miss in some files\n");
-    return;
+std::string EulerGraph::printEulerCircuit() {
+  DirectedGraph relation;
+  std::vector<Person> people;
+  Resources::parseResource(K_RESOURCE_TYPE::k_relation, relation);
+  Resources::parseResource(K_RESOURCE_TYPE::k_people, people);
+  std::string ret;
+  if (relation.getVertexNum() != people.size()) {
+    ret = "Data miss in some files";
+    printf("%s\n", ret.c_str());
+    return ret;
   }
 
-  if (adj_list.size() == 0) {
-    printf("This Graph is empty\n");
-    return;
+  if (relation.getVertexNum() == 0) {
+    ret = "This Graph is empty";
+    printf("%s\n", ret.c_str());
+    return ret;
   }
 
-  if (isExistEulerPath(adj_list) == false) {
-    printf("No Eular Path\n");
-    return;
+  if (isExistEulerPath(relation.getAdjList()) == false) {
+    ret = "No Eular Path";
+    printf("%s\n", ret.c_str());
+    return ret;
   }
 
   // Euler Path existing does not mean Path Circuit exists
   // But once Euler Circuit exists, Path Circuit does exist.
   // And we try different starting Vertex until it stucks.
   std::vector<Node_ID> circuit;  // save Euler Circuit
-  for (Node_ID vertex = 0; vertex < adj_list.size(); ++vertex) {
-    if (isExistEulerCircuit(adj_list, circuit, vertex) == true) {
+  for (Node_ID vertex = 0; vertex < relation.getVertexNum(); ++vertex) {
+    if (isExistEulerCircuit(relation.getAdjList(), circuit, vertex) == true) {
       // If the start-point different from the end-point,
       // it should be Half Euler Circuit
-      printf("%sEular Circuit: ", circuit[0] != circuit.back() ? "Half " : "");
+      ret = "Eular Circuit: ";
+      ret = (circuit[0] != circuit.back() ? "Half " : "") + ret;
       for (int v = circuit.size() - 1; v >= 0; --v) {
         // printf("%u %s", circuit[v], v != 0 ? "-> " : "\n");  // for test
-        printf("%s %s", people[circuit[v]].getName().c_str(),
-               v != 0 ? "-> " : "\n");
+        ret += people[circuit[v]].getName() + " " + (v != 0 ? "-> " : "");
       }
-      return;
+      printf("%s", ret.c_str());
+      return ret;
     }
   }
 
-  printf("No Eular Circuit\n");
+  ret = "No Eular Circuit";
+  printf("%s\n", ret.c_str());
+  return ret;
 }
 
 /**

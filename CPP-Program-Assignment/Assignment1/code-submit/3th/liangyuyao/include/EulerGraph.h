@@ -20,7 +20,7 @@ namespace DROP_3th_ASSIGNMENT1 {
  */
 class EulerGraph {
  public:
-  static void printEulerCircuit(const AdjList, const std::vector<Person>);
+  static std::string printEulerCircuit();
 
  private:
   // constructor
