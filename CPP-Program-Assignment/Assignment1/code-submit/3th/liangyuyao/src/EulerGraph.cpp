@@ -18,8 +18,8 @@ namespace DROP_3th_ASSIGNMENT1 {
 std::string EulerGraph::printEulerCircuit() {
   DirectedGraph relation;
   std::vector<Person> people;
-  Resources::parseResource(K_RESOURCE_TYPE::k_relation, relation);
-  Resources::parseResource(K_RESOURCE_TYPE::k_people, people);
+  Resources::parseResource(ResourceType::kRelation, relation);
+  Resources::parseResource(ResourceType::kPeople, people);
   std::string ret;
   if (relation.getVertexNum() != people.size()) {
     ret = "Data miss in some files";
@@ -124,6 +124,43 @@ bool EulerGraph::isExistEulerPath(const AdjList adj_list) {
 bool EulerGraph::isExistEulerCircuit(const AdjList adj_list,
                                      std::vector<Node_ID>& circuit,
                                      const Node_ID start) {
+  // find Euler Circuit by Hierholzer algorithm
+  Hierholzer(adj_list, circuit, start);
+
+  // Record vertex visited according to algorithm
+  std::vector<bool> visited(adj_list.size(), false);
+  for (auto v : circuit) {
+    visited[v] = true;
+  }
+  // If some vertexs are not visited, this graph must not exist Euler Circuit
+  for (auto v : visited) {
+    if (visited[v] == false) {
+      return false;
+    }
+  }
+
+  // Count edge visited according to algorithm
+  Node_ID edge_num = 0;
+  for (auto v_out : adj_list) {
+    edge_num += v_out.size();
+  }
+
+  // If some edges are not visited, this graph must not exist Euler Circuit
+  return edge_num == circuit.size() - 1;
+}
+
+/**
+ * @brief       Find Euler Circuit by Hierholzer algorithm
+ *
+ * @param       adj_list
+ * @param       circuit Euler Circuit
+ * @param       start
+ * @link https://www.geeksforgeeks.org/hierholzers-algorithm-directed-graph/
+ * @exception
+ */
+void EulerGraph::Hierholzer(const AdjList adj_list,
+                            std::vector<Node_ID>& circuit,
+                            const Node_ID start) {
   auto unused = adj_list;         // working copy, save available edges
   std::vector<Node_ID> cur_path;  // maintain a stack to track vertex
   circuit.resize(0);
@@ -151,28 +188,8 @@ bool EulerGraph::isExistEulerCircuit(const AdjList adj_list,
         cur_path.pop_back();
       }
     }
-  }
 
-  // Record vertex visited according to algorithm
-  std::vector<bool> visited(adj_list.size(), false);
-  for (auto v : circuit) {
-    visited[v] = true;
-  }
-  // If some vertexs are not visited, this graph must not exist Euler Circuit
-  for (auto v : visited) {
-    if (visited[v] == false) {
-      return false;
-    }
-  }
-
-  // Count edge visited according to algorithm
-  Node_ID edge_num = 0;
-  for (auto v_out : adj_list) {
-    edge_num += v_out.size();
-  }
-
-  // If some edges are not visited, this graph must not exist Euler Circuit
-  return edge_num == circuit.size() - 1;
+  }  // end while (!cur_path.empty())
 }
 
 }  // namespace DROP_3th_ASSIGNMENT1

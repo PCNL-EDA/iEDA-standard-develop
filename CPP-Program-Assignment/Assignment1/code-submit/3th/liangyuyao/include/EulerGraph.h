@@ -30,7 +30,9 @@ class EulerGraph {
 
   static bool isExistEulerPath(const AdjList);
   static bool isExistEulerCircuit(const AdjList, std::vector<Node_ID>&,
-                                  const Node_ID start = 0);
+                                  const Node_ID);
+  static void Hierholzer(const AdjList, std::vector<Node_ID>&,
+                         const Node_ID start = 0);
 };
 
 }  // namespace DROP_3th_ASSIGNMENT1

@@ -20,9 +20,9 @@ namespace DROP_3th_ASSIGNMENT1 {
  * specify file(s) that need to parse
  * @exception
  */
-enum class K_RESOURCE_TYPE {
-  k_people,
-  k_relation,
+enum class ResourceType {
+  kPeople,
+  kRelation,
 };
 
 /**
@@ -36,7 +36,7 @@ enum class K_RESOURCE_TYPE {
 class Resources {
  public:
   template <typename T>
-  static void parseResource(K_RESOURCE_TYPE, T&);
+  static void parseResource(ResourceType, T&);
 
  private:
   // constructor
@@ -57,13 +57,13 @@ class Resources {
  * @exception
  */
 template <typename T>
-void Resources::parseResource(K_RESOURCE_TYPE type, T& container) {
+void Resources::parseResource(ResourceType type, T& container) {
   switch (type) {
-    case K_RESOURCE_TYPE::k_people: {
+    case ResourceType::kPeople: {
       assert(typeid(T) == typeid(std::vector<Person>));
       parsePeopleTxt(reinterpret_cast<std::vector<Person>&>(container));
     } break;
-    case K_RESOURCE_TYPE::k_relation: {
+    case ResourceType::kRelation: {
       assert(typeid(T) == typeid(DirectedGraph));
       parseRelationshipTxt(reinterpret_cast<DirectedGraph&>(container));
     } break;
