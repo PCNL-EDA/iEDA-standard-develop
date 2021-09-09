@@ -58,6 +58,6 @@ rm -rf $BASEPATH/build
 mkdir -p $BASEPATH/build/cmake_cache
 cd $BASEPATH/build/cmake_cache
 cmake -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR $BASEPATH -DBUILD_MODE=$BUILD_MODE
-make
-make install
+make -j12
+make install -j12
 echo -e "\033[47;30m run '$INSTALL_DIR/bin/hello' to execute the program! \033[0m"
