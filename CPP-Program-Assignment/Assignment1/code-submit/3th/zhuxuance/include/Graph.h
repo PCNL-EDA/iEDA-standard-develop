@@ -17,11 +17,17 @@ namespace Euler {
 // typedef unordered_map<int, map<int, int> > Adjacent;
 using Adjacent = std::unordered_map<int, std::map<int, int> >;
 
-#define NON_EULERIAN 0
-#define EULERIAN 1
-#define SEMI_EULERIAN 2
+// #define NON_EULERIAN 0
+// #define EULERIAN 1
+// #define SEMI_EULERIAN 2
 
-const std::vector<std::string> graph_type_list{"No Eular Path", "Euler circuit", "Euler path"};
+enum GraphType {
+  NON_EULERIAN,   // No Euler Path
+  EULERIAN,       // have Euler circuit
+  SEMI_EULERIAN,  // have Euler Path
+};
+
+const std::vector<std::string> kGraphTypeList{"No Euler Path", "Euler circuit", "Euler path"};
 
 /**
  * @brief Graph class, save graph information, calculate Euler path
@@ -41,14 +47,14 @@ class Graph {
   void set_edge_count(int edge_count) { _edge_count = edge_count; };
   void set_graph_type(int graph_type) { _graph_type = graph_type; };
   void set_start_node(int start_node) { _start_node = start_node; };
-  void set_degree(int node_count) { _degree = new int[node_count](); };
+  void set_degree_diff(int node_count) { _degree_diff = new int[node_count](); };
   void set_visited(int node_count) { _visited = new bool[node_count]; };
 
   void getGraphType();
-  void getEulerPath();
+  void findEulerPath();
   void euler(Adjacent &adj, int now);
 
-  void printDegreeAndVisited();
+  void printDegreediffAndVisited();
   void printAdj();
   void printEdges();
   void printGraphType();
@@ -58,14 +64,14 @@ class Graph {
   Graph(Graph &&) = delete;
 
  private:
-  int _node_count;
-  int _edge_count;
-  int _graph_type;
-  int _start_node;
-  int    *_degree;
-  bool  *_visited;
-  MyUtils   _util;
-  People  _people;
+  int   _node_count;
+  int   _edge_count;
+  int   _graph_type;
+  int   _start_node;
+  int *_degree_diff;
+  bool    *_visited;
+  MyUtils     _util;
+  People    _people;
   std::vector<std::vector<int> >   _adj;
   std::vector<std::vector<int> > _edges;
   std::vector<int> _euler_path;

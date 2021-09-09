@@ -6,9 +6,6 @@
  * @copyright     Copyright (c) 2021 PCL IEDA
  */
 #include "MyUtils.h"
-#include <string>
-#include <vector>
-#include <iostream>
 
 namespace Euler {
 /**

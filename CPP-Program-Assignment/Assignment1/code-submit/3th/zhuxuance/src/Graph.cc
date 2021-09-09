@@ -12,8 +12,8 @@ namespace Euler {
  * @brief Destroy the Graph:: Graph object
  */
 Graph::~Graph() {
-  if (_degree != nullptr) {
-    delete[] _degree;
+  if (_degree_diff != nullptr) {
+    delete[] _degree_diff;
   }
   if (_visited != nullptr) {
     delete[] _visited;
@@ -38,7 +38,7 @@ void Graph::setGraph(int argc, const char **argv) {
   _people.setPeopleList(argv[2]);
 
   setGraphInfo(sqrt(file_content.size()));
-  printDegreeAndVisited();
+  printDegreediffAndVisited();
   setAdj(file_content);
   printAdj();
   setEdges(file_content);
@@ -52,7 +52,7 @@ void Graph::setGraph(int argc, const char **argv) {
 void Graph::setGraphInfo(int node_count) {
   set_node_count(node_count);
   set_visited(node_count);
-  set_degree(node_count);
+  set_degree_diff(node_count);
   set_start_node(0);
 }
 
@@ -83,8 +83,8 @@ void Graph::setEdges(const std::vector<std::string> &file_content) {
       if (stoi(file_content[i * _node_count + j]) != 0) {
         insert_edge_vec.push_back(i);
         insert_edge_vec.push_back(j);
-        ++_degree[i];
-        --_degree[j];
+        ++_degree_diff[i];
+        --_degree_diff[j];
         _visited[i] = true;
         _visited[j] = true;
         _edges.push_back(insert_edge_vec);
@@ -93,7 +93,7 @@ void Graph::setEdges(const std::vector<std::string> &file_content) {
     }
   }
   set_edge_count(_edges.size());
-  printDegreeAndVisited();
+  printDegreediffAndVisited();
 }
 
 /**
@@ -107,20 +107,20 @@ void Graph::getGraphType() {
       _util.exitProgram(EXIT_SUCCESS);
     }
   }
-  int odd_degree_node_count = 0;
+  int odd_degree_diff_node_count = 0;
   for (int i = 0; i < _node_count; ++i) {
-    if (_degree[i] == 1) {
-      odd_degree_node_count += 2;
+    if (_degree_diff[i] == 1) {
+      odd_degree_diff_node_count += 2;
       set_start_node(i);
-    } else if (_degree[i] == -1) {
-      odd_degree_node_count -= 1;
-    } else if (_degree != 0) {
+    } else if (_degree_diff[i] == -1) {
+      odd_degree_diff_node_count -= 1;
+    } else if (_degree_diff[i] != 0) {
       set_graph_type(NON_EULERIAN);
     }
   }
-  if (odd_degree_node_count == 0) {
+  if (odd_degree_diff_node_count == 0) {
     set_graph_type(EULERIAN);
-  } else if (odd_degree_node_count == 1) {
+  } else if (odd_degree_diff_node_count == 1) {
     set_graph_type(SEMI_EULERIAN);
   }
   printGraphType();
@@ -129,7 +129,7 @@ void Graph::getGraphType() {
 /**
  * @brief Calculate the Euler circuit or Euler path of the graph
  */
-void Graph::getEulerPath() {
+void Graph::findEulerPath() {
   Adjacent adj;
   for (auto &t : _edges) {
     ++adj[t[0]][t[1]];
@@ -155,15 +155,15 @@ void Graph::euler(Adjacent &adj, int now) {
 }
 
 /**
- * @brief Print degree and Visited
+ * @brief Print degreediff and visited
  */
-void Graph::printDegreeAndVisited() {
-  printf("--------------print _degree & _visited\n");
-  printf("node count: %d\ndegree :  ", _node_count);
+void Graph::printDegreediffAndVisited() {
+  printf("---------print _degree_diff & _visited\n");
+  printf("node count: %d\ndegree_diff :  ", _node_count);
   for (int i = 0; i < _node_count; ++i) {
-    printf("%d ", _degree[i]);
+    printf("%d ", _degree_diff[i]);
   }
-  printf("\nvisited:  ");
+  printf("\nvisited :      ");
   for (int i = 0; i < _node_count; ++i) {
     printf("%d ", _visited[i]);
   }
@@ -200,7 +200,7 @@ void Graph::printEdges() {
  */
 void Graph::printGraphType() {
   printf("---------------------print _graph_type\n");
-  printf("_graph_type = %s\n", graph_type_list[_graph_type].c_str());
+  printf("_graph_type = %s\n", kGraphTypeList[_graph_type].c_str());
   printf("_start_node = %d:%s\n", _start_node, _people.getName(_start_node).c_str());
   printf("\n");
 }
@@ -210,7 +210,7 @@ void Graph::printGraphType() {
  */
 void Graph::printEulerPath() {
   printf("---------------------print _euler_path\n");
-  printf("%s: \n", graph_type_list[_graph_type].c_str());
+  printf("%s: \n", kGraphTypeList[_graph_type].c_str());
 
   for (int i = 0; i < _euler_path.size() - 1; ++i) {
     printf("%d:%s -> ", _euler_path[i], _people.getName(_euler_path[i]).c_str());

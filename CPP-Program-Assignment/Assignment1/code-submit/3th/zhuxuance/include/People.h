@@ -32,8 +32,8 @@ class People {
 
   void printPeopleList();
 
-  People(People &)  =delete;
-  People(People &&) =delete;
+  People(People &)  = delete;
+  People(People &&) = delete;
 
  private:
   PeopleList _people_list;
