@@ -12,13 +12,13 @@ namespace Euler {
  * @brief Read the person’s information from the file and store it in the member variable _people_list
  * @param people_file_path
  */
-void People::setPeopleList(const std::string &people_file_path) {
+void People::initPeopleList(const std::string &people_file_path) {
   printf("start to set people...\n");
-  std::vector<std::string> file_content;
-  file_content = _util.readFileContent(people_file_path);
+  std::vector<std::string> people_file_content;
+  people_file_content = _util.readFileContent(people_file_path);
 
   std::vector<std::string>::const_iterator i;
-  for (i = file_content.begin(); i < file_content.end(); i += 3) {
+  for (i = people_file_content.begin(); i < people_file_content.end(); i += 3) {
     _people_list[stoi(*i)].push_back(*(i + 1));
     _people_list[stoi(*i)].push_back(*(i + 2));
   }
@@ -56,7 +56,7 @@ std::vector<std::string> People::getInfo(int person_id) {
  * @brief print people list
  */
 void People::printPeopleList() {
-  printf("--------------------print _people_type\n");
+  printf("--------------------print _people_list\n");
   for (int i = 0; i < _people_list.size(); ++i) {
     printf("%d: %s, \t%s\n", i, _people_list[i][0].c_str(), _people_list[i][1].c_str());
   }

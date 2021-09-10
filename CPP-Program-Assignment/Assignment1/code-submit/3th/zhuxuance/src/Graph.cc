@@ -8,6 +8,8 @@
 #include "Graph.h"
 
 namespace Euler {
+const std::vector<std::string> Graph::kGraphTypeList = {"No Euler Path", "Euler circuit", "Euler path"};
+
 /**
  * @brief Destroy the Graph:: Graph object
  */
@@ -22,26 +24,22 @@ Graph::~Graph() {
 
 /**
  * @brief Read the information of the graph from the file and initialize it
- * @param argc
- * @param argv
+ * @param relationship_file_path
+ * @param people_file_path
  */
-void Graph::setGraph(int argc, const char **argv) {
+void Graph::initGraph(const std::string &relationship_file_path, const std::string &people_file_path) {
   printf("start to set graph...\n");
-  if (argc != 3 && !argv[1] && !argv[2]) {
-    printf("invalid parameters\n");
-    _util.exitProgram(EXIT_FAILURE);
-  }
-  std::vector<std::string> file_content;
-  file_content = _util.readFileContent(argv[1]);
+  std::vector<std::string> relationship_file_content;
+  relationship_file_content = _util.readFileContent(relationship_file_path);
   printf("got graph file content\n\n");
 
-  _people.setPeopleList(argv[2]);
+  _people.initPeopleList(people_file_path);
 
-  setGraphInfo(sqrt(file_content.size()));
+  initGraphBasicInfo(sqrt(relationship_file_content.size()));
   printDegreediffAndVisited();
-  setAdj(file_content);
+  setAdj(relationship_file_content);
   printAdj();
-  setEdges(file_content);
+  setEdges(relationship_file_content);
   printEdges();
 }
 
@@ -49,7 +47,7 @@ void Graph::setGraph(int argc, const char **argv) {
  * @brief Initialize the node and degree information of the graph
  * @param node_count
  */
-void Graph::setGraphInfo(int node_count) {
+void Graph::initGraphBasicInfo(int node_count) {
   set_node_count(node_count);
   set_visited(node_count);
   set_degree_diff(node_count);
@@ -58,14 +56,14 @@ void Graph::setGraphInfo(int node_count) {
 
 /**
  * @brief Set the adjacency matrix of the graph
- * @param file_content
+ * @param relationship_file_content
  */
-void Graph::setAdj(const std::vector<std::string> &file_content) {
+void Graph::setAdj(const std::vector<std::string> &relationship_file_content) {
   std::vector<int> insert_adj_vec;
   for (int i = 0; i < _node_count; ++i) {
     insert_adj_vec.clear();
     for (int j = 0; j < _node_count; ++j) {
-      insert_adj_vec.push_back(stoi(file_content[i * _node_count + j]));
+      insert_adj_vec.push_back(stoi(relationship_file_content[i * _node_count + j]));
     }
     _adj.push_back(insert_adj_vec);
   }
@@ -73,14 +71,14 @@ void Graph::setAdj(const std::vector<std::string> &file_content) {
 
 /**
  * @brief Set the edges of the graph
- * @param file_content
+ * @param relationship_file_content
  */
-void Graph::setEdges(const std::vector<std::string> &file_content) {
+void Graph::setEdges(const std::vector<std::string> &relationship_file_content) {
   std::vector<int> insert_edge_vec;
   for (int i = 0; i < _node_count; ++i) {
     insert_edge_vec.clear();
     for (int j = 0; j < _node_count; ++j) {
-      if (stoi(file_content[i * _node_count + j]) != 0) {
+      if (stoi(relationship_file_content[i * _node_count + j]) != 0) {
         insert_edge_vec.push_back(i);
         insert_edge_vec.push_back(j);
         ++_degree_diff[i];
@@ -97,16 +95,18 @@ void Graph::setEdges(const std::vector<std::string> &file_content) {
 }
 
 /**
- * @brief Determine the type of graph
+ * @brief Determine the type of the graph according to the judgment method of the Euler graph
  */
-void Graph::getGraphType() {
+void Graph::determineGraphType() {
+  // If it is not a connected graph, it is not an Euler graph
   for (int i = 0; i < _node_count; ++i) {
     if (_visited[i] == 0) {
-      _graph_type = NON_EULERIAN;
+      set_graph_type(NON_EULERIAN);
       printf("No Eular Path > <\n");
       _util.exitProgram(EXIT_SUCCESS);
     }
   }
+  // Count the number of odd-degree-diff nodes
   int odd_degree_diff_node_count = 0;
   for (int i = 0; i < _node_count; ++i) {
     if (_degree_diff[i] == 1) {
@@ -116,11 +116,15 @@ void Graph::getGraphType() {
       odd_degree_diff_node_count -= 1;
     } else if (_degree_diff[i] != 0) {
       set_graph_type(NON_EULERIAN);
+      printf("No Eular Path T T\n");
+      _util.exitProgram(EXIT_SUCCESS);
     }
   }
   if (odd_degree_diff_node_count == 0) {
+    // If the out degree of all nodes is equal to the in degree, it is an Euler graph
     set_graph_type(EULERIAN);
   } else if (odd_degree_diff_node_count == 1) {
+    // If there is and only a pair of odd-degree-diff nodes, it is a semi-Euler graph
     set_graph_type(SEMI_EULERIAN);
   }
   printGraphType();
@@ -136,6 +140,7 @@ void Graph::findEulerPath() {
   }
   _euler_path.clear();
   euler(adj, _start_node);
+  // The calculated data is in reverse order, so it needs to be reversed
   reverse(_euler_path.begin(), _euler_path.end());
 }
 
@@ -145,12 +150,14 @@ void Graph::findEulerPath() {
  * @param now
  */
 void Graph::euler(Adjacent &adj, int now) {
+  // dfs, count-1 every time an edge is traversed.
   for (auto &[next, count] : adj[now]) {
     if (count >= 1) {
       --count;
       euler(adj, next);
     }
   }
+  // Each edge of nodes that complete the dfs has been visited, and the nodes are added to the euler path
   _euler_path.push_back(now);
 }
 

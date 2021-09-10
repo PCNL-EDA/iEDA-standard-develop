@@ -24,7 +24,7 @@ class People {
   ~People() = default;
   void operator=(const People &) = delete;
 
-  void setPeopleList(const std::string &people_file_path);
+  void initPeopleList(const std::string &people_file_path);
 
   std::string getName(int person_id);
   std::string getBirth(int person_id);

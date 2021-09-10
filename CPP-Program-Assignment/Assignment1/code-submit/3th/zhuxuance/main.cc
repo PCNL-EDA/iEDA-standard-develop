@@ -8,9 +8,16 @@
 #include "Graph.h"
 
 int main(int argc, const char **argv) {
+  if (argc != 3 || !argv[1] || !argv[2]) {
+    printf("invalid parameters\n");
+    return 0;
+  }
   Euler::Graph g;
-  g.setGraph(argc, argv);
-  g.getGraphType();
+  std::string relationship_file_path(argv[1]);
+  std::string people_file_path(argv[2]);
+
+  g.initGraph(relationship_file_path, people_file_path);
+  g.determineGraphType();
   g.findEulerPath();
   g.printEulerPath();
   return 0;

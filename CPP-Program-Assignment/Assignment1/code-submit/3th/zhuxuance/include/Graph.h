@@ -14,20 +14,13 @@
 #include "People.h"
 
 namespace Euler {
-// typedef unordered_map<int, map<int, int> > Adjacent;
 using Adjacent = std::unordered_map<int, std::map<int, int> >;
 
-// #define NON_EULERIAN 0
-// #define EULERIAN 1
-// #define SEMI_EULERIAN 2
-
-enum GraphType {
+enum kGraphType {
   NON_EULERIAN,   // No Euler Path
   EULERIAN,       // have Euler circuit
   SEMI_EULERIAN,  // have Euler Path
 };
-
-const std::vector<std::string> kGraphTypeList{"No Euler Path", "Euler circuit", "Euler path"};
 
 /**
  * @brief Graph class, save graph information, calculate Euler path
@@ -38,10 +31,10 @@ class Graph {
   ~Graph();
   void operator=(const Graph &) = delete;
 
-  void setGraph(int, const char **);
-  void setGraphInfo(int node_count);
-  void setAdj(const std::vector<std::string> &file_content);
-  void setEdges(const std::vector<std::string> &file_content);
+  void initGraph(const std::string &relationship_file_path, const std::string &people_file_path);
+  void initGraphBasicInfo(int node_count);
+  void setAdj(const std::vector<std::string> &relationship_file_content);
+  void setEdges(const std::vector<std::string> &relationship_file_content);
 
   void set_node_count(int node_count) { _node_count = node_count; };
   void set_edge_count(int edge_count) { _edge_count = edge_count; };
@@ -50,7 +43,7 @@ class Graph {
   void set_degree_diff(int node_count) { _degree_diff = new int[node_count](); };
   void set_visited(int node_count) { _visited = new bool[node_count]; };
 
-  void getGraphType();
+  void determineGraphType();
   void findEulerPath();
   void euler(Adjacent &adj, int now);
 
@@ -64,6 +57,7 @@ class Graph {
   Graph(Graph &&) = delete;
 
  private:
+  const static std::vector<std::string> kGraphTypeList;
   int   _node_count;
   int   _edge_count;
   int   _graph_type;

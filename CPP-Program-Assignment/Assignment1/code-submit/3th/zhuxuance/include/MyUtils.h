@@ -5,8 +5,8 @@
  * @date          2021-09-07
  * @copyright     Copyright (c) 2021 PCL IEDA
  */
-#ifndef _EULER_INCLUDE_UTILS_H_
-#define _EULER_INCLUDE_UTILS_H_
+#ifndef _EULER_INCLUDE_MYUTILS_H_
+#define _EULER_INCLUDE_MYUTILS_H_
 
 #include <string>
 #include <vector>
