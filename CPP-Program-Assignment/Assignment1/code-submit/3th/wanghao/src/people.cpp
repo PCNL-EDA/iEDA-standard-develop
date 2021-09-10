@@ -7,7 +7,7 @@
  */
 #include <people.h>
 
-namespace Assignment1{
+namespace Assignment1 {
 /**
  * @brief read people's data from file fp
  * @param fp
@@ -24,7 +24,7 @@ void People::read_file(FILE *fp) {
   while (people_size--) {
     char *person_name = new char[NAME_BUFFER];
     discard           = fscanf(fp, "%u %s %u\n", &person_id, person_name, &person_birthday);
-    _people->insert(std::make_pair(person_id, person_name));
+    _people_map->insert(std::make_pair(person_id, person_name));
   }
 }
 
@@ -33,10 +33,10 @@ void People::read_file(FILE *fp) {
  */
 void People::printAll() const {
   printf(">>> print id and name for each one of registed people\n");
-  for (const auto &person : *_people) {
+  for (const auto &person : *_people_map) {
     printf("id:%u\t%s\n", person.first, person.second);
   }
   putchar('\n');
 }
 
-} // namespace Assignment1
+}  // namespace Assignment1

@@ -7,9 +7,10 @@
  */
 #ifndef EULERIAN_PATH_H_
 #define EULERIAN_PATH_H_
-#include <graph_matrix.h>
 #include <map>
-#include <people.h>
+
+#include "graph_matrix.h"
+#include "people.h"
 
 #define PEOPLE_INSTANCE 0
 #define EULER_INSTANCE 1
@@ -23,8 +24,8 @@ namespace Assignment1 {
  *
  */
 class Controller {
-public:
-  Controller(Controller &) = delete;
+ public:
+  Controller(Controller &)  = delete;
   Controller(Controller &&) = delete;
   ~Controller() {
     delete _people;
@@ -44,25 +45,26 @@ public:
   }
 
   inline void printHelpMessages() const {
-    printf("The program will print Eulerian Path by given files path (people, "
-           "relationships)\n");
+    printf(
+      "The program will print Eulerian Path by given files path (people, "
+      "relationships)\n");
   }
 
-  inline void exitProgram(bool exit_code) {
+  void exitProgram(bool exit_code) {
     this->~Controller();
     exit(exit_code);
   }
 
   void printEulerianPath();
 
-private:
+ private:
   explicit Controller() = default;
   void parsePath2Data(const char *, bool);
 
-  People      *_people;
+  People *     _people;
   GraphMatrix *_euler;
 };
 
-} // namespace Assignment1
+}  // namespace Assignment1
 
 #endif

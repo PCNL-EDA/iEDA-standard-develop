@@ -7,7 +7,7 @@
  */
 #include <graph_matrix.h>
 
-namespace Assignment1{
+namespace Assignment1 {
 /**
  * @brief delete old data space and then creat a new space of a given size
  * @param size
@@ -50,7 +50,7 @@ void GraphMatrix::printAll() const {
 
 /**
  * @brief caculate the Eulerian Path of graph matrix,
- * @param result
+ * @param result (return) Eulerian Path array
  * @return true - if Eulerian Path exists
  * @return false - if Eulerian Path not exists
  */
@@ -117,7 +117,7 @@ bool GraphMatrix::isDegreeInEqualsOut() const {
 }
 
 /**
- * @brief helper for GraphMatrix::isConnectedGraph, 
+ * @brief helper for GraphMatrix::isConnectedGraph,
  *        dfs by whether the node has been accessed
  * @param curr_node  node that needs to be examed in function
  * @param visited    visited node array
@@ -132,12 +132,12 @@ void GraphMatrix::dfsByNode(unsigned curr_node, unsigned *visited) const {
 }
 
 /**
- * @brief helper for GraphMatrix::eulerianPath, 
+ * @brief helper for GraphMatrix::eulerianPath,
  *        dfs by whether the node has been accessed
  * @param curr_node     node that needs to be examed in function
  * @param visited_edge  visited edge array
- * @param order         (return) visited node order 
- * @param path_length   (return) how many times dfs has accessed nodes 
+ * @param order         (return) visited node order
+ * @param path_length   (return) how many times dfs has accessed nodes
  */
 void GraphMatrix::dfsOrder(unsigned curr_node, unsigned *visited_edge, unsigned *order, unsigned *path_length) const {
   order[(*path_length)++] = curr_node;
@@ -150,4 +150,4 @@ void GraphMatrix::dfsOrder(unsigned curr_node, unsigned *visited_edge, unsigned 
   }
 }
 
-} // namespace Assignment1
+}  // namespace Assignment1

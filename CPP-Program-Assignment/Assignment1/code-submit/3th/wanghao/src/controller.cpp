@@ -7,7 +7,7 @@
  */
 #include <controller.h>
 
-namespace Assignment1{
+namespace Assignment1 {
 /**
  * @brief get pointer of Controller singleton instance
  * @return Controller*
@@ -21,7 +21,8 @@ Controller *Controller::get_instance() {
 }
 
 /**
- * @brief parse main function parameters, and collect files infomation to class People and class GraphMatrix
+ * @brief parse main function parameters, and collect files infomation to class
+ * People and class GraphMatrix
  * @param argc
  * @param argv
  */
@@ -32,7 +33,8 @@ void Controller::parse_files_info(int argc, const char **argv) {
   } else {
     printf(
       "invalid parameters\nprogram works with two parameters: "
-      "input path of \"people.txt\" and \"relationships.txt\", spilt with space\n");
+      "input path of \"people.txt\" and \"relationships.txt\", spilt with "
+      "space\n");
     exitProgram(EXIT_FAILURE);
   }
 }
@@ -89,4 +91,4 @@ void Controller::printEulerianPath() {
   }
 }
 
-} // namespace Assignment1
+}  // namespace Assignment1

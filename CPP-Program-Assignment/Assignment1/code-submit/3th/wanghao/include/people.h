@@ -11,7 +11,7 @@
 
 #define NAME_BUFFER 128
 
-namespace Assignment1{
+namespace Assignment1 {
 /**
  * @brief
  *
@@ -21,40 +21,36 @@ namespace Assignment1{
  */
 class People {
  public:
-  People() {
-    _people = new std::map<unsigned, const char *>; 
-  }
+  People() { _people_map = new std::map<unsigned, const char *>; }
   People(People &)  = delete;
   People(People &&) = delete;
   ~People() {
-    if (_people != nullptr) {
-      for (auto &person : *_people) {
+    if (_people_map != nullptr) {
+      for (auto &person : *_people_map) {
         delete[] person.second;
       }
-      delete _people;
+      delete _people_map;
     }
   }
   void operator=(const People &) = delete;
 
   // get
-  inline unsigned how_many_people() const {
-    return _people->size();
-  }
+  inline unsigned how_many_people() const { return _people_map->size(); }
 
   // set
   void read_file(FILE *);
 
-  void printAll() const;
+  void        printAll() const;
   inline void printNameById(unsigned id) const {
-    auto person = _people->find(id);
-    if (person != _people->end()) {
+    auto person = _people_map->find(id);
+    if (person != _people_map->end()) {
       printf("%u %s", id, person->second);
     }
   }
 
  private:
-  std::map<unsigned, const char *> *_people;
+  std::map<unsigned, const char *> *_people_map;
 };
 
-} // namespace Assignment1
+}  // namespace Assignment1
 #endif

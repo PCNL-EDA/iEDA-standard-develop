@@ -11,9 +11,9 @@
 #include <cstring>
 
 // dimension manipulation, eg: unsigned* -> unsigned**
-#define visit(i, j) visited_edge[i * _size + j]  
+#define visit(i, j) visited_edge[i * _size + j]
 
-namespace Assignment1{
+namespace Assignment1 {
 /**
  * @brief
  *
@@ -26,19 +26,13 @@ class GraphMatrix {
   GraphMatrix()               = default;
   GraphMatrix(GraphMatrix &)  = delete;
   GraphMatrix(GraphMatrix &&) = delete;
-  ~GraphMatrix() {
-    delete[] _graph_matrix;
-  }
+  ~GraphMatrix() { delete[] _graph_matrix; }
   void operator=(const GraphMatrix &) = delete;
 
   // get
-  inline unsigned get_graph_size() const { 
-    return _size; 
-  }
+  inline unsigned get_graph_size() const { return _size; }
 
-  inline unsigned &graph_edge(unsigned i, unsigned j) const { 
-    return _graph_matrix[i * _size + j]; 
-  }
+  inline unsigned &graph_edge(unsigned i, unsigned j) const { return _graph_matrix[i * _size + j]; }
 
   // set
   void read_file(FILE *);
@@ -49,9 +43,7 @@ class GraphMatrix {
   bool eulerianPath(unsigned *, unsigned *) const;
   void resetGraphSpace(unsigned);
 
-  inline bool isEulerianPathExist() const {
-    return (isConnectedGraph() && isDegreeInEqualsOut()) ? true : false;
-  }
+  inline bool isEulerianPathExist() const { return (isConnectedGraph() && isDegreeInEqualsOut()) ? true : false; }
 
  private:
   void dfsByNode(unsigned, unsigned *) const;
@@ -61,5 +53,5 @@ class GraphMatrix {
   unsigned  _size;
 };
 
-} // namespace Assignment1
+}  // namespace Assignment1
 #endif
