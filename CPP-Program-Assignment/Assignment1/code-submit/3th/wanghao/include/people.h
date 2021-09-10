@@ -28,8 +28,10 @@ class People {
     if (_people_map != nullptr) {
       for (auto &person : *_people_map) {
         delete[] person.second;
+        person.second = nullptr;
       }
       delete _people_map;
+      _people_map = nullptr;
     }
   }
   void operator=(const People &) = delete;

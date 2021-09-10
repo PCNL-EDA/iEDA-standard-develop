@@ -29,7 +29,9 @@ class Controller {
   Controller(Controller &&) = delete;
   ~Controller() {
     delete _people;
+    _people = nullptr;
     delete _euler;
+    _euler = nullptr;
   }
   void operator=(const Controller &) = delete;
 
