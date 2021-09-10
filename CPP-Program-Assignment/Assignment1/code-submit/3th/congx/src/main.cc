@@ -14,30 +14,30 @@
 #include <vector>
 
 #include "graph.h"
+#include "graph_io.h"
 #include "person.h"
 
-void isEulerPath();
-
 int main() {
-  isEulerPath();
+  MatrixGraph<Person> graph;
+  GraphIO<Person> graph_io;
+
+  // Read the information from the file into the graph
+  graph_io.read(graph, "../data/people.txt", "../data/relationship.txt");
+
+  int begin_vertex;
+  int result;
+  if ((result = graph.isEulerPath(&begin_vertex)) == NOT_EULER_PATH) {
+    std::cout << "it isn't euler graph." << std::endl;
+    return 0;
+  }
+  std::cout << "it is euler " << (result == EULER_GRAPH ? "graph" : "path")
+            << std::endl;
+
+  // Gets the sequence of vertices of the Euler path
+  std::vector<Person> euler_path = graph.getEulerPath(begin_vertex);
+
+  // print the Euler path
+  graph_io.print(euler_path);
 
   return 0;
-}
-
-void isEulerPath() {
-  MatrixGraph<Person> graph(std::string("../data/people.txt"),
-                            std::string("../data/relationship.txt"));
-  int begin_vertex;
-  int result = graph.isEulerPath(&begin_vertex);
-  if (result == 0) {
-    std::cout << "it isn't euler graph." << std::endl;
-  } else {
-    std::cout << (result == 1 ? "it is euler graph" : "it is euler path")
-              << std::endl;
-    std::vector<Person> euler_path = graph.printEulerPath(begin_vertex);
-    for (auto iter = euler_path.begin(); iter != euler_path.end(); iter++) {
-      std::cout << (*iter).get_name();
-      std::cout << (iter + 1 != euler_path.end() ? " -> " : "\n");
-    }
-  }
 }
