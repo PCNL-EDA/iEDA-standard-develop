@@ -65,7 +65,7 @@ bool GraphMatrix::eulerianPath(unsigned *result, unsigned *path_length) const {
   memset(visited_edge, 0, graph_size * sizeof(unsigned));
 
   // call dfs to solve eulerian path problem
-  dfsOrder(0, result, visited_edge, path_length);
+  dfsByEdge(0, result, visited_edge, path_length);
   *path_length -= 1;  // due to ```path_length++``` in dfs, clean up for the tail
   delete[] visited_edge;
   return true;
@@ -133,19 +133,19 @@ void GraphMatrix::dfsByNode(unsigned curr_node, unsigned *visited) const {
 
 /**
  * @brief helper for GraphMatrix::eulerianPath,
- *        dfs by whether the node has been accessed
+ *        dfs by whether the edge has been accessed
  * @param curr_node     node that needs to be examed in function
  * @param visited_edge  visited edge array
  * @param order         (return) visited node order
  * @param path_length   (return) how many times dfs has accessed nodes
  */
-void GraphMatrix::dfsOrder(unsigned curr_node, unsigned *visited_edge, unsigned *order, unsigned *path_length) const {
+void GraphMatrix::dfsByEdge(unsigned curr_node, unsigned *visited_edge, unsigned *order, unsigned *path_length) const {
   order[(*path_length)++] = curr_node;
   for (size_t new_node = 0; new_node < _size; ++new_node) {
     // if edge does exit and never be visited, dfs
     if (graph_edge(curr_node, new_node) == 1 && visit(curr_node, new_node) == 0) {
       visit(curr_node, new_node) = 1;
-      dfsOrder(new_node, order, visited_edge, path_length);
+      dfsByEdge(new_node, order, visited_edge, path_length);
     }
   }
 }
