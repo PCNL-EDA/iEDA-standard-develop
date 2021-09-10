@@ -12,7 +12,6 @@
 #include "MyUtils.h"
 
 namespace Euler {
-// typedef unordered_map<int, vector<string> > PeopleList;
 using PeopleList = std::unordered_map<int, std::vector<std::string> >;
 
 /**
