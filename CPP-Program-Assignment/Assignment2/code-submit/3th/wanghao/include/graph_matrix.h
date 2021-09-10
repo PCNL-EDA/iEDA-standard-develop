@@ -5,13 +5,13 @@
  * @date          2021-09-05
  * @copyright     Copyright (c) 2021 PCL IEDA
  */
-#ifndef EULER_H_
-#define EULER_H_
+#ifndef GRAPH_MATRIX_H_
+#define GRAPH_MATRIX_H_
 #include <cstdio>
 #include <cstring>
 
-// dimension manipulation, eg: unsigned* -> unsigned**
-#define visit(i, j) visited_edge[i * _size + j]
+// dimension manipulation, eg: int* -> int**
+#define edge(i, j) _data[i * _size_weight + j]
 
 namespace Assignment2 {
 /**
@@ -21,40 +21,31 @@ namespace Assignment2 {
  * and provides Eulerian Path algorithm
  *
  */
-class GraphMatrix {
+class MapMatrix {
  public:
-  GraphMatrix()               = default;
-  GraphMatrix(GraphMatrix &)  = delete;
-  GraphMatrix(GraphMatrix &&) = delete;
-  ~GraphMatrix() {
-    if (_graph_matrix != nullptr) {
-      delete[] _graph_matrix;
-    }
-  }
-  void operator=(const GraphMatrix &) = delete;
+  MapMatrix()             = default;
+  MapMatrix(MapMatrix &)  = delete;
+  MapMatrix(MapMatrix &&) = delete;
+  ~MapMatrix()            = default;
+  void operator=(const MapMatrix &) = delete;
 
   // get
-  inline unsigned get_graph_size() const { return _size; }
-
-  inline unsigned &graph_edge(unsigned i, unsigned j) const { return _graph_matrix[i * _size + j]; }
+  inline int get_graph_size() const { return _size_weight * _size_height; };
 
   // set
-  void read_file(FILE *);
+  void import_data_from_file(const char *);
 
+  // regular functions
   void printAll() const;
-  bool isConnectedGraph() const;
-  bool isDegreeInEqualsOut() const;
-  bool eulerianPath(unsigned *, unsigned *) const;
-  void resetGraphSpace(unsigned);
-
-  inline bool isEulerianPathExist() const { return (isConnectedGraph() && isDegreeInEqualsOut()) ? true : false; }
+  void resetGraphSpace(int, int);
 
  private:
-  void dfs_visit(unsigned, unsigned *) const;
-  void dfs_order(unsigned, unsigned *, unsigned *, unsigned *) const;
+  // get
+  inline int &get_edge(int i, int j) { return _data[i * _size_weight + j]; };
 
-  unsigned *_graph_matrix;
-  unsigned  _size;
+  int *_data;
+  int  _size_weight;
+  int  _size_height;
 };
 
 }  // namespace Assignment2
