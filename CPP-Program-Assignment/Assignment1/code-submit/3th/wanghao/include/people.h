@@ -27,10 +27,12 @@ class People {
   People(People &)  = delete;
   People(People &&) = delete;
   ~People() {
-    for (auto &person : *_people) {
-      delete person.second;
+    if (_people != nullptr) {
+      for (auto &person : *_people) {
+        delete[] person.second;
+      }
+      delete _people;
     }
-    delete _people;
   }
   void operator=(const People &) = delete;
 

@@ -65,7 +65,7 @@ bool GraphMatrix::eulerianPath(unsigned *result, unsigned *path_length) const {
   memset(visited_edge, 0, graph_size * sizeof(unsigned));
 
   // call dfs to solve eulerian path problem
-  dfs_order(0, result, visited_edge, path_length);
+  dfsOrder(0, result, visited_edge, path_length);
   *path_length -= 1;  // due to ```path_length++``` in dfs, clean up for the tail
   delete[] visited_edge;
   return true;
@@ -80,7 +80,7 @@ bool GraphMatrix::isConnectedGraph() const {
   bool      connected = 1;
   unsigned *visited   = new unsigned[_size];
   memset(visited, 0, sizeof(unsigned) * _size);
-  dfs_visit(0, visited);
+  dfsByNode(0, visited);
   for (size_t i = 0; i < _size; ++i) {
     if (visited[i] == 0) {
       connected = 0;
@@ -117,33 +117,35 @@ bool GraphMatrix::isDegreeInEqualsOut() const {
 }
 
 /**
- * @brief helper for GraphMatrix::isConnectedGraph, return visited array
- * @param node
- * @param visited
+ * @brief helper for GraphMatrix::isConnectedGraph, 
+ *        dfs by whether the node has been accessed
+ * @param curr_node  node that needs to be examed in function
+ * @param visited    visited node array
  */
-void GraphMatrix::dfs_visit(unsigned node, unsigned *visited) const {
-  visited[node] = 1;
+void GraphMatrix::dfsByNode(unsigned curr_node, unsigned *visited) const {
+  visited[curr_node] = 1;
   for (size_t i = 0; i < _size; ++i) {
-    if ((graph_edge(node, i) == 1) && (visited[i] == 0)) {
-      dfs_visit(i, visited);
+    if ((graph_edge(curr_node, i) == 1) && (visited[i] == 0)) {
+      dfsByNode(i, visited);
     }
   }
 }
 
 /**
- * @brief helper for GraphMatrix::eulerianPath, return visited order and path length
- * @param curr_node
- * @param order
- * @param visited_edge
- * @param path_length
+ * @brief helper for GraphMatrix::eulerianPath, 
+ *        dfs by whether the node has been accessed
+ * @param curr_node     node that needs to be examed in function
+ * @param visited_edge  visited edge array
+ * @param order         (return) visited node order 
+ * @param path_length   (return) how many times dfs has accessed nodes 
  */
-void GraphMatrix::dfs_order(unsigned curr_node, unsigned *order, unsigned *visited_edge, unsigned *path_length) const {
+void GraphMatrix::dfsOrder(unsigned curr_node, unsigned *visited_edge, unsigned *order, unsigned *path_length) const {
   order[(*path_length)++] = curr_node;
   for (size_t new_node = 0; new_node < _size; ++new_node) {
     // if edge does exit and never be visited, dfs
     if (graph_edge(curr_node, new_node) == 1 && visit(curr_node, new_node) == 0) {
       visit(curr_node, new_node) = 1;
-      dfs_order(new_node, order, visited_edge, path_length);
+      dfsOrder(new_node, order, visited_edge, path_length);
     }
   }
 }

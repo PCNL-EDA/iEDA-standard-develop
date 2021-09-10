@@ -49,7 +49,7 @@ public:
   }
 
   inline void exitProgram(bool exit_code) {
-    ~Controller();
+    this->~Controller();
     exit(exit_code);
   }
 
