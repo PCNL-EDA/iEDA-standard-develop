@@ -54,7 +54,7 @@ class GraphMatrix {
   }
 
  private:
-  void dfsVisit(unsigned, unsigned *) const;
+  void dfsByNode(unsigned, unsigned *) const;
   void dfsOrder(unsigned, unsigned *, unsigned *, unsigned *) const;
 
   unsigned *_graph_matrix;
