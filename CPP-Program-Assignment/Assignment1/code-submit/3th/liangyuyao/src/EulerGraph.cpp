@@ -155,7 +155,8 @@ bool EulerGraph::isExistEulerCircuit(const AdjList adj_list,
  * @param       adj_list
  * @param       circuit Euler Circuit
  * @param       start
- * @link https://www.geeksforgeeks.org/hierholzers-algorithm-directed-graph/
+ * @link
+ * https://www.geeksforgeeks.org/hierholzers-algorithm-directed-graph/?ref=lbp
  * @exception
  */
 void EulerGraph::Hierholzer(const AdjList adj_list,
