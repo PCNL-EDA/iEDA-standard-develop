@@ -65,7 +65,7 @@ bool GraphMatrix::eulerianPath(unsigned *result, unsigned *path_length) const {
   memset(visited_edge, 0, graph_size * sizeof(unsigned));
 
   // call dfs to solve eulerian path problem
-  dfsByEdge(0, result, visited_edge, path_length);
+  dfsByEdge(0, visited_edge, result, path_length);
   *path_length -= 1;  // due to ```path_length++``` in dfs, clean up for the tail
   delete[] visited_edge;
   return true;
@@ -124,9 +124,9 @@ bool GraphMatrix::isDegreeInEqualsOut() const {
  */
 void GraphMatrix::dfsByNode(unsigned curr_node, unsigned *visited) const {
   visited[curr_node] = 1;
-  for (size_t i = 0; i < _size; ++i) {
-    if ((graph_edge(curr_node, i) == 1) && (visited[i] == 0)) {
-      dfsByNode(i, visited);
+  for (size_t new_node = 0; new_node < _size; ++new_node) {
+    if ((graph_edge(curr_node, new_node) == 1) && (visited[new_node] == 0)) {
+      dfsByNode(new_node, visited);
     }
   }
 }
@@ -145,7 +145,7 @@ void GraphMatrix::dfsByEdge(unsigned curr_node, unsigned *visited_edge, unsigned
     // if edge does exit and never be visited, dfs
     if (graph_edge(curr_node, new_node) == 1 && visit(curr_node, new_node) == 0) {
       visit(curr_node, new_node) = 1;
-      dfsByEdge(new_node, order, visited_edge, path_length);
+      dfsByEdge(new_node, visited_edge, order, path_length);
     }
   }
 }
