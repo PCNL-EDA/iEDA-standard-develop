@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.16)
+set(THIS Assignment2_pro)
+project (${THIS})
+include_directories(include)
+aux_source_directory(./src CPPSRC)
+add_executable(${THIS}.out main.cpp ${CPPSRC})
+
+if (debug STREQUAL "1")
+SET(CMAKE_BUILD_TYPE "Debug")
+SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -Wall -ggdb3 -O0")
+else()
+SET(CMAKE_BUILD_TYPE "RELEASE")
+SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -Wall -O2")
+endif()
+
+#### google test ####
+# enable_testing()
+# add_subdirectory(googletest)
+# add_subdirectory(test)
+# aux_source_directory(./include HEADERS)
+# add_library(${THIS} STATIC ${CPPSRC} ${HEADERS})
