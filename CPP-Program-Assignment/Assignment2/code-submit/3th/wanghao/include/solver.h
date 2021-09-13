@@ -3,9 +3,7 @@
 
 #include <cstdio>
 #include <utility>
-#include "graph_matrix.h"
-
-using coordinate = std::pair<unsigned, unsigned>;
+#include "grid_map.h"
 
 namespace Assignment2 {
 
@@ -17,7 +15,7 @@ class Solver {
 
   // solver
   virtual int  problemSolver(const T &, void *) = 0;
-  virtual void printAlgorithmName() const       = 0;
+  virtual void displaySolverName() const        = 0;
 };
 
 template <class T>
@@ -27,12 +25,19 @@ class AstarSolver : public Solver<T> {
   ~AstarSolver() = default;
 
   // solver
-  int problemSolver(const T &, coordinate &, coordinate &, void *);
+  int problemSolver(const T &, void *);
 
-  void printAlgorithmName() const { printf("Astar solver\n"); }
+  void displaySolverName() const { printf("Astar solver\n"); }
 
-  //  private:
-  //   void dfs();
+  void displayAll() const { displaySolverName(); }
+
+  // specific routine (print pretty map)
+
+  // Manhattan distance of path
+
+  // get path return array of coordinate
+
+  // time of execution
 };
 
 }  // namespace Assignment2

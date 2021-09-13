@@ -1,9 +1,9 @@
-#include "astar_solver.h"
+#include "solver.h"
 
 namespace Assignment2 {
 
 template <class T>
-int AstarSolver<T>::problemSolver(const T &data, coordinate &start, coordinate &end, void *result = nullptr) {
+int AstarSolver<T>::problemSolver(const T &data, void *result = nullptr) {
   //
 }
 

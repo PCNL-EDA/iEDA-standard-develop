@@ -32,7 +32,7 @@ class Controller {
 
   inline void printALL() const {
     _map.printAll();
-    _astar.printAlgorithmName();
+    // _astar.printSolverName();
   }
 
   inline void printHelpMessages() const {
@@ -46,13 +46,13 @@ class Controller {
     exit(exit_code);
   }
 
-  inline void printResult() { _astar.problemSolver(_map); }
+  // inline void printResult() { _astar.problemSolver(_map); }
 
  private:
   explicit Controller() = default;
 
-  AstarSolver<MapMatrix> _astar;
-  MapMatrix              _map;
+  // AstarSolver<MapMatrix> _astar;
+  // MapMatrix _map;
 };
 
 }  // namespace Assignment2
