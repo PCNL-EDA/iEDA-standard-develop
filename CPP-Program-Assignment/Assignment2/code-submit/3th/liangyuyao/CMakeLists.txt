@@ -14,8 +14,8 @@ SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -Wall -O2")
 endif()
 
 #### google test ####
-# enable_testing()
-# add_subdirectory(googletest)
-# add_subdirectory(test)
-# aux_source_directory(./include HEADERS)
-# add_library(${THIS} STATIC ${CPPSRC} ${HEADERS})
+enable_testing()
+add_subdirectory(googletest)
+add_subdirectory(test)
+aux_source_directory(./include HEADERS)
+add_library(${THIS} STATIC ${CPPSRC} ${HEADERS})

@@ -1,10 +1,17 @@
+/**
+ * @file        Flow.cpp
+ * @brief
+ * @author      liangyy (jerry9055@163.com)
+ * @date        2021-09-16
+ * @copyright   Copyright (c) 2021 PLAN-DROP_3th
+ */
 #include "Flow.hpp"
 
 #include <assert.h>
 #include <stdio.h>
 #include <string.h>
 
-#include "Algorithm.h"
+namespace DROP_3TH_ASSIGNMENT2 {
 
 void Flow::doStepTask() {
   switch (_step) {
@@ -16,7 +23,7 @@ void Flow::doStepTask() {
       setStep(FlowStepType::kFindPath);
       break;
     case FlowStepType::kFindPath:
-      doTaskFindPath(AStarSearch);
+      doTaskFindPath();
       setStep(FlowStepType::kEnd);
       break;
     default:
@@ -25,7 +32,9 @@ void Flow::doStepTask() {
 }
 
 void Flow::doTaskParseResourse() {
-  const char* file_path = "../resources/grid.txt";
+  const char* file_path =
+      "/home/liangyuyao/iEDA-standard-develop/CPP-Program-Assignment/"
+      "Assignment2/code-submit/3th/liangyuyao/resources/grid.txt";
   FILE* fp = fopen(file_path, "r");
   if (fp) {
     const size_t buffer_size = 128;
@@ -63,7 +72,7 @@ void Flow::doTaskParseResourse() {
   }
 }
 
-void Flow::doTaskFindPath(void (*f)(Grid, Point, Point)) {
+void Flow::doTaskFindPath() {
   if (_grid.isValid(_grid.getSrc().x, _grid.getSrc().y) == false) {
     printf("Source point is invalid\n");
     return;
@@ -85,5 +94,7 @@ void Flow::doTaskFindPath(void (*f)(Grid, Point, Point)) {
     return;
   }
 
-  f(_grid, _grid.getSrc(), _grid.getDst());
+  AStarSearch(_grid, _grid.getSrc(), _grid.getDst(), _heuristic);
 }
+
+}  // namespace DROP_3TH_ASSIGNMENT2
