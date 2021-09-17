@@ -38,14 +38,15 @@ int AstarData::calculateNeighborCost(const Node &current, const Node &neighbor) 
 NodeVec &&AstarData::pack8Neighbors(const Node &node) {
   NodeVec neighbors_package;
   for (const Node &coord : neighbors_shift) {
+    // error happend in operator+(Node), this is temporal code
     Node neighbor;
     neighbor.first.first  = node.first.first + coord.first.first;
     neighbor.first.second = node.first.second + coord.first.second;
     neighbor.second       = 0;
 
     // border check
-    if (neighbor.first.first >= 0 && neighbor.first.first < _map_x_length && neighbor.first.second >= 0 &&
-        neighbor.first.second < _map_y_length) {
+    if (((neighbor.first.first >= 0) && (neighbor.first.first < _map_x_length)) &&
+        ((neighbor.first.second >= 0) && (neighbor.first.second < _map_y_length))) {
       neighbors_package.emplace_back(neighbor);
     }
   }

@@ -22,10 +22,11 @@ struct cmpCost {
   bool operator()(const Node &a, const Node &b) { return a.second > b.second; }
 };
 
-using MinHeap   = std::priority_queue<Node, NodeVec, cmpCost>;
-using HashMapNN = std::map<std::pair<int, int>, std::pair<int, int>>;  //, hashNodeNN>;
-using HashMapNI = std::map<Node, int>;                                 //, hashNode>;
+using MinHeap = std::priority_queue<Node, NodeVec, cmpCost>;
+using MapNN   = std::map<std::pair<int, int>, std::pair<int, int>>;
+using MapNI   = std::map<Node, int>;
 
+// will be transfered to simple pair
 static const NodeVec neighbors_shift = {{{-1, -1}, 0}, {{0, -1}, 0}, {{1, -1}, 0}, {{-1, 0}, 0},
                                         {{1, 0}, 0},   {{-1, 1}, 0}, {{0, 1}, 0},  {{1, 1}, 0}};
 
@@ -102,9 +103,9 @@ class AstarData {
   Node _start, _end;
 
   // container
-  MinHeap   _open_list;
-  HashMapNN _came_from;
-  HashMapNI _cost_so_far;
+  MinHeap _open_list;
+  MapNN   _came_from;
+  MapNI   _cost_so_far;
 
   // map
   int *p_grid_map_data(int x, int y) { return &_grid_map[y * _map_x_length + x]; }
