@@ -36,9 +36,9 @@ class Flow {
     singleton.setHeuristicType(h);
     return singleton;
   }
-  FlowStepType getSetp() { return _step; }
+  const FlowStepType getSetp() const { return _step; }
   void doStepTask();
-  HeuristicType getHeuristicType() { return _heuristic; }
+  const HeuristicType getHeuristicType() const { return _heuristic; }
 
  private:
   Flow() = default;

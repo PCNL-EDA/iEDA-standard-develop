@@ -18,13 +18,11 @@
 
 namespace DROP_3TH_ASSIGNMENT2 {
 
-typedef double (*HeuristicFunc)(Point src, Point dst);
-
 enum HeuristicType { kDiagonal, kManhattan, kEuclidean };
 
 class AStarSearch {
  public:
-  AStarSearch(Grid, Point, Point, HeuristicType);
+  AStarSearch(Grid&, Point, Point, HeuristicType);
 
   double heuristicDiagonal(Point p1, Point p2) {
     static const double D = 1;
@@ -50,7 +48,8 @@ class AStarSearch {
   double heuristic(HeuristicType, Point, Point);
 
  private:
-  void printPath(Grid, Point, Point, std::map<Point, Point>);
+  void printPath(Grid&, Point, Point, std::map<Point, Point>);
+  void printPath2D(Grid&, Point, Point, std::map<Point, Point>);
 };
 
 }  // namespace DROP_3TH_ASSIGNMENT2

@@ -40,27 +40,27 @@ class Grid {
   Grid(Grid&) = default;
   Grid(Grid&&) = delete;
 
-  Grid2D getGrid() { return _grid; }
-  Point getSrc() { return _src; }
-  Point getDst() { return _dst; }
+  const Grid2D getGrid2D() const { return _grid2D; }
+  const Point getSrc() const { return _src; }
+  const Point getDst() const { return _dst; }
   std::vector<Point> getNeighbours(const Point);
   Point getDirectNeighbour(Point, Direction);
-
+  void releaseGrid() { _grid2D.resize(0); }
   bool isValid(int x, int y) {
-    return _grid.size() && (y >= 0 && y < (int)_grid.size()) &&
-           (x >= 0 && x < (int)_grid[0].size());
+    return _grid2D.size() && (y >= 0 && y < (int)_grid2D.size()) &&
+           (x >= 0 && x < (int)_grid2D[0].size());
   }
-  bool isUnBlocked(int x, int y) { return isValid(x, y) && _grid[y][x] != 0; }
-  bool isDestnation(Point p) { return p == _dst; }
+  bool isUnBlocked(int x, int y) { return isValid(x, y) && _grid2D[y][x] != 0; }
+  bool isDestination(Point p) { return p == _dst; }
   bool isConnected(Point, Direction);
-  void addRowData(std::vector<int> row) { _grid.push_back(row); }
+  void addRowData(std::vector<int> row) { _grid2D.push_back(row); }
   double calNeigCost(Point p1, Point p2) {
     return std::sqrt((p1.x - p2.x) * (p1.x - p2.x) +
                      (p1.y - p2.y) * (p1.y - p2.y));
   }
 
  private:
-  Grid2D _grid;
+  Grid2D _grid2D;
   Point _src = Point(0, 0);
   Point _dst = Point(7, 3);
 };

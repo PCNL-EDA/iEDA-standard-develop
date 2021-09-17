@@ -49,7 +49,7 @@ void Flow::doTaskParseResourse() {
       p = strtok(nullptr, " ");
     }
     fseek(fp, 0, SEEK_SET);
-
+    _grid.releaseGrid();
     // build Grid2D
     std::vector<int> tmp;
     size_t row_col;
@@ -89,7 +89,7 @@ void Flow::doTaskFindPath() {
     return;
   }
 
-  if (_grid.isDestnation(_grid.getSrc())) {
+  if (_grid.isDestination(_grid.getSrc())) {
     printf("We are already at the destination\n");
     return;
   }
