@@ -14,7 +14,6 @@ namespace Assignment2 {
 using Node = std::pair<std::pair<int, int>, int>;
 
 bool operator==(const Node &a, const Node &b);
-// Node &&operator+(const Node &a, const Node &b);
 
 using Path    = std::vector<std::pair<int, int>>;
 using NodeVec = std::vector<Node>;
@@ -22,18 +21,6 @@ using NodeVec = std::vector<Node>;
 struct cmpCost {
   bool operator()(const Node &a, const Node &b) { return a.second > b.second; }
 };
-
-// struct hashNodeNN {
-//   size_t operator()(const std::pair<int, int> &n) {
-//     return std::hash<int>()(n.first < 1) ^ std::hash<int>()(n.first < 5);
-//   }
-// };
-
-// struct hashNode {
-//   size_t operator()(const std::pair<std::pair<int, int>, int> &n) {
-//     return std::hash<int>()(n.first.first < 1) ^ std::hash<int>()(n.first.second < 5);
-//   }
-// };
 
 using MinHeap   = std::priority_queue<Node, NodeVec, cmpCost>;
 using HashMapNN = std::map<std::pair<int, int>, std::pair<int, int>>;  //, hashNodeNN>;

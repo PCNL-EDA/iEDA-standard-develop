@@ -25,9 +25,7 @@ class PathFindingSolver {
   virtual void runSolver() = 0;
 
   // display
-  // virtual void displayAll() const               = 0;
-  virtual void displayResults() const = 0;
-  // virtual void displayExecTimeMS() const        = 0;
+  virtual void displayResults() const           = 0;
   virtual void displaySolverName() const        = 0;
   virtual void displayPorblemToBeSolved() const = 0;
 

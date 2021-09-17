@@ -2,10 +2,6 @@
 namespace Assignment2 {
 
 bool operator==(const Node &a, const Node &b) { return a.first == b.first; }
-// Node &&operator+(const Node &a, const Node &b) {
-//   return std::move(
-//     std::pair<std::pair<int, int>, int>({a.first.first + b.first.first, a.first.second + b.first.second}, 0));
-// }
 
 void AstarData::resize_grid_map(int x, int y) {
   assert(x > 0 && y > 0);
