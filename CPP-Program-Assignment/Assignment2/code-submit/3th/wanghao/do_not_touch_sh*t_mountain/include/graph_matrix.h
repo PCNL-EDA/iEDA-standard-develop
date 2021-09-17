@@ -8,6 +8,7 @@
 #ifndef GRAPH_MATRIX_H_
 #define GRAPH_MATRIX_H_
 #include <cstdio>
+#include "error_code.h"
 
 namespace Assignment2 {
 
@@ -24,10 +25,7 @@ class GraphMatrix {
   GraphMatrix()  = default;
   ~GraphMatrix() = default;
 
-  GraphMatrix(const GraphMatrix &)  = delete;
-  GraphMatrix(const GraphMatrix &&) = delete;
-
-  void operator=(const GraphMatrix &) = delete;
+  kDELETE_UNUSED_CONSTRUCTOR(GraphMatrix);
 
   // get
   inline int get_graph_size() const { return _size_weight * _size_height; };

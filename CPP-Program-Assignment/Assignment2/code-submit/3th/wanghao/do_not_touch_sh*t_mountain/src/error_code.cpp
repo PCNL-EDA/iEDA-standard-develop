@@ -25,7 +25,7 @@ namespace Assignment2 {
  * So I decide to keep these codes (they are actually coming from my implementations for Assignment1)
  * Just be careful.
  */
-void exitProgram(Status error_code) {
+void activatingSelfDestructSequence(Status error_code) {
   if (error_code == kError_Free) {
     exit(EXIT_SUCCESS);
   } else {
@@ -42,7 +42,8 @@ void printErrorInfo(Status error_code) {
                                       {kError_Nullptr, "NULL pointer returned."},
                                       {kError_Mem_Failed, "Fail to create memory."},
                                       {kError_Out_Of_Range, "Failed to check range."},
-                                      {kError_Invalid_Param, "Invalid parameter."}};
+                                      {kError_Invalid_Param, "Invalid parameter."},
+                                      {kError_Logical_Impossible, "Logical Impossible."}};
 
   cerr << (info_map.find(error_code) == info_map.end() ? "Unknown error" : info_map[error_code]) << endl;
 }
@@ -55,7 +56,7 @@ void printErrorInfo(Status error_code) {
 void paincCheck(Status error_type, bool condition) {
   if (!condition) {
     printErrorInfo(error_type);
-    exitProgram(error_type);
+    activatingSelfDestructSequence(error_type);
   }
 }
 

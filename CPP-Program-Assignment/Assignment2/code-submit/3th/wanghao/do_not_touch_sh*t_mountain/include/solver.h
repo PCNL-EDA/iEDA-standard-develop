@@ -1,8 +1,7 @@
-#ifndef SOLVER_H_
-#define SOLVER_H_
+// #ifndef ASTAR_SOLVER_H_
+// #define ASTAR_SOLVER_H_
 
 #include <cstdio>
-#include <cassert>
 #include <utility>
 #include <string>
 
@@ -13,21 +12,20 @@ namespace Assignment2 {
 
 class PathFindingSolver {
  public:
-  PathFindingSolver() {}
-
-  virtual ~PathFindingSolver() {}
+  PathFindingSolver()          = default;
+  virtual ~PathFindingSolver() = default;
 
   // set
   virtual void import_grid_map_from_file(const char *);
-  virtual void set_start_and_end(pair<int, int> &&, pair<int, int> &&);
+  virtual void set_start_and_end(pair<int, int>, pair<int, int>);
 
   // solver
-  virtual void runSolver() = 0;
+  virtual int runSolver() = 0;
 
   // display
-  // virtual void displayAll() const               = 0;
-  virtual void displayResults() const = 0;
-  // virtual void displayExecTimeMS() const        = 0;
+  virtual void displayAll() const               = 0;
+  virtual void displayResults() const           = 0;
+  virtual void displayExecTimeMS() const        = 0;
   virtual void displaySolverName() const        = 0;
   virtual void displayPorblemToBeSolved() const = 0;
 
@@ -38,4 +36,4 @@ class PathFindingSolver {
 
 }  // namespace Assignment2
 
-#endif
+// #endif
