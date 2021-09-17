@@ -23,11 +23,7 @@ class AstarAlgorithm {
   // ctor and dtor
   AstarAlgorithm() = default;
   AstarAlgorithm(GridMap<Grid> &grid_map) : _grid_map(grid_map) {}
-  ~AstarAlgorithm() {
-    _current_grid = nullptr;
-    _start_grid   = nullptr;
-    _end_grid     = nullptr;
-  };
+  ~AstarAlgorithm() = default;
   void operator=(const AstarAlgorithm &) = delete;
 
   // function
@@ -61,8 +57,8 @@ class AstarAlgorithm {
   GridMap<Grid> &_grid_map;
   OpenList _open_list;
   Grid *_current_grid = nullptr;
-  Grid *_end_grid = nullptr;
-  Grid *_start_grid = nullptr;
+  Grid *_end_grid     = nullptr;
+  Grid *_start_grid   = nullptr;
   std::vector<Grid *> _current_grid_neighbors;
 };
 

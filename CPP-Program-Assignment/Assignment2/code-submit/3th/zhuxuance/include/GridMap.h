@@ -45,11 +45,11 @@ class GridMap {
   void set_have_optimal_path(bool have_optimal_path) { _have_optimal_path = have_optimal_path; }
 
   // getter
-  Coordinate get_start_grid()  { return _start_grid; }
-  Coordinate get_end_grid()    { return _end_grid; }
-  size_t get_grid_map_length() { return _grid_map_length; }
-  size_t get_grid_map_width()  { return _grid_map_width; }
-  bool get_have_optimal_path() { return _have_optimal_path; }
+  Coordinate get_start_grid() const  { return _start_grid; }
+  Coordinate get_end_grid() const    { return _end_grid; }
+  size_t get_grid_map_length() const { return _grid_map_length; }
+  size_t get_grid_map_width() const  { return _grid_map_width; }
+  bool get_have_optimal_path() const { return _have_optimal_path; }
 
   // function
   void initGridMap(const std::string &map_file_path);
@@ -79,7 +79,7 @@ class GridMap {
  * @param map_file_path 
  */
 template <typename T>
-inline void GridMap<T>::initGridMap(const std::string &map_file_path) {
+void GridMap<T>::initGridMap(const std::string &map_file_path) {
   std::vector<std::string> map_file_content = util.readFileContent(map_file_path);
 
   _grid_map_width = stoi(map_file_content[0]);
@@ -93,18 +93,18 @@ inline void GridMap<T>::initGridMap(const std::string &map_file_path) {
       Grid grid(i, j);
       switch (stoi(map_file_content[i * _grid_map_length + 2 + j])) {
         case 0:
-          grid.set_type(kGridType::passable);
+          grid.set_type(GridType::kPassable);
           break;
         case 1:
-          grid.set_type(kGridType::obstacle);
+          grid.set_type(GridType::kObstacle);
           break;
         case 2:
           set_start_grid(i, j);
-          grid.set_type(kGridType::start);
+          grid.set_type(GridType::kStart);
           break;
         case 3:
           set_end_grid(i, j);
-          grid.set_type(kGridType::end);
+          grid.set_type(GridType::kEnd);
           break;
 
         default:
@@ -127,9 +127,9 @@ template <typename T>
 inline void GridMap<T>::updateStartGrid(int x, int y) {
   // if already have a start grid. replace.
   if (_start_grid.first != -1) {
-    _grid_map_matrix[_start_grid.first][_start_grid.second].set_type(kGridType::passable);
+    _grid_map_matrix[_start_grid.first][_start_grid.second].set_type(GridType::kPassable);
   }
-  _grid_map_matrix[x][y].set_type(kGridType::start);
+  _grid_map_matrix[x][y].set_type(GridType::kStart);
   _start_grid.first = x;
   _start_grid.second = y;
 }
@@ -143,9 +143,9 @@ template <typename T>
 inline void GridMap<T>::updateEndGrid(int x, int y) {
   // if already have a start grid. replace.
   if (_end_grid.first != -1) {
-    _grid_map_matrix[_end_grid.first][_end_grid.second].set_type(kGridType::passable);
+    _grid_map_matrix[_end_grid.first][_end_grid.second].set_type(GridType::kPassable);
   }
-  _grid_map_matrix[x][y].set_type(kGridType::end);
+  _grid_map_matrix[x][y].set_type(GridType::kEnd);
   _end_grid.first = x;
   _end_grid.second = y;
 }
@@ -163,7 +163,7 @@ void GridMap<T>::insertToOptimalPath(Coordinate grid_coordinate) {
  * @brief print grid map
  */
 template <typename T>
-inline void GridMap<T>::printGridMap() {
+void GridMap<T>::printGridMap() {
   printf("\n>>> print Grid Map <<<\n");
   printf("start: (%d, %d)\nend:   (%d, %d)\n", _start_grid.first, _start_grid.second, _end_grid.first,
          _end_grid.second);
@@ -173,11 +173,11 @@ inline void GridMap<T>::printGridMap() {
       if (_grid_map_matrix[i][j].isStart() || _grid_map_matrix[i][j].isEnd()) {
         printf("\x1b[1;36m");
         printf("%s ", _building_material[static_cast<int>(_grid_map_matrix[i][j].get_type())].c_str());
-        printf("\x1b[0m");  // 此处恢复系统默认输出字体颜色
+        printf("\x1b[0m");
       } else if (_grid_map_matrix[i][j].isOnOptimalPath()) {
         printf("\x1b[1;31m");
         printf("%s ", _building_material[4].c_str());
-        printf("\x1b[0m");  // 此处恢复系统默认输出字体颜色
+        printf("\x1b[0m");
       } else {
         printf("%s ", _building_material[static_cast<int>(_grid_map_matrix[i][j].get_type())].c_str());
       }
@@ -190,7 +190,7 @@ inline void GridMap<T>::printGridMap() {
  * @brief print optimal path
  */
 template <typename T>
-inline void GridMap<T>::printOptimalPath() {
+void GridMap<T>::printOptimalPath() {
   if (!_have_optimal_path) {
     printf("\nsorry > <, no path from (%d, %d) -> (%d, %d)\n\n", _start_grid.first, _start_grid.second, _end_grid.first,
            _end_grid.second);

@@ -23,7 +23,7 @@ void AstarAlgorithm::initAstarAlgorithm() {
  */
 void AstarAlgorithm::addGridToOpenList(Grid *grid) {
   _open_list.push(grid);
-  grid->set_state(kGridState::open);
+  grid->set_state(GridState::kOpen);
 }
 
 /**
@@ -119,7 +119,7 @@ void AstarAlgorithm::findOptimalPath() {
 void AstarAlgorithm::fetchMinCostGrid() {
   _current_grid = _open_list.top();
   _open_list.pop();
-  _current_grid->set_state(kGridState::close);
+  _current_grid->set_state(GridState::kClose);
 }
 
 /**
@@ -148,8 +148,8 @@ bool AstarAlgorithm::isLegalNeighbor(int x, int y) {
   if (x < 0 || x >= (int)_grid_map.get_grid_map_width() || y < 0 || y >= (int)_grid_map.get_grid_map_length()) {
     return false;
   }
-  kGridType neighbor_type = _grid_map[x][y].get_type();
-  if (neighbor_type == kGridType::obstacle || neighbor_type == kGridType::start) {
+  GridType neighbor_type = _grid_map[x][y].get_type();
+  if (neighbor_type == GridType::kObstacle || neighbor_type == GridType::kStart) {
     return false;
   }
   return true;
