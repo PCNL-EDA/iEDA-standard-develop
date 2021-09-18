@@ -45,7 +45,7 @@ class Grid {
   const Point getDst() const { return _dst; }
   std::vector<Point> getNeighbours(const Point);
   Point getDirectNeighbour(Point, Direction);
-  void releaseGrid() { _grid2D.resize(0); }
+
   bool isValid(int x, int y) {
     return _grid2D.size() && (y >= 0 && y < (int)_grid2D.size()) &&
            (x >= 0 && x < (int)_grid2D[0].size());
@@ -53,6 +53,8 @@ class Grid {
   bool isUnBlocked(int x, int y) { return isValid(x, y) && _grid2D[y][x] != 0; }
   bool isDestination(Point p) { return p == _dst; }
   bool isConnected(Point, Direction);
+
+  void releaseGrid() { _grid2D.resize(0); }
   void addRowData(std::vector<int> row) { _grid2D.push_back(row); }
   double calNeigCost(Point p1, Point p2) {
     return std::sqrt((p1.x - p2.x) * (p1.x - p2.x) +

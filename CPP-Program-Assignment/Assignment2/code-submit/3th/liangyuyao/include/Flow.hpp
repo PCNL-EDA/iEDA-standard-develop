@@ -36,15 +36,19 @@ class Flow {
     singleton.setHeuristicType(h);
     return singleton;
   }
+
   const FlowStepType getSetp() const { return _step; }
-  void doStepTask();
   const HeuristicType getHeuristicType() const { return _heuristic; }
+
+  void doStepTask();
 
  private:
   Flow() = default;
   ~Flow() = default;
+
   void setStep(FlowStepType step) { _step = step; }
   void setHeuristicType(HeuristicType h) { _heuristic = h; }
+
   void doTaskParseResourse();
   void doTaskFindPath();
 
