@@ -57,14 +57,14 @@ void AstarData::displayMap() const {
   for (int j = 0; j < _map_y_length; ++j) {
     for (int i = 0; i < _map_x_length; ++i) {
       if (isStart({i, j})) {
-        printf("\033[47;31m%s\033[0m", " S ");
+        printf("\033[47;31m%s\033[0m", "😅 ");
       } else if (isEnd({i, j})) {
-        printf("\033[47;34m%s\033[0m", " E ");
+        printf("\033[47;34m%s\033[0m", "🚾 ");
       } else {
         if (grid_map_data(i, j)) {
-          printf("\033[47;30m%s\033[0m", " O ");
+          printf("\033[47;30m%s\033[0m", " · ");
         } else {
-          printf("\033[47;30m%s\033[0m", " X ");
+          printf("\033[47;30m%s\033[0m", "🔞 ");
         }
       }
     }

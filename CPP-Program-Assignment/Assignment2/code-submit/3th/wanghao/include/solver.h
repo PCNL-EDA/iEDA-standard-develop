@@ -11,15 +11,15 @@ using std::string;
 
 namespace Assignment2 {
 
-class PathFindingSolver {
+class PathFindingSolverInterface {
  public:
-  PathFindingSolver() {}
+  PathFindingSolverInterface() {}
 
-  virtual ~PathFindingSolver() {}
+  virtual ~PathFindingSolverInterface();
 
   // set
-  virtual void import_grid_map_from_file(const char *);
-  virtual void set_start_and_end(pair<int, int> &&, pair<int, int> &&);
+  virtual void import_grid_map_from_file(const char *)                 = 0;
+  virtual void set_start_and_end(pair<int, int> &&, pair<int, int> &&) = 0;
 
   // solver
   virtual void runSolver() = 0;
@@ -30,8 +30,7 @@ class PathFindingSolver {
   virtual void displayPorblemToBeSolved() const = 0;
 
  protected:
-  static string _solver_name;
-  timeval       _exec_time;
+  timeval _exec_time;
 };
 
 }  // namespace Assignment2

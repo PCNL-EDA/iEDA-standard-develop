@@ -14,30 +14,27 @@ using std::string;
 
 namespace Assignment2 {
 
-class AstarSolver : public PathFindingSolver {
+class AstarSolver : public PathFindingSolverInterface {
  public:
-  AstarSolver(int (*heuristic)(const std::pair<int, int> &, const std::pair<int, int> &)) : _data(heuristic) {}
-  ~AstarSolver() = default;
+  AstarSolver(int (*heuristic)(const std::pair<int, int> &, const std::pair<int, int> &));
+  ~AstarSolver();
 
   // get
   int get_path_distance() const { return _path.size(); }
   int get_path_vector() const;
 
   // set
-  void import_grid_map_from_file(const char *file) override final { _data.import_grid_map_from_file(file); };
+  void import_grid_map_from_file(const char *file) override final;
   void save_path() { _data.get_path(); }
-  void set_start_and_end(pair<int, int> &&start, pair<int, int> &&end) override final {
-    _data.set_start(Node(start, 0));
-    _data.set_end(Node(end, 0));
-  }
+  void set_start_and_end(pair<int, int> &&start, pair<int, int> &&end) override final;
 
   // solver
   void runSolver() override final;
 
   // display
-  void displayPorblemToBeSolved() const override final { _data.displayMap(); }
-  void displayResults() const override final { _data.displayPath(_path); }
-  void displaySolverName() const override final { printf("%s\n", _solver_name.c_str()); }
+  void displayPorblemToBeSolved() const override final;
+  void displayResults() const override final;
+  void displaySolverName() const override final;
 
  private:
   // run solver functions
@@ -68,12 +65,9 @@ class AstarSolver : public PathFindingSolver {
 
   const Node &get_lowest_cost_from_open_list() { return _data.get_lowest_cost_from_open_list(); }
 
-  string    _solver_name;
   Path      _path;
   AstarData _data;
 };
-
-static string _solver_name = "Astar PathFindingSolver";
 
 }  // namespace Assignment2
 
