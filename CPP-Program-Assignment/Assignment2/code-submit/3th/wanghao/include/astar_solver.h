@@ -43,7 +43,7 @@ class AstarSolver : public PathFindingSolverInterface {
     _data.pushStart2OpenList();
   }
 
-  NodeVec &&get_neighbors(const Node &node) { _data.pack8Neighbors(node); }
+  NodeVec get_neighbors(const Node &node) { return _data.pack8Neighbors(node); }
 
   int get_new_cost_with_neighbor(const Node &current, const Node &neighbor) {
     return _data.get_cost(current) + _data.calculateNeighborCost(current, neighbor);
@@ -61,7 +61,7 @@ class AstarSolver : public PathFindingSolverInterface {
 
   bool isOpenListEmpty() { return _data.isOpenListEmpty(); }
 
-  bool isEndNode(const Node &node) { _data.isEnd(node.first); }
+  bool isEndNode(const Node &node) { return _data.isEnd(node.first); }
 
   const Node &get_lowest_cost_from_open_list() { return _data.get_lowest_cost_from_open_list(); }
 

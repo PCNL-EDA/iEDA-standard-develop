@@ -12,8 +12,8 @@ int main(int argc, char **argv) {
   solver->import_grid_map_from_file(argv[1]);
   solver->set_start_and_end({0, 0}, {7, 3});
   solver->displayPorblemToBeSolved();
-  // solver->runSolver();
-  // solver->displayResults();
+  solver->runSolver();
+  solver->displayResults();
 
   return 0;
 }

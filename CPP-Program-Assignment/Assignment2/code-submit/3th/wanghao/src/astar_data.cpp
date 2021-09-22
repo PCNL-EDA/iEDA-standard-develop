@@ -1,6 +1,14 @@
 #include "astar_data.h"
 namespace Assignment2 {
 
+Node operator+(const Node &a, const Node &b) {
+  Node result;
+  result.first.first  = a.first.first + b.first.first;
+  result.first.second = a.first.second + b.first.second;
+  result.second       = 0;
+  return result;
+}
+
 bool operator==(const Node &a, const Node &b) { return a.first == b.first; }
 
 void AstarData::resize_grid_map(int x, int y) {
@@ -35,14 +43,11 @@ int AstarData::calculateNeighborCost(const Node &current, const Node &neighbor) 
   return ((current.first.first - neighbor.first.first) * (current.first.second - neighbor.first.second)) ? 1000 : 1414;
 }
 
-NodeVec &&AstarData::pack8Neighbors(const Node &node) {
+NodeVec AstarData::pack8Neighbors(const Node &node) {
   NodeVec neighbors_package;
-  for (const Node &coord : neighbors_shift) {
-    // error happend in operator+(Node), this is temporal code
+  for (const Node &node_shift : neighbors_shift) {
     Node neighbor;
-    neighbor.first.first  = node.first.first + coord.first.first;
-    neighbor.first.second = node.first.second + coord.first.second;
-    neighbor.second       = 0;
+    neighbor = node + node_shift;
 
     // border check
     if (((neighbor.first.first >= 0) && (neighbor.first.first < _map_x_length)) &&
@@ -50,7 +55,7 @@ NodeVec &&AstarData::pack8Neighbors(const Node &node) {
       neighbors_package.emplace_back(neighbor);
     }
   }
-  return std::move(neighbors_package);
+  return neighbors_package;
 }
 
 void AstarData::displayMap() const {

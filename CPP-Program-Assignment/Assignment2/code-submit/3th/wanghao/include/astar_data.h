@@ -12,7 +12,7 @@
 namespace Assignment2 {
 
 using Node = std::pair<std::pair<int, int>, int>;
-
+Node operator+(const Node &a, const Node &b);
 bool operator==(const Node &a, const Node &b);
 
 using Path    = std::vector<std::pair<int, int>>;
@@ -59,12 +59,12 @@ class AstarData {
   // get
   int get_cost(const Node &node) const { return _cost_so_far.at(node); }
 
-  Path &&get_path() const {
+  Path get_path() const {
     Path path;
     for (auto current = _end.first; current != _start.first; current = _came_from.at(current)) {
       path.emplace_back(current);
     }
-    return std::move(path);
+    return path;
   }
 
   const Node &get_lowest_cost_from_open_list() {
@@ -83,8 +83,8 @@ class AstarData {
   }
 
   // function
-  int       calculateNeighborCost(const Node &current, const Node &next) const;
-  NodeVec &&pack8Neighbors(const Node &);
+  int     calculateNeighborCost(const Node &current, const Node &next) const;
+  NodeVec pack8Neighbors(const Node &);
 
   // display
   void displayMap() const;
