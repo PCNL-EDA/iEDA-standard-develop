@@ -5,10 +5,10 @@
  * @date          2021-09-16
  * @copyright     Copyright (c) 2021 PCL IEDA
  */
-#ifndef _FINDOPTIMALPATH_INCLUDE_ASTARALGORITHM_H_
-#define _FINDOPTIMALPATH_INCLUDE_ASTARALGORITHM_H_
+#ifndef _FINDOPTIMALPATH_ALGORITHM_ASTARALGORITHM_H_
+#define _FINDOPTIMALPATH_ALGORITHM_ASTARALGORITHM_H_
 
-#include "GridMap.h"
+#include "../data/GridMap.h"
 #include <queue>
 
 namespace findOptimalPath {

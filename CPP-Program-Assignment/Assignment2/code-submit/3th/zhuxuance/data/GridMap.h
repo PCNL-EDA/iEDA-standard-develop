@@ -5,10 +5,10 @@
  * @date          2021-09-16
  * @copyright     Copyright (c) 2021 PCL IEDA
  */
-#ifndef _FINDOPTIMALPATH_INCLUDE_GRIDMAP_H_
-#define _FINDOPTIMALPATH_INCLUDE_GRIDMAP_H_
+#ifndef _FINDOPTIMALPATH_DATA_GRIDMAP_H_
+#define _FINDOPTIMALPATH_DATA_GRIDMAP_H_
 
-#include "MyUtils.h"
+#include "../utils/MyUtils.h"
 #include "Grid.h"
 
 namespace findOptimalPath {
@@ -114,8 +114,6 @@ void GridMap<T>::initGridMap(const std::string &map_file_path) {
     }
     _grid_map_matrix.push_back(insert_vec);
   }
-
-  printGridMap();
 }
 
 /**

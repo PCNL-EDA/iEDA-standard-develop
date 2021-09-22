@@ -1,6 +1,4 @@
-#include "GridMap.h"
-#include "Grid.h"
-#include "FindPathAlgorithm.h"
+#include "./flow/FindPath.h"
 int main(int argc, const char **argv) {
   if (argc != 2 || !argv[1]) {
     printf("invalid parameters\n");
@@ -11,9 +9,9 @@ int main(int argc, const char **argv) {
   findOptimalPath::GridMap<findOptimalPath::Grid> grid_map;
   grid_map.initGridMap(grid_map_path);
 
-  findOptimalPath::FindPathAlgorithm fpa;
+  findOptimalPath::FindPath find_path;
 
-  fpa.findPathByAstar(grid_map);
+  find_path.findPathByAstar(grid_map);
 
   grid_map.printOptimalPath();
 

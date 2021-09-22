@@ -1,16 +1,18 @@
-#include "GridMap.h"
-#include "Grid.h"
-#include "FindPathAlgorithm.h"
+// #include "GridMap.h"
+// #include "Grid.h"
+#include "../flow/FindPath.h"
 #include "gtest/gtest.h"
 
 TEST(RoutingTest, havePath) {
   findOptimalPath::GridMap<findOptimalPath::Grid> grid_map;
-  grid_map.initGridMap("./data/gridmap1.txt");
+  grid_map.initGridMap("./input/gridmap1.txt");
+  grid_map.printGridMap();
 
-  findOptimalPath::FindPathAlgorithm find_path_algorithm;
-  find_path_algorithm.findPathByAstar(grid_map);
+  findOptimalPath::FindPath find_path;
+  find_path.findPathBy("ASTAR", grid_map);
 
   grid_map.printOptimalPath();
+  
   if (grid_map.get_have_optimal_path()) {
     grid_map.printGridMap();
   }
@@ -20,12 +22,14 @@ TEST(RoutingTest, havePath) {
 
 TEST(RoutingTest,  haveNoPath) {
   findOptimalPath::GridMap<findOptimalPath::Grid> grid_map;
-  grid_map.initGridMap("./data/gridmap2.txt");
+  grid_map.initGridMap("./input/gridmap2.txt");
+  grid_map.printGridMap();
 
-  findOptimalPath::FindPathAlgorithm find_path_algorithm;
-  find_path_algorithm.findPathByAstar(grid_map);
+  findOptimalPath::FindPath find_path;
+  find_path.findPathBy("A*", grid_map);
 
   grid_map.printOptimalPath();
+
   if (grid_map.get_have_optimal_path()) {
     grid_map.printGridMap();
   }

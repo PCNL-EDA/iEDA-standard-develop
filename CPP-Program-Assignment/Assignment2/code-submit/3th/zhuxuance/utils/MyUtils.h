@@ -5,8 +5,8 @@
  * @date          2021-09-16
  * @copyright     Copyright (c) 2021 PCL IEDA
  */
-#ifndef _FINDOPTIMALPATH_INCLUDE_MYUTILS_H_
-#define _FINDOPTIMALPATH_INCLUDE_MYUTILS_H_
+#ifndef _FINDOPTIMALPATH_UTILS_MYUTILS_H_
+#define _FINDOPTIMALPATH_UTILS_MYUTILS_H_
 
 #include <vector>
 #include <string>

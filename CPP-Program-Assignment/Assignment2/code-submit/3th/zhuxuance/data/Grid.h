@@ -5,8 +5,8 @@
  * @date          2021-09-16
  * @copyright     Copyright (c) 2021 PCL IEDA
  */
-#ifndef _FINDOPTIMALPATH_INCLUDE_GRID_H_
-#define _FINDOPTIMALPATH_INCLUDE_GRID_H_
+#ifndef _FINDOPTIMALPATH_DATA_GRID_H_
+#define _FINDOPTIMALPATH_DATA_GRID_H_
 
 #include <utility>
 

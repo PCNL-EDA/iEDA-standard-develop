@@ -16,5 +16,5 @@
 # 程序运行方式
 - 使用 **build.sh** 编译项目，terminal进入项目目录后，输入：**bash ./build.sh**，生成的可执行文件为 **./build/bin/findOptimalPath** 。
 - 执行程序：
-  - 如果编译的是main，执行时需要传入地图文件。执行命令 **./build/bin/findOptimalPath argv**，在本程序中argv填写地图信息的文件路径（**./data/gridmap.txt**）。
-  - 如果执行Google test，直接执行命令 **./build/bin/findOptimalPath**，测试用例位于 **./data** 中。
+  - 如果编译的是main，执行时需要传入地图文件。执行命令 **./build/bin/findOptimalPath argv**，在本程序中argv填写地图信息的文件路径（**./input/gridmap.txt**）。
+  - 如果执行Google test，直接执行命令 **./build/bin/findOptimalPath**，测试用例位于 **./input** 中。

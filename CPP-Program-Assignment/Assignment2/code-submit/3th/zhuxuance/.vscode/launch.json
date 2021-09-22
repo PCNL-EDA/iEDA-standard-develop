@@ -11,7 +11,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/bin/findOptimalPath",
             "args": [
-                "${workspaceFolder}/data/gridmap.txt"
+                "${workspaceFolder}/input/gridmap1.txt"
             ],
             "cwd": "${workspaceFolder}",
             "preLaunchTask": "build findOptimalPath"
