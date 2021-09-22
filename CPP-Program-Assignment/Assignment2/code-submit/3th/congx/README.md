@@ -23,7 +23,7 @@ mkdir build
 cd build
 cmake ..
 make 
-sudo make install
+sudo make install // install program to /usr/local/bin
 ./bin/main
 ./bin/gtest
 ```
