@@ -19,14 +19,14 @@ class FindPathAlgorithm {
  public:
   // ctor
   FindPathAlgorithm()  = default;
+  FindPathAlgorithm(FindPathAlgorithm &)  = delete;
+  FindPathAlgorithm(FindPathAlgorithm &&) = delete;
   ~FindPathAlgorithm() = default;
 
   // function
   void findPathByAstar(GridMap<Grid> &grid_map);
   void findPathByOtherAlgorithm(GridMap<Grid> &grid_map);
 
-  FindPathAlgorithm(FindPathAlgorithm &)  = delete;
-  FindPathAlgorithm(FindPathAlgorithm &&) = delete;
 };
 
 }  // namespace findOptimalPath

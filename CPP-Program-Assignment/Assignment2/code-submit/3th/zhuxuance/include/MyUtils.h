@@ -19,14 +19,14 @@ namespace findOptimalPath {
 class MyUtils {
  public:
   MyUtils()  = default;
+  MyUtils(MyUtils &)  = delete;
+  MyUtils(MyUtils &&) = delete;
   ~MyUtils() = default;
   void operator=(const MyUtils &) = delete;
 
   std::vector<std::string> readFileContent(const std::string &file_path);
   void exitProgram(bool exit_code);
 
-  MyUtils(MyUtils &)  = delete;
-  MyUtils(MyUtils &&) = delete;
 };
 
 }  // namespace findOptimalPath

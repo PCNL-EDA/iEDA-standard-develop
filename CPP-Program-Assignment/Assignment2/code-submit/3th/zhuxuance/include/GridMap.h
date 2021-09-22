@@ -26,6 +26,8 @@ class GridMap {
   // ctor and dtor
   GridMap() = default;
   GridMap(const GridMap &other_grid_map) = delete;
+  GridMap(GridMap &)  = delete;
+  GridMap(GridMap &&) = delete;
   ~GridMap() = default;
 
   // operators overloading
@@ -59,8 +61,6 @@ class GridMap {
   void printGridMap();
   void printOptimalPath();
 
-  GridMap(GridMap &)  = delete;
-  GridMap(GridMap &&) = delete;
 
  private:
   const std::vector<std::string> _building_material = {"▢", "▣", "★", "✢", "⊡"};

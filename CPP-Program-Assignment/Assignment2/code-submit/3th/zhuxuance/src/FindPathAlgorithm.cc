@@ -19,7 +19,7 @@ void FindPathAlgorithm::findPathByAstar(GridMap<Grid> &grid_map) {
  *        to be added...
  * @param gridmap 
  */
-void FindPathAlgorithm::findPathByOtherAlgorithm(GridMap<Grid> &gridmap) {
+void FindPathAlgorithm::findPathByOtherAlgorithm(GridMap<Grid> &grid_map) {
   printf("\ntodo: other find path algorithm...\n");
 }
 

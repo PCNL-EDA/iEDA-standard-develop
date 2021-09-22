@@ -23,6 +23,8 @@ class AstarAlgorithm {
   // ctor and dtor
   AstarAlgorithm() = default;
   AstarAlgorithm(GridMap<Grid> &grid_map) : _grid_map(grid_map) {}
+  AstarAlgorithm(AstarAlgorithm &)  = delete;
+  AstarAlgorithm(AstarAlgorithm &&) = delete;
   ~AstarAlgorithm() = default;
   void operator=(const AstarAlgorithm &) = delete;
 
@@ -48,9 +50,6 @@ class AstarAlgorithm {
   void printGrid(Grid *grid);
   void printCurrentGridNeighbors();
   void printStep(Grid *next);
-
-  AstarAlgorithm(AstarAlgorithm &)  = delete;
-  AstarAlgorithm(AstarAlgorithm &&) = delete;
 
  private:
   const static std::vector<Coordinate> kMoveDirection;
