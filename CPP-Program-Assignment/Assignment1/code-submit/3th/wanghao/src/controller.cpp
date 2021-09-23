@@ -76,7 +76,7 @@ void Controller::printEulerianPath() {
     // print eulerian path
     /// caculate the eulerian path
     if (_euler->eulerianPath(result, p_path_length)) {
-      // print name one by one
+      // print name one by one, assert(path_length == num_of_edge)
       size_t i = 0;
       while (i < path_length) {
         _people->printNameById(result[i++]);
@@ -85,6 +85,8 @@ void Controller::printEulerianPath() {
       // meet the first node(people)
       _people->printNameById(result[0]);
       printf("\n");
+    } else {
+      printf("No Eular Path (Circuit)\n");
     }
 
     delete[] result;

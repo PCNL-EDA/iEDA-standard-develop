@@ -50,7 +50,7 @@ class GraphMatrix {
 
  private:
   void dfsByNode(unsigned, unsigned *) const;
-  void dfsOrder(unsigned, unsigned *, unsigned *, unsigned *) const;
+  void dfsByEdge(unsigned, unsigned *, unsigned *, unsigned *) const;
 
   unsigned *_graph_matrix;
   unsigned  _size;

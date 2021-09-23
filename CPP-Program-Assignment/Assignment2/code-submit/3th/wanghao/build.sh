@@ -31,6 +31,7 @@ then
       echo -e "\033[46;30m\"debug\"\033[0m"
       exit 1
     fi
+    GTEST="on"
   fi
   BUILD_MODE="$1"
   case_not_define_install_dir
@@ -52,12 +53,13 @@ then
   echo -e "\033[47;30m build mode: \033[0m"
   echo -e "\033[46;30m debug \033[0m"
   BUILD_MODE="debug"
+  GTEST="on"
 fi
 
 rm -rf $BASEPATH/build
 mkdir -p $BASEPATH/build/cmake_cache
 cd $BASEPATH/build/cmake_cache
-cmake -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR $BASEPATH -DBUILD_MODE=$BUILD_MODE
-make -j12
-make install -j12
+cmake -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR $BASEPATH -DBUILD_MODE=$BUILD_MODE -DGTEST=$GTEST
+make -j64
+make install -j64
 echo -e "\033[47;30m run '$INSTALL_DIR/bin/hello' to execute the program! \033[0m"

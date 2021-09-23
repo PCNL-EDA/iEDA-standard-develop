@@ -15,8 +15,8 @@ To run this program, please run the command which `build.sh` told you to run:
 - Top level (main)  
   Main function executes the printing of a Eulerian Path.
 
-- Middle level (class EulerianPath)  
-  Class EulerianPath get data from People class and GraphMatrix class, and present them to the outside.
+- Middle level (class Controller)  
+  Class Controller set and get data from People class and GraphMatrix class, and present them to the outside.
 
 - Bottom level (class People and class GraphMatrix)  
   Class People stores one's id and name. Class GraphMatrix provides Eulerian Path algorithm.

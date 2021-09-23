@@ -8,15 +8,19 @@ To run this program, please run the command which `build.sh` told you to run:
 ```shell
 # (... build infomation ...)
 # run './build/bin/hello' to execute the program!
-./build/bin/hello
+./build/bin/hello {data_path.txt}
 ```
+# unfinished yet
 
 ## Program structure
 - Top level (gtest/main)  
-  Gtest or main function executes the given examples.
+  **Gtest** or **main function** executes the given examples.
 
-- Middle level (class Controller)  
-  Class Controller gets data from GraphMatrix class and passes data to Class AstarSolver, and presents the result to outside.
+- Middle level (class PathFindingSolver)  
+  The class **PathFindingSolver** is able to get data from the outside and present the result to outside.
 
-- Bottom level (class GraphMatrix and class AstarSolver)  
-  Class GraphMatrix stores Graph Matrix and Class AstarSolver provides Astar algorithm.
+- Bottom level (data structure and algorithm)  
+  - data structure:  
+  A class **AstarData** instance stores a 2D grid map with x,y axes
+  - algorithm:  
+  The class **AstarSolver** provides Astar algorithm  
