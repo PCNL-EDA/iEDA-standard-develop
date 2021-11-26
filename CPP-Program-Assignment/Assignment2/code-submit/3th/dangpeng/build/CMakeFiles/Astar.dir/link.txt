@@ -1,0 +1,1 @@
+/usr/bin/c++  -O3 -Wall CMakeFiles/Astar.dir/src/Astar.cpp.o -o ../bin/Astar  -Wl,-Bstatic -lgtest -lgtest_main -Wl,-Bdynamic -lpthread 

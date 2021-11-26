@@ -1,0 +1,4 @@
+/home/dangpeng/project/git/build/CMakeFiles/Astar.dir
+/home/dangpeng/project/git/build/CMakeFiles/test.dir
+/home/dangpeng/project/git/build/CMakeFiles/edit_cache.dir
+/home/dangpeng/project/git/build/CMakeFiles/rebuild_cache.dir
